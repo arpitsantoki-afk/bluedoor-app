@@ -423,14 +423,21 @@ function setConn(s){
 }
 function jsonpGet(params){
   return new Promise((res,rej)=>{
-    const cb='_cb'+Date.now();
+    const cb='_cb'+Date.now()+Math.floor(Math.random()*10000);
     const qs=Object.entries({...params,callback:cb}).map(([k,v])=>`${k}=${encodeURIComponent(v)}`).join('&');
     const sc=document.createElement('script');
-    const t=setTimeout(()=>{cleanup();rej(new Error('Timeout'));},9000);
-    function cleanup(){clearTimeout(t);sc.remove();try{delete window[cb];}catch(e){}}
-    window[cb]=d=>{cleanup();res(d);};
-    sc.onerror=()=>{cleanup();rej(new Error('Error'));};
-    sc.src=API_URL+'?'+qs;document.head.appendChild(sc);
+    let done=false;
+    const t=setTimeout(()=>{
+      if(!done){done=true;sc.remove();window[cb]=()=>{};rej(new Error('Timeout'));}
+    },20000);
+    window[cb]=d=>{
+      if(!done){done=true;clearTimeout(t);sc.remove();res(d);}
+    };
+    sc.onerror=()=>{
+      if(!done){done=true;clearTimeout(t);window[cb]=()=>{};rej(new Error('Script error'));}
+    };
+    sc.src=API_URL+'?'+qs;
+    document.head.appendChild(sc);
   });
 }
 async function postSheet(action,payload){
@@ -445,21 +452,37 @@ async function checkConn(){
 }
 async function syncAll(){
   if(!API_URL){toast('⚠️ No API URL in Settings.');return;}
-  setConn('syncing');toast('<span class="spinner"></span>Syncing…',7000);
-  try{
-    const [tx,pr,es,pa,ve,si]=await Promise.all([
-      jsonpGet({action:'getTransactions'}),jsonpGet({action:'getProjects'}),
-      jsonpGet({action:'getEstimates'}),jsonpGet({action:'getPayroll'}),
-      jsonpGet({action:'getVendors'}),jsonpGet({action:'getSiteEntries'}),
-    ]);
-    if(tx.ok&&tx.data)DB.transactions=tx.data;
-    if(pr.ok&&pr.data)DB.projects=pr.data;
-    if(es.ok&&es.data)DB.estimates=es.data;
-    if(pa.ok&&pa.data)DB.payroll=pa.data;
-    if(ve.ok&&ve.data)DB.vendors=ve.data;
-    if(si.ok&&si.data)DB.siteEntries=si.data;
-    saveDB();setConn('online');toast('✅ Sync complete!');renderTab(currentTabId);
-  }catch(e){setConn('offline');toast('❌ Sync failed.');}
+  setConn('syncing');
+  toast('<span class="spinner"></span>Syncing…',12000);
+  const results={};
+  const sheets=['Transactions','Projects','Estimates','Payroll','Vendors','SiteEntries'];
+  const actions=['getTransactions','getProjects','getEstimates','getPayroll','getVendors','getSiteEntries'];
+  const dbKeys=['transactions','projects','estimates','payroll','vendors','siteEntries'];
+  let anyFailed=false;
+  for(let i=0;i<actions.length;i++){
+    try{
+      toast('<span class="spinner"></span>Fetching '+sheets[i]+'…',8000);
+      const r=await jsonpGet({action:actions[i]});
+      if(r.ok&&r.data){
+        DB[dbKeys[i]]=r.data;
+        results[sheets[i]]='✅ '+r.data.length+' rows';
+      } else {
+        results[sheets[i]]='⚠️ '+(r.error||'empty');
+        anyFailed=true;
+      }
+    }catch(e){
+      results[sheets[i]]='❌ '+e.message;
+      anyFailed=true;
+    }
+  }
+  saveDB();
+  setConn(anyFailed?'offline':'online');
+  // Show detailed result
+  const summary=Object.entries(results).map(([k,v])=>k+': '+v).join('\n');
+  openModal(`<div class="modal-title">${anyFailed?'⚠️ Sync Partial':'✅ Sync Complete'}</div>
+    <div style="background:var(--bg);border-radius:10px;padding:14px;font-size:14px;line-height:2;white-space:pre">${summary}</div>
+    <br/><button class="btn btn-primary" onclick="closeModal()">OK</button>`);
+  renderTab(currentTabId);
 }
 
 // ═══ LOGIN ══════════════════════════════════════════════════════
