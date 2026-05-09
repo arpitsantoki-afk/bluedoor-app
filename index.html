@@ -11,20 +11,26 @@
   --blue:#1a5fa8;--lb:#e8f1fb;--red:#c0392b;--green:#27ae60;
   --orange:#e67e22;--bg:#f0f4f9;--white:#fff;--text:#1e2d3d;--sub:#6b7a8d;
   --border:#dde4ed;--radius:14px;--shadow:0 2px 12px rgba(0,0,0,.08);
-  --nav-h:70px;--top-h:62px;
+  --nav-h:70px;--top-h:88px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;}
 body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:16px;-webkit-text-size-adjust:none;text-size-adjust:none;}
 #page{position:fixed;top:var(--top-h);bottom:var(--nav-h);left:0;right:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 10px;}
 /* TOPBAR */
-.topbar{position:fixed;top:0;left:0;right:0;height:var(--top-h);background:var(--blue);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+.topbar{position:fixed;top:0;left:0;right:0;height:var(--top-h);background:var(--blue);z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+.topbar-row1{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 6px;}
 .topbar-left{display:flex;align-items:center;gap:10px;}
-.topbar-logo{width:40px;height:40px;background:rgba(255,255,255,.15);border-radius:9px;display:flex;align-items:center;justify-content:center;}
-.topbar-logo svg{width:24px;height:24px;fill:white;}
-.topbar-title{color:white;font-size:17px;font-weight:700;}
-.topbar-right{display:flex;align-items:center;gap:8px;}
-.icon-btn{background:rgba(255,255,255,.15);border:none;color:white;width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;}
+.topbar-logo{width:38px;height:38px;background:rgba(255,255,255,.15);border-radius:9px;display:flex;align-items:center;justify-content:center;}
+.topbar-logo svg{width:22px;height:22px;fill:white;}
+.topbar-title{color:white;font-size:16px;font-weight:700;}
+.topbar-right{display:flex;align-items:center;gap:6px;}
+.icon-btn{background:rgba(255,255,255,.15);border:none;color:white;width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;}
+/* FY BAR */
+.fy-bar{display:flex;align-items:center;justify-content:space-between;padding:0 16px 8px;}
+.fy-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border-radius:20px;padding:5px 12px;cursor:pointer;border:none;}
+.fy-pill span{color:white;font-size:13px;font-weight:600;}
+.fy-pill .fy-arrow{color:rgba(255,255,255,.7);font-size:11px;}
 .status-pill{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.12);border-radius:20px;padding:5px 10px;}
 .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .dot.online{background:#2ecc71;}.dot.offline{background:#e74c3c;}.dot.syncing{background:var(--orange);animation:blink .7s infinite;}
@@ -44,16 +50,16 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg)
 /* FORM */
 .field{margin-bottom:14px;}
 .field label{display:block;font-size:12px;font-weight:700;color:var(--sub);margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px;}
-.field input,.field select,.field textarea{width:100%;padding:14px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;background:var(--white);color:var(--text);outline:none;appearance:none;-webkit-appearance:none;}
+.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;background:var(--white);color:var(--text);outline:none;appearance:none;-webkit-appearance:none;}
 .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a8d' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}
-.field textarea{resize:none;min-height:80px;}
+.field textarea{resize:none;min-height:76px;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 /* BUTTONS */
-.btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:16px;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:15px;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;}
 .btn-primary{background:var(--blue);color:white;}
 .btn-green{background:var(--green);color:white;}
 .btn-red{background:var(--red);color:white;}
-.btn-sm{padding:9px 14px;font-size:13px;border-radius:8px;border:none;cursor:pointer;font-weight:700;white-space:nowrap;}
+.btn-sm{padding:8px 13px;font-size:13px;border-radius:8px;border:none;cursor:pointer;font-weight:700;white-space:nowrap;}
 .btn-sm.blue{background:var(--lb);color:var(--blue);}
 .btn-sm.red{background:#fce8e6;color:var(--red);}
 .btn-sm.green{background:#d5f5e3;color:var(--green);}
@@ -70,11 +76,11 @@ th{background:var(--lb);padding:10px;text-align:left;font-weight:700;color:var(-
 td{padding:10px;border-bottom:1px solid var(--border);vertical-align:middle;}
 tr:last-child td{border-bottom:none;}
 /* TAGS */
-.tag{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;}
-.t-income,.t-credit,.t-payment{background:#d5f5e3;color:#1a7a41;}
-.t-expense,.t-debit,.t-sales{background:#fce8e6;color:#a93226;}
-.t-direct{background:#e8f1fb;color:var(--blue);}
-.t-indirect{background:#fef3cd;color:#856404;}
+.tag{display:inline-block;padding:4px 9px;border-radius:20px;font-size:11px;font-weight:700;}
+.t-receipt{background:#d5f5e3;color:#1a7a41;}
+.t-sales{background:#e8f1fb;color:var(--blue);}
+.t-purchase{background:#fce8e6;color:#a93226;}
+.t-payment{background:#fef3cd;color:#856404;}
 .t-paid{background:#d5f5e3;color:#1a7a41;}
 .t-pending{background:#fce8e6;color:#a93226;}
 .t-partial,.t-sent{background:#fef3cd;color:#856404;}
@@ -88,7 +94,9 @@ tr:last-child td{border-bottom:none;}
 .lb-dr{background:#fce8e6;}.lb-cr{background:#d5f5e3;}.lb-bal{background:var(--lb);}
 /* FILTERS */
 .filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
-.filter-row input,.filter-row select{flex:1;min-width:110px;padding:11px 12px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;background:white;color:var(--text);outline:none;appearance:none;-webkit-appearance:none;}
+.filter-row input,.filter-row select{flex:1;min-width:100px;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;background:white;color:var(--text);outline:none;appearance:none;-webkit-appearance:none;}
+.date-range{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.date-range input{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;background:white;color:var(--text);outline:none;}
 /* SEGMENT */
 .seg{display:flex;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:14px;}
 .seg-btn{flex:1;padding:9px;border:none;background:none;border-radius:8px;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;}
@@ -101,7 +109,7 @@ tr:last-child td{border-bottom:none;}
 .modal-handle{width:40px;height:4px;background:var(--border);border-radius:4px;margin:10px auto 16px;}
 .modal-title{font-size:18px;font-weight:700;margin-bottom:16px;}
 /* TOAST */
-#toast{position:fixed;bottom:calc(var(--nav-h)+12px);left:50%;transform:translateX(-50%);background:#1e2d3d;color:white;padding:12px 20px;border-radius:10px;font-size:14px;display:none;z-index:999;white-space:nowrap;max-width:88vw;text-align:center;}
+#toast{position:fixed;bottom:calc(var(--nav-h)+12px);left:50%;transform:translateX(-50%);background:#1e2d3d;color:white;padding:12px 20px;border-radius:10px;font-size:14px;display:none;z-index:999;white-space:nowrap;max-width:90vw;text-align:center;}
 .spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.4);border-top-color:white;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:5px;}
 @keyframes spin{to{transform:rotate(360deg)}}
 /* LOGIN */
@@ -119,7 +127,7 @@ tr:last-child td{border-bottom:none;}
 .chk-row label{font-size:15px;color:var(--sub);}
 /* PHOTO */
 #photoPreview img{width:100%;border-radius:10px;margin-top:8px;}
-.photo-wrap{border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;cursor:pointer;}
+.photo-wrap{border:2px dashed var(--border);border-radius:10px;padding:18px;text-align:center;cursor:pointer;}
 .photo-wrap input{display:none;}
 .photo-wrap .pi-lbl{font-size:14px;color:var(--sub);}
 .photo-wrap .pi-ico{font-size:2rem;margin-bottom:6px;}
@@ -127,7 +135,7 @@ tr:last-child td{border-bottom:none;}
 .empty{text-align:center;padding:32px 16px;color:var(--sub);}
 .empty .ei{font-size:2.2rem;margin-bottom:8px;}
 .empty p{font-size:15px;}
-/* PL TABLE */
+/* PL */
 .pl-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:9px;margin-bottom:6px;}
 .pl-row.header{background:var(--blue);color:white;font-weight:700;}
 .pl-row.item{background:var(--bg);}
@@ -162,14 +170,22 @@ tr:last-child td{border-bottom:none;}
 <!-- APP -->
 <div id="appShell" style="display:none">
   <div class="topbar">
-    <div class="topbar-left">
-      <div class="topbar-logo"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><rect x="9" y="12" width="6" height="9" fill="rgba(255,255,255,.3)"/></svg></div>
-      <div class="topbar-title">Blue Door <span id="roleBadge" style="font-size:11px;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:20px;margin-left:4px;vertical-align:middle"></span></div>
+    <div class="topbar-row1">
+      <div class="topbar-left">
+        <div class="topbar-logo"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><rect x="9" y="12" width="6" height="9" fill="rgba(255,255,255,.3)"/></svg></div>
+        <div class="topbar-title">Blue Door <span id="roleBadge" style="font-size:11px;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:20px;margin-left:4px;vertical-align:middle"></span></div>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" onclick="syncAll()" title="Sync">⟳</button>
+        <button class="icon-btn" onclick="logout()" title="Logout">⏻</button>
+      </div>
     </div>
-    <div class="topbar-right">
+    <div class="fy-bar">
+      <button class="fy-pill" onclick="showFYPicker()">
+        <span>📅 FY: <strong id="fyLabel"></strong></span>
+        <span class="fy-arrow">▼</span>
+      </button>
       <div class="status-pill"><div class="dot offline" id="connDot"></div><span id="connLabel">Offline</span></div>
-      <button class="icon-btn" onclick="syncAll()">⟳</button>
-      <button class="icon-btn" onclick="logout()">⏻</button>
     </div>
   </div>
   <div id="page"></div>
@@ -178,34 +194,76 @@ tr:last-child td{border-bottom:none;}
 <div id="toast"></div>
 
 <script>
-// ═══ CONFIG — paste your Apps Script URL below ════════════════
+// ═══ CONFIG ══════════════════════════════════════════════════
 const DEFAULT_API='https://script.google.com/macros/s/AKfycbzrXCFRdeSzVdA7D_cyvAwrNSuUdZ8VuArZKVOOZELTLdNmFvcS_Nxaz0WG5_FHuVFKGg/exec';
+
+// ═══ FINANCIAL YEAR ══════════════════════════════════════════
+function getCurrentFY(){
+  const now=new Date();
+  const yr=now.getFullYear();
+  const mo=now.getMonth()+1; // 1-12
+  return mo>=4?yr:yr-1; // FY starts April
+}
+function getFYLabel(startYr){return `${startYr}-${String(startYr+1).slice(2)}`;}
+function getFYRange(startYr){
+  return {
+    from:new Date(startYr,3,1),   // Apr 1
+    to:new Date(startYr+1,2,31),  // Mar 31
+  };
+}
+function generateFYOptions(){
+  const cur=getCurrentFY();
+  const opts=[];
+  for(let y=cur;y>=cur-5;y--) opts.push(y);
+  return opts;
+}
+let selectedFY=lp('bdFY',getCurrentFY());
+
+function showFYPicker(){
+  const opts=generateFYOptions();
+  openModal(`<div class="modal-title">📅 Select Financial Year</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      ${opts.map(y=>`<button onclick="setFY(${y})" style="padding:14px;border-radius:10px;border:2px solid ${y===selectedFY?'var(--blue)':'var(--border)'};background:${y===selectedFY?'var(--lb)':'white'};font-size:16px;font-weight:${y===selectedFY?'700':'400'};color:${y===selectedFY?'var(--blue)':'var(--text)'};cursor:pointer;text-align:left">
+        FY ${getFYLabel(y)}${y===getCurrentFY()?' <span style="font-size:12px;color:var(--green)">(Current)</span>':''}
+      </button>`).join('')}
+    </div>`);
+}
+function setFY(yr){
+  selectedFY=yr;
+  localStorage.setItem('bdFY',yr);
+  document.getElementById('fyLabel').textContent=getFYLabel(yr);
+  closeModal();
+  renderCurrentTab();
+}
+function inFY(dateStr){
+  if(!dateStr)return false;
+  const d=parseDMY(String(dateStr));
+  if(!d)return false;
+  const{from,to}=getFYRange(selectedFY);
+  return d>=from.getTime()&&d<=to.getTime();
+}
 
 // ═══ STATE ═══════════════════════════════════════════════════
 let currentRole=null,currentTabId='';
-let API_URL=ls('bdAPI')||DEFAULT_API;
+localStorage.setItem('bdAPI',DEFAULT_API);
+let API_URL=DEFAULT_API;
 let DB={
-  transactions:lp('bdTx',[]),
+  journal:lp('bdJournal',[]),
   projects:lp('bdProj',[]),
   estimates:lp('bdEst',[]),
   vendors:lp('bdVend',[]),
-  siteEntries:lp('bdSite',[]),
-  salesEntries:lp('bdSales',[]),
-  categories:lp('bdCats',['Material Purchase','Labour / Subcontractor','Site Expenses','Office Expenses','Transport','Consultation Fees','Professional Fees','Salaries','Other']),
   updates:lp('bdUpdates',[]),
+  categories:lp('bdCats',['Material Purchase','Labour / Subcontractor','Site Expenses','Office Expenses','Transport','Consultation Fees','Professional Fees','Salaries','Other']),
 };
-
 function ls(k){return localStorage.getItem(k);}
 function lp(k,d){try{const v=ls(k);return v?JSON.parse(v):d;}catch(e){return d;}}
 function saveDB(){
-  localStorage.setItem('bdTx',JSON.stringify(DB.transactions));
+  localStorage.setItem('bdJournal',JSON.stringify(DB.journal));
   localStorage.setItem('bdProj',JSON.stringify(DB.projects));
   localStorage.setItem('bdEst',JSON.stringify(DB.estimates));
   localStorage.setItem('bdVend',JSON.stringify(DB.vendors));
-  localStorage.setItem('bdSite',JSON.stringify(DB.siteEntries));
-  localStorage.setItem('bdSales',JSON.stringify(DB.salesEntries));
-  localStorage.setItem('bdCats',JSON.stringify(DB.categories));
   localStorage.setItem('bdUpdates',JSON.stringify(DB.updates));
+  localStorage.setItem('bdCats',JSON.stringify(DB.categories));
 }
 
 // ═══ NETWORK ════════════════════════════════════════════════
@@ -244,49 +302,32 @@ async function syncAll(){
   if(!API_URL){toast('⚠️ No API URL set.');return;}
   setConn('syncing');toast('<span class="spinner"></span>Syncing…',30000);
   const cfg=[
-    {action:'getTransactions',key:'transactions'},
+    {action:'getJournal',key:'journal'},
     {action:'getProjects',key:'projects'},
     {action:'getEstimates',key:'estimates'},
     {action:'getVendors',key:'vendors'},
-    {action:'getSiteEntries',key:'siteEntries'},
-    {action:'getSalesEntries',key:'salesEntries'},
     {action:'getUpdates',key:'updates'},
   ];
-  const log=[];
-  let allOk=true;
+  const log=[];let allOk=true;
   for(const c of cfg){
     try{
       const r=await jsonpGet({action:c.action});
-      if(r.ok&&Array.isArray(r.data)){
-        DB[c.key]=r.data;
-        log.push(`✅ ${c.action}: ${r.data.length} rows`);
-      } else {
-        log.push(`⚠️ ${c.action}: ${r.error||JSON.stringify(r)}`);
-        allOk=false;
-      }
-    }catch(e){
-      log.push(`❌ ${c.action}: ${e.message}`);
-      allOk=false;
-    }
+      if(r.ok&&Array.isArray(r.data)){DB[c.key]=r.data;log.push(`✅ ${c.action}: ${r.data.length} rows`);}
+      else{log.push(`⚠️ ${c.action}: ${r.error||'empty'}`);allOk=false;}
+    }catch(e){log.push(`❌ ${c.action}: ${e.message}`);allOk=false;}
   }
   saveDB();
   setConn(allOk?'online':'offline');
   document.getElementById('toast').style.display='none';
-  // Show diagnostic popup
   openModal(`<div class="modal-title">${allOk?'✅ Sync Complete':'⚠️ Sync Issues'}</div>
-    <div style="background:var(--bg);border-radius:10px;padding:14px;font-size:13px;line-height:2">
-      ${log.map(l=>`<div>${l}</div>`).join('')}
-    </div>
-    <div style="margin-top:12px;font-size:12px;color:var(--sub)">API: ${API_URL.slice(0,60)}…</div>
+    <div style="background:var(--bg);border-radius:10px;padding:14px;font-size:13px;line-height:2">${log.map(l=>`<div>${l}</div>`).join('')}</div>
     <br/><button class="btn btn-primary" onclick="closeModal()">OK</button>`);
   renderCurrentTab();
 }
 
 // ═══ LOGIN ══════════════════════════════════════════════════
 window.onload=()=>{
-  // Clear any stale API URL from old sessions and use default
-  if(!ls('bdAPI'))localStorage.setItem('bdAPI',DEFAULT_API);
-  API_URL=DEFAULT_API;
+  document.getElementById('fyLabel').textContent=getFYLabel(selectedFY);
   const s=lp('bdRemember',null);
   if(s&&s.role&&Date.now()-s.ts<30*864e5){currentRole=s.role;startApp();return;}
 };
@@ -303,7 +344,7 @@ async function doLogin(){
     if(!d.ok){showErr('Incorrect password.');return;}
   }catch(e){
     document.getElementById('toast').style.display='none';
-    showErr('Connection failed. Check your internet and try again.');return;
+    showErr('Connection failed. Check internet and try again.');return;
   }
   if(document.getElementById('rememberMe').checked)
     localStorage.setItem('bdRemember',JSON.stringify({role,ts:Date.now()}));
@@ -315,6 +356,7 @@ function startApp(){
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('appShell').style.display='block';
   document.getElementById('roleBadge').textContent=currentRole==='admin'?'Admin':'Supervisor';
+  document.getElementById('fyLabel').textContent=getFYLabel(selectedFY);
   buildNav();
   checkConn().then(ok=>{if(ok)syncAll();});
 }
@@ -351,7 +393,6 @@ function fmt(n){return '₹'+Number(n||0).toLocaleString('en-IN',{minimumFractio
 function fmtN(n){return Number(n||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function today(){const d=new Date();return `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}`;}
 function pad(n){return String(n).padStart(2,'0');}
-function tsNow(){const d=new Date();return `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}`;}
 function toast(msg,dur=2500){const t=document.getElementById('toast');t.innerHTML=msg;t.style.display='block';if(dur>0)setTimeout(()=>t.style.display='none',dur);}
 function v(id){const el=document.getElementById(id);return el?el.value:'';}
 function projNames(){return DB.projects.map(p=>p.name||p.project_name||'').filter(Boolean);}
@@ -360,59 +401,76 @@ function openModal(html){document.getElementById('modalBody').innerHTML=html;doc
 function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
 function handleModalTap(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
 function empty(icon,msg){return `<div class="empty"><div class="ei">${icon}</div><p>${msg}</p></div>`;}
-function parseDMY(s){if(!s)return 0;const p=String(s).split('/');return new Date(p[2],p[1]-1,p[0]).getTime()||0;}
+function parseDMY(s){
+  if(!s)return 0;
+  const p=String(s).split('/');
+  if(p.length!==3)return 0;
+  return new Date(p[2],p[1]-1,p[0]).getTime()||0;
+}
+function fyJournal(){return DB.journal.filter(r=>inFY(r.date||r.entry_date||''));}
+function filterByDateRange(rows,from,to){
+  if(!from&&!to)return rows;
+  const f=from?parseDMY(from):0;
+  const t=to?parseDMY(to):Infinity;
+  return rows.filter(r=>{const d=parseDMY(r.date||r.entry_date||'');return d>=f&&d<=t;});
+}
 
-// Push update — shared across sessions via Google Sheets
+// Push update to sheet
 async function pushUpdate(msg,type='add'){
-  const entry={msg,type,time:tsNow(),by:currentRole||'system'};
+  const entry={msg,type,time:today(),by:currentRole||'system'};
   DB.updates.unshift(entry);
   if(DB.updates.length>80)DB.updates=DB.updates.slice(0,80);
   saveDB();
-  // Also post to sheet so other sessions see it
   await postSheet('addUpdate',{row:[entry.time,entry.type,entry.msg,entry.by]});
 }
 
 // ═══ DASHBOARD ══════════════════════════════════════════════
 function renderDashboard(c){
-  const feed=DB.updates.slice(0,30).map(u=>`<div class="feed-item ${u.type==='delete'?'del':u.type==='edit'?'edit':''}"><div class="feed-msg">${u.msg}</div><div class="feed-time">${u.time}${u.by?' · '+u.by:''}</div></div>`).join('');
-  c.innerHTML=`<div class="sec-head"><h2>Recent Activity</h2><button class="btn-sm blue" onclick="syncAll()">⟳ Refresh</button></div>
+  const feed=DB.updates.slice(0,30).map(u=>`<div class="feed-item ${u.type==='delete'?'del':u.type==='edit'?'edit':''}"><div class="feed-msg">${u.msg}</div><div class="feed-time">${u.time||''}${u.by?' · '+u.by:''}</div></div>`).join('');
+  c.innerHTML=`<div class="sec-head"><h2>Activity — FY ${getFYLabel(selectedFY)}</h2><button class="btn-sm blue" onclick="syncAll()">⟳ Refresh</button></div>
   <div class="card">${feed||empty('📭','No activity yet.')}</div>`;
 }
 
-// ═══ LEDGER (3 sections) ════════════════════════════════════
-let ledgerSeg='transactions';
-function renderLedger(c){
-  c.innerHTML=`
-  <div class="sec-head"><h2>Ledger</h2></div>
-  <div class="seg">
-    <button class="seg-btn${ledgerSeg==='transactions'?' active':''}" onclick="setLedgerSeg('transactions',this)">Transactions</button>
-    <button class="seg-btn${ledgerSeg==='vendor'?' active':''}" onclick="setLedgerSeg('vendor',this)">Vendor/Project</button>
-  </div>
-  <div id="ledgerContent"></div>`;
-  renderLedgerSeg();
-}
-function setLedgerSeg(s,el){
-  ledgerSeg=s;
-  document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  renderLedgerSeg();
-}
-function renderLedgerSeg(){
-  const wrap=document.getElementById('ledgerContent');
-  if(!wrap)return;
-  if(ledgerSeg==='transactions')renderTxLedger(wrap);
-  else renderVendorProjectLedger(wrap);
+// ═══ JOURNAL HELPERS ════════════════════════════════════════
+// Entry types: Receipt, Sales, Purchase, Payment
+// Receipt  → Dr: Cash/Bank,  Cr: Client/Income
+// Sales    → Dr: Client,     Cr: Sales
+// Purchase → Dr: Purchase,   Cr: Vendor/Creditor
+// Payment  → Dr: Vendor,     Cr: Cash/Bank
+function getJournalRows(filters={}){
+  let rows=fyJournal();
+  if(filters.type)rows=rows.filter(r=>(r.entry_type||r.type||'')===filters.type);
+  if(filters.project)rows=rows.filter(r=>(r.project||r.project_name||'')===filters.project);
+  if(filters.vendor)rows=rows.filter(r=>(r.vendor||r.vendor_name||'')===filters.vendor);
+  if(filters.from||filters.to)rows=filterByDateRange(rows,filters.from,filters.to);
+  if(filters.search)rows=rows.filter(r=>JSON.stringify(r).toLowerCase().includes(filters.search.toLowerCase()));
+  rows.sort((a,b)=>parseDMY(b.date||b.entry_date||'')-parseDMY(a.date||a.entry_date||''));
+  return rows;
 }
 
-// Section 1: Transaction Ledger (Income & Expense only)
+// ═══ LEDGER ════════════════════════════════════════════════
+let ledgerSeg='transactions';
+function renderLedger(c){
+  c.innerHTML=`<div class="sec-head"><h2>Ledger — FY ${getFYLabel(selectedFY)}</h2></div>
+  <div class="seg">
+    <button class="seg-btn${ledgerSeg==='transactions'?' active':''}" onclick="setLedSeg('transactions',this)">Transactions</button>
+    <button class="seg-btn${ledgerSeg==='vendor'?' active':''}" onclick="setLedSeg('vendor',this)">Vendor/Project</button>
+  </div>
+  <div id="ledContent"></div>`;
+  renderLedSeg();
+}
+function setLedSeg(s,el){ledgerSeg=s;document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderLedSeg();}
+function renderLedSeg(){const w=document.getElementById('ledContent');if(w)ledgerSeg==='transactions'?renderTxLedger(w):renderVPLedger(w);}
+
 function renderTxLedger(wrap){
   const projs=projNames();
   wrap.innerHTML=`<div class="card" style="padding:12px">
-    <div class="filter-row">
-      <input type="text" id="fDate" placeholder="Filter date" oninput="applyTxFilter()"/>
-      <select id="fType" onchange="applyTxFilter()"><option value="">All Types</option><option>Income</option><option>Direct Expense</option><option>Indirect Expense</option></select>
+    <div class="date-range">
+      <input type="text" id="fFrom" placeholder="From DD/MM/YYYY" oninput="applyTxFilter()"/>
+      <input type="text" id="fTo" placeholder="To DD/MM/YYYY" oninput="applyTxFilter()"/>
     </div>
     <div class="filter-row">
+      <select id="fType" onchange="applyTxFilter()"><option value="">All Types</option><option>Receipt</option><option>Sales</option><option>Purchase</option><option>Payment</option></select>
       <select id="fProj" onchange="applyTxFilter()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
     </div>
     <div id="txWrap"></div>
@@ -421,195 +479,201 @@ function renderTxLedger(wrap){
   applyTxFilter();
 }
 function applyTxFilter(){
-  const fd=v('fDate'),ft=v('fType'),fp=v('fProj');
-  let rows=DB.transactions.slice().sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
-  if(fd)rows=rows.filter(r=>String(r.date||'').includes(fd));
-  if(ft)rows=rows.filter(r=>(r.type||r.entry_type||'')=== ft);
-  if(fp)rows=rows.filter(r=>(r.project||r.project_name||'')=== fp);
+  const rows=getJournalRows({type:v('fType'),project:v('fProj'),from:v('fFrom'),to:v('fTo')});
   let dr=0,cr=0;
-  rows.forEach(r=>{(r.type||r.entry_type||'')==='Income'?cr+=Number(r.amount||0):dr+=Number(r.amount||0);});
+  rows.forEach(r=>{dr+=Number(r.debit_amount||r.debit||0);cr+=Number(r.credit_amount||r.credit||0);});
   const wrap=document.getElementById('txWrap'),tot=document.getElementById('ledTotals');
   if(!wrap)return;
   wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table>
     <tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th><th></th></tr>
     ${rows.map((r,i)=>{
-      const type=r.type||r.entry_type||'';
-      const isCr=type==='Income';
+      const type=r.entry_type||r.type||'';
+      const dr=Number(r.debit_amount||r.debit||0);
+      const cr=Number(r.credit_amount||r.credit||0);
       const proj=r.project||r.project_name||'';
-      const desc=r.description||r.category||'';
+      const vend=r.vendor||r.vendor_name||'';
+      const desc=r.description||'';
       return`<tr>
-        <td style="white-space:nowrap;font-size:12px">${r.date||''}</td>
-        <td><span class="tag ${isCr?'t-credit':'t-debit'}">${type}</span><br/><span style="font-size:12px;color:var(--sub)">${desc}</span>${proj?`<br/><span style="font-size:11px;color:var(--sub)">🏗 ${proj}</span>`:''}</td>
-        <td style="color:var(--red);font-weight:700;white-space:nowrap">${!isCr?fmtN(r.amount):'—'}</td>
-        <td style="color:var(--green);font-weight:700;white-space:nowrap">${isCr?fmtN(r.amount):'—'}</td>
-        <td><div style="display:flex;flex-direction:column;gap:4px"><button class="btn-sm blue" onclick="editTx(${i})">✏️</button><button class="btn-sm red" onclick="delTx(${i})">🗑</button></div></td>
+        <td style="white-space:nowrap;font-size:12px">${r.date||r.entry_date||''}</td>
+        <td><span class="tag t-${type.toLowerCase()}">${type}</span><br/>
+          <span style="font-size:12px;color:var(--sub)">${desc}</span>
+          ${proj?`<br/><span style="font-size:11px;color:var(--sub)">🏗 ${proj}</span>`:''}
+          ${vend?`<br/><span style="font-size:11px;color:var(--sub)">🏪 ${vend}</span>`:''}
+        </td>
+        <td style="color:var(--red);font-weight:700;white-space:nowrap">${dr?fmtN(dr):'—'}</td>
+        <td style="color:var(--green);font-weight:700;white-space:nowrap">${cr?fmtN(cr):'—'}</td>
+        <td><div style="display:flex;flex-direction:column;gap:4px">
+          <button class="btn-sm blue" onclick="editJournal(${DB.journal.indexOf(r)})">✏️</button>
+          <button class="btn-sm red" onclick="delJournal(${DB.journal.indexOf(r)})">🗑</button>
+        </div></td>
       </tr>`;
     }).join('')}
-  </table></div>`:empty('📭','No transactions.');
+  </table></div>`:empty('📭','No entries for this period.');
   if(tot)tot.innerHTML=`
     <div class="led-box lb-dr"><div class="ll">Debit</div><div class="lv" style="color:var(--red)">${fmtN(dr)}</div></div>
     <div class="led-box lb-cr"><div class="ll">Credit</div><div class="lv" style="color:var(--green)">${fmtN(cr)}</div></div>
     <div class="led-box lb-bal"><div class="ll">Balance</div><div class="lv" style="color:var(--blue)">${fmtN(cr-dr)}</div></div>`;
 }
-function delTx(i){
-  if(!confirm('Delete?'))return;
-  const r=DB.transactions[i];
-  DB.transactions.splice(i,1);
-  pushUpdate(`🗑 Deleted: ${r.description||''} ${fmt(r.amount)}`,'delete');
-  saveDB();postSheet('deleteRow',{sheet:'Transactions',index:i+2});
-  toast('✅ Deleted.');applyTxFilter();
+function delJournal(i){
+  if(!confirm('Delete this entry?'))return;
+  const r=DB.journal[i];
+  DB.journal.splice(i,1);
+  pushUpdate(`🗑 Deleted: ${r.description||''} Dr:${fmt(r.debit_amount||0)} Cr:${fmt(r.credit_amount||0)}`,'delete');
+  saveDB();postSheet('deleteRow',{sheet:'Journal',index:i+2});
+  toast('✅ Deleted.');renderLedSeg();
 }
-function editTx(i){
-  const r=DB.transactions[i],projs=projNames(),cats=DB.categories;
-  const type=r.type||r.entry_type||'Income';
-  openModal(`<div class="modal-title">✏️ Edit Transaction</div>
+function editJournal(i){
+  const r=DB.journal[i];
+  const projs=projNames(),vends=vendNames(),cats=DB.categories;
+  const type=r.entry_type||r.type||'Receipt';
+  openModal(`<div class="modal-title">✏️ Edit Journal Entry</div>
     <div class="row2">
-      <div class="field"><label>Date</label><input id="ed_date" value="${r.date||''}"/></div>
-      <div class="field"><label>Type</label><select id="ed_type" onchange="toggleEditProj()"><option${type==='Income'?' selected':''}>Income</option><option${type==='Direct Expense'?' selected':''}>Direct Expense</option><option${type==='Indirect Expense'?' selected':''}>Indirect Expense</option></select></div>
+      <div class="field"><label>Date</label><input id="ej_date" value="${r.date||r.entry_date||''}"/></div>
+      <div class="field"><label>Entry Type</label><select id="ej_type"><option${type==='Receipt'?' selected':''}>Receipt</option><option${type==='Sales'?' selected':''}>Sales</option><option${type==='Purchase'?' selected':''}>Purchase</option><option${type==='Payment'?' selected':''}>Payment</option></select></div>
     </div>
-    <div class="field"><label>Category</label><select id="ed_cat">${cats.map(c=>`<option${c===(r.category||r.category_name)?' selected':''}>${c}</option>`).join('')}</select></div>
-    <div class="field" id="ed_proj_wrap"><label>Project</label><select id="ed_proj"><option value="">—</option>${projs.map(p=>`<option${p===(r.project||r.project_name)?' selected':''}>${p}</option>`).join('')}</select></div>
-    <div class="field"><label>Description</label><input id="ed_desc" value="${r.description||''}"/></div>
+    <div class="field"><label>Category</label><select id="ej_cat">${cats.map(c=>`<option${c===(r.category||r.category_name)?' selected':''}>${c}</option>`).join('')}</select></div>
+    <div class="field"><label>Project</label><select id="ej_proj"><option value="">—</option>${projs.map(p=>`<option${p===(r.project||r.project_name)?' selected':''}>${p}</option>`).join('')}</select></div>
+    <div class="field"><label>Vendor</label><select id="ej_vend"><option value="">—</option>${vends.map(v=>`<option${v===(r.vendor||r.vendor_name)?' selected':''}>${v}</option>`).join('')}</select></div>
+    <div class="field"><label>Description</label><input id="ej_desc" value="${r.description||''}"/></div>
     <div class="row2">
-      <div class="field"><label>Amount (₹)</label><input type="number" id="ed_amt" value="${r.amount||''}"/></div>
-      <div class="field"><label>Mode</label><select id="ed_mode"><option${(r.mode||r.payment_mode)==='Cash'?' selected':''}>Cash</option><option${(r.mode||r.payment_mode)==='Bank Transfer'?' selected':''}>Bank Transfer</option><option${(r.mode||r.payment_mode)==='UPI'?' selected':''}>UPI</option><option${(r.mode||r.payment_mode)==='Cheque'?' selected':''}>Cheque</option></select></div>
+      <div class="field"><label>Debit (₹)</label><input type="number" id="ej_dr" value="${r.debit_amount||r.debit||''}"/></div>
+      <div class="field"><label>Credit (₹)</label><input type="number" id="ej_cr" value="${r.credit_amount||r.credit||''}"/></div>
     </div>
-    <button class="btn btn-green" onclick="saveEditTx(${i})">Save</button>`);
-  toggleEditProj();
+    <button class="btn btn-green" onclick="saveEditJournal(${i})">Save</button>`);
 }
-function toggleEditProj(){const t=v('ed_type');const w=document.getElementById('ed_proj_wrap');if(w)w.style.display=t==='Direct Expense'?'block':'none';}
-function saveEditTx(i){
-  const type=v('ed_type');
-  DB.transactions[i]={...DB.transactions[i],date:v('ed_date'),type,category:v('ed_cat'),project:type==='Direct Expense'?v('ed_proj'):'',description:v('ed_desc'),amount:v('ed_amt'),mode:v('ed_mode')};
-  pushUpdate(`✏️ Edited: ${v('ed_desc')} ${fmt(v('ed_amt'))}`,'edit');
-  saveDB();closeModal();toast('✅ Updated.');applyTxFilter();
+function saveEditJournal(i){
+  DB.journal[i]={...DB.journal[i],date:v('ej_date'),entry_type:v('ej_type'),category:v('ej_cat'),project:v('ej_proj'),vendor:v('ej_vend'),description:v('ej_desc'),debit_amount:v('ej_dr'),credit_amount:v('ej_cr')};
+  pushUpdate(`✏️ Edited: ${v('ej_desc')}`,'edit');
+  saveDB();closeModal();toast('✅ Updated.');renderLedSeg();
 }
 
-// Section 2: Vendor/Project Ledger
-function renderVendorProjectLedger(wrap){
+// Vendor/Project Ledger
+let vpMode='vendor';
+function renderVPLedger(wrap){
   const vends=vendNames(),projs=projNames();
   wrap.innerHTML=`<div class="card" style="padding:12px">
     <div class="seg" style="margin-bottom:12px">
-      <button class="seg-btn active" id="vpSeg1" onclick="setVPSeg('vendor',this)">Vendor Ledger</button>
-      <button class="seg-btn" id="vpSeg2" onclick="setVPSeg('project',this)">Project Ledger</button>
+      <button class="seg-btn active" id="vpS1" onclick="setVPMode('vendor',this)">Vendor</button>
+      <button class="seg-btn" id="vpS2" onclick="setVPMode('project',this)">Project</button>
     </div>
-    <div id="vpSelWrap">
-      <div class="field"><label>Select Vendor</label><select id="vpVendor" onchange="renderVPTable()"><option value="">— Select Vendor —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>
+    <div id="vpSel">
+      <div class="field"><label>Select Vendor</label><select id="vpVendor" onchange="renderVPTable()"><option value="">— Select —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>
     </div>
-    <div id="vpTableWrap"></div>
+    <div class="date-range" style="margin-top:8px">
+      <input type="text" id="vpFrom" placeholder="From DD/MM/YYYY" oninput="renderVPTable()"/>
+      <input type="text" id="vpTo" placeholder="To DD/MM/YYYY" oninput="renderVPTable()"/>
+    </div>
+    <div id="vpWrap"></div>
     <div class="led-row" id="vpTotals"></div>
   </div>`;
 }
-let vpMode='vendor';
-function setVPSeg(mode,el){
+function setVPMode(mode,el){
   vpMode=mode;
-  document.querySelectorAll('#vpSeg1,#vpSeg2').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#vpS1,#vpS2').forEach(b=>b.classList.remove('active'));
   el.classList.add('active');
   const vends=vendNames(),projs=projNames();
-  const selWrap=document.getElementById('vpSelWrap');
-  if(!selWrap)return;
-  selWrap.innerHTML=mode==='vendor'
-    ?`<div class="field"><label>Select Vendor</label><select id="vpVendor" onchange="renderVPTable()"><option value="">— Select Vendor —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>`
-    :`<div class="field"><label>Select Project</label><select id="vpProject" onchange="renderVPTable()"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>`;
-  document.getElementById('vpTableWrap').innerHTML='';
+  const sel=document.getElementById('vpSel');
+  if(sel)sel.innerHTML=mode==='vendor'
+    ?`<div class="field"><label>Select Vendor</label><select id="vpVendor" onchange="renderVPTable()"><option value="">— Select —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>`
+    :`<div class="field"><label>Select Project</label><select id="vpProject" onchange="renderVPTable()"><option value="">— Select —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>`;
+  document.getElementById('vpWrap').innerHTML='';
   document.getElementById('vpTotals').innerHTML='';
 }
 function renderVPTable(){
-  const wrap=document.getElementById('vpTableWrap'),tot=document.getElementById('vpTotals');
+  const wrap=document.getElementById('vpWrap'),tot=document.getElementById('vpTotals');
   if(!wrap)return;
+  const from=v('vpFrom'),to=v('vpTo');
   if(vpMode==='vendor'){
-    const sel=v('vpVendor');
+    const sel=v('vpVendor')||'';
     if(!sel){wrap.innerHTML='';tot.innerHTML='';return;}
-    // Vendor ledger: Bill/Material receipts → Credit, Payments/Expense entries → Debit
-    const rows=[];
-    DB.siteEntries.filter(r=>(r.vendor||r.vendor_name||'')=== sel).forEach(r=>{
-      rows.push({date:r.date||'',desc:r.description||'',type:'Bill Receipt',dr:0,cr:Number(r.amount||0)});
-    });
-    DB.transactions.filter(r=>(r.vendor||r.vendor_name||'')=== sel||(r.description||'').toLowerCase().includes(sel.toLowerCase())).forEach(r=>{
-      rows.push({date:r.date||'',desc:r.description||'',type:'Payment',dr:Number(r.amount||0),cr:0});
-    });
-    rows.sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
-    const totalDr=rows.reduce((s,r)=>s+r.dr,0);
-    const totalCr=rows.reduce((s,r)=>s+r.cr,0);
+    // Purchase → Credit (bills received), Payment → Debit (paid to vendor)
+    let rows=getJournalRows({vendor:sel,from,to}).filter(r=>['Purchase','Payment'].includes(r.entry_type||r.type||''));
+    const totalDr=rows.reduce((s,r)=>s+Number(r.debit_amount||r.debit||0),0);
+    const totalCr=rows.reduce((s,r)=>s+Number(r.credit_amount||r.credit||0),0);
     wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table>
       <tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th></tr>
-      ${rows.map(r=>`<tr>
-        <td style="font-size:12px;white-space:nowrap">${r.date}</td>
-        <td><span class="tag ${r.type==='Bill Receipt'?'t-credit':'t-debit'}">${r.type}</span><br/><span style="font-size:12px;color:var(--sub)">${r.desc}</span></td>
-        <td style="color:var(--red);font-weight:700">${r.dr?fmtN(r.dr):'—'}</td>
-        <td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td>
-      </tr>`).join('')}
+      ${rows.map(r=>{const dr=Number(r.debit_amount||r.debit||0),cr=Number(r.credit_amount||r.credit||0);return`<tr>
+        <td style="font-size:12px;white-space:nowrap">${r.date||r.entry_date||''}</td>
+        <td><span class="tag t-${(r.entry_type||r.type||'').toLowerCase()}">${r.entry_type||r.type||''}</span><br/><span style="font-size:12px;color:var(--sub)">${r.description||''}</span></td>
+        <td style="color:var(--red);font-weight:700">${dr?fmtN(dr):'—'}</td>
+        <td style="color:var(--green);font-weight:700">${cr?fmtN(cr):'—'}</td>
+      </tr>`;}).join('')}
     </table></div>`:empty('📭',`No entries for ${sel}.`);
     tot.innerHTML=`
-      <div class="led-box lb-dr"><div class="ll">Debit (Paid)</div><div class="lv" style="color:var(--red)">${fmtN(totalDr)}</div></div>
-      <div class="led-box lb-cr"><div class="ll">Credit (Bills)</div><div class="lv" style="color:var(--green)">${fmtN(totalCr)}</div></div>
+      <div class="led-box lb-dr"><div class="ll">Paid</div><div class="lv" style="color:var(--red)">${fmtN(totalDr)}</div></div>
+      <div class="led-box lb-cr"><div class="ll">Bills</div><div class="lv" style="color:var(--green)">${fmtN(totalCr)}</div></div>
       <div class="led-box lb-bal"><div class="ll">Balance Due</div><div class="lv" style="color:var(--blue)">${fmtN(totalCr-totalDr)}</div></div>`;
   } else {
-    // Project ledger: Sales → Debit, Income/Payment received → Credit
-    const sel=v('vpProject');
+    // Sales → Debit (billed to client), Receipt → Credit (received from client)
+    const sel=v('vpProject')||'';
     if(!sel){wrap.innerHTML='';tot.innerHTML='';return;}
-    const rows=[];
-    DB.salesEntries.filter(r=>(r.project||r.project_name||'')=== sel).forEach(r=>{
-      rows.push({date:r.date||'',desc:r.description||'',type:'Sales',dr:Number(r.amount||0),cr:0});
-    });
-    DB.transactions.filter(r=>((r.project||r.project_name||'')=== sel)&&(r.type||r.entry_type||'')==='Income').forEach(r=>{
-      rows.push({date:r.date||'',desc:r.description||'',type:'Payment Received',dr:0,cr:Number(r.amount||0)});
-    });
-    rows.sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
-    const totalDr=rows.reduce((s,r)=>s+r.dr,0);
-    const totalCr=rows.reduce((s,r)=>s+r.cr,0);
+    let rows=getJournalRows({project:sel,from,to}).filter(r=>['Sales','Receipt'].includes(r.entry_type||r.type||''));
+    const totalDr=rows.reduce((s,r)=>s+Number(r.debit_amount||r.debit||0),0);
+    const totalCr=rows.reduce((s,r)=>s+Number(r.credit_amount||r.credit||0),0);
     wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table>
       <tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th></tr>
-      ${rows.map(r=>`<tr>
-        <td style="font-size:12px;white-space:nowrap">${r.date}</td>
-        <td><span class="tag ${r.type==='Sales'?'t-debit':'t-credit'}">${r.type}</span><br/><span style="font-size:12px;color:var(--sub)">${r.desc}</span></td>
-        <td style="color:var(--red);font-weight:700">${r.dr?fmtN(r.dr):'—'}</td>
-        <td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td>
-      </tr>`).join('')}
+      ${rows.map(r=>{const dr=Number(r.debit_amount||r.debit||0),cr=Number(r.credit_amount||r.credit||0);return`<tr>
+        <td style="font-size:12px;white-space:nowrap">${r.date||r.entry_date||''}</td>
+        <td><span class="tag t-${(r.entry_type||r.type||'').toLowerCase()}">${r.entry_type||r.type||''}</span><br/><span style="font-size:12px;color:var(--sub)">${r.description||''}</span></td>
+        <td style="color:var(--red);font-weight:700">${dr?fmtN(dr):'—'}</td>
+        <td style="color:var(--green);font-weight:700">${cr?fmtN(cr):'—'}</td>
+      </tr>`;}).join('')}
     </table></div>`:empty('📭',`No entries for ${sel}.`);
     tot.innerHTML=`
-      <div class="led-box lb-dr"><div class="ll">Sales (Billed)</div><div class="lv" style="color:var(--red)">${fmtN(totalDr)}</div></div>
+      <div class="led-box lb-dr"><div class="ll">Sales Billed</div><div class="lv" style="color:var(--red)">${fmtN(totalDr)}</div></div>
       <div class="led-box lb-cr"><div class="ll">Received</div><div class="lv" style="color:var(--green)">${fmtN(totalCr)}</div></div>
       <div class="led-box lb-bal"><div class="ll">Outstanding</div><div class="lv" style="color:var(--blue)">${fmtN(totalDr-totalCr)}</div></div>`;
   }
 }
 
-// ═══ ADD ENTRY (ADMIN) ══════════════════════════════════════
+// ═══ ADD ENTRY ══════════════════════════════════════════════
 function renderAddEntry(c){
-  const projs=projNames(),cats=DB.categories;
+  const projs=projNames(),vends=vendNames(),cats=DB.categories;
   c.innerHTML=`
-  <div class="sec-head"><h2>New Transaction</h2></div>
+  <div class="sec-head"><h2>New Journal Entry</h2></div>
   <div class="card">
     <div class="row2">
-      <div class="field"><label>Date</label><input id="txDate" value="${today()}"/></div>
+      <div class="field"><label>Date</label><input id="jDate" value="${today()}"/></div>
       <div class="field"><label>Entry Type</label>
-        <select id="txType" onchange="toggleProjField()">
-          <option>Income</option>
-          <option>Direct Expense</option>
-          <option>Indirect Expense</option>
+        <select id="jType" onchange="onJTypeChange()">
+          <option>Receipt</option>
+          <option>Sales</option>
+          <option>Purchase</option>
+          <option>Payment</option>
         </select>
       </div>
     </div>
-    <div class="field"><label>Category <button class="btn-sm blue" onclick="manageCats()" style="margin-left:6px;font-size:11px">⚙️ Manage</button></label>
-      <select id="txCat">${cats.map(c=>`<option>${c}</option>`).join('')}</select>
-    </div>
-    <div class="field" id="projField"><label>Project (required for Direct Expense)</label>
-      <select id="txProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
-    </div>
-    <div class="field"><label>Description</label><input id="txDesc" placeholder="Brief description"/></div>
+    <div class="field" id="jDebitLblWrap"><label id="jDebitLbl">Debit Account</label><input id="jDebitAcc" readonly style="background:var(--bg);color:var(--sub)"/></div>
+    <div class="field" id="jCreditLblWrap"><label id="jCreditLbl">Credit Account</label><input id="jCreditAcc" readonly style="background:var(--bg);color:var(--sub)"/></div>
+    <div class="field"><label>Category <button class="btn-sm blue" onclick="manageCats()" style="margin-left:6px;font-size:11px">⚙️</button></label><select id="jCat">${cats.map(c=>`<option>${c}</option>`).join('')}</select></div>
+    <div class="field" id="jProjWrap"><label>Project</label><select id="jProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
+    <div class="field" id="jVendWrap"><label>Vendor</label><select id="jVend"><option value="">— Select Vendor —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>
+    <div class="field"><label>Description</label><input id="jDesc" placeholder="Brief description"/></div>
     <div class="row2">
-      <div class="field"><label>Amount (₹)</label><input type="number" id="txAmt" inputmode="decimal" placeholder="0.00"/></div>
-      <div class="field"><label>Payment Mode</label><select id="txMode"><option>Cash</option><option>Bank Transfer</option><option>UPI</option><option>Cheque</option></select></div>
+      <div class="field"><label>Debit Amount (₹)</label><input type="number" id="jDr" inputmode="decimal" placeholder="0.00"/></div>
+      <div class="field"><label>Credit Amount (₹)</label><input type="number" id="jCr" inputmode="decimal" placeholder="0.00"/></div>
     </div>
-    <div class="field"><label>Status</label><select id="txStatus"><option>Paid</option><option>Pending</option><option>Partial</option></select></div>
-    <button class="btn btn-green" onclick="submitTx()">💾 Save Transaction</button>
+    <div class="field" id="jModeWrap"><label>Payment Mode</label><select id="jMode"><option>Cash</option><option>Bank Transfer</option><option>UPI</option><option>Cheque</option></select></div>
+    <div class="field"><label>Status</label><select id="jStatus"><option>Paid</option><option>Pending</option><option>Partial</option></select></div>
+    <button class="btn btn-green" onclick="submitJournal()">💾 Save Entry</button>
   </div>`;
-  toggleProjField();
+  onJTypeChange();
 }
-function toggleProjField(){
-  const t=v('txType');
-  const f=document.getElementById('projField');
-  if(f)f.style.display=t==='Direct Expense'?'block':'none';
+const TYPE_META={
+  'Receipt':  {debit:'Cash / Bank',credit:'Client / Income',proj:true,vend:false,autodr:true},
+  'Sales':    {debit:'Client / Receivable',credit:'Sales',proj:true,vend:false,autodr:true},
+  'Purchase': {debit:'Purchase / Expense',credit:'Vendor / Creditor',proj:true,vend:true,autocr:true},
+  'Payment':  {debit:'Vendor / Creditor',credit:'Cash / Bank',proj:false,vend:true,autodr:true},
+};
+function onJTypeChange(){
+  const type=v('jType');
+  const m=TYPE_META[type]||{};
+  const da=document.getElementById('jDebitAcc'),ca=document.getElementById('jCreditAcc');
+  if(da)da.value=m.debit||'';
+  if(ca)ca.value=m.credit||'';
+  const pw=document.getElementById('jProjWrap'),vw=document.getElementById('jVendWrap'),mw=document.getElementById('jModeWrap');
+  if(pw)pw.style.display=m.proj?'block':'none';
+  if(vw)vw.style.display=m.vend?'block':'none';
 }
 function manageCats(){
   openModal(`<div class="modal-title">⚙️ Categories</div>
@@ -619,28 +683,86 @@ function manageCats(){
 }
 function addCat(){const val=document.getElementById('newCat').value.trim();if(!val)return;DB.categories.push(val);saveDB();manageCats();}
 function deleteCat(i){DB.categories.splice(i,1);saveDB();manageCats();}
-async function submitTx(){
-  const type=v('txType');
-  const obj={date:v('txDate'),type,category:v('txCat'),project:type==='Direct Expense'?v('txProj'):'',description:v('txDesc'),amount:v('txAmt'),mode:v('txMode'),status:v('txStatus'),addedBy:'Admin'};
-  if(!obj.amount){toast('⚠️ Enter amount.');return;}
-  if(type==='Direct Expense'&&!obj.project){toast('⚠️ Project required for Direct Expense.');return;}
-  DB.transactions.push(obj);
-  await pushUpdate(`➕ ${type}: ${obj.description} ${fmt(obj.amount)}`);
-  saveDB();
-  toast('<span class="spinner"></span>Saving…',900);
-  await postSheet('addTransaction',{row:[obj.date,obj.type,obj.category,obj.project,obj.description,obj.amount,obj.mode,obj.status,'Admin']});
+async function submitJournal(){
+  const type=v('jType'),m=TYPE_META[type]||{};
+  const obj={
+    date:v('jDate'),entry_type:type,
+    debit_account:m.debit,credit_account:m.credit,
+    category:v('jCat'),project:m.proj?v('jProj'):'',
+    vendor:m.vend?v('jVend'):'',description:v('jDesc'),
+    debit_amount:v('jDr'),credit_amount:v('jCr'),
+    mode:v('jMode'),status:v('jStatus'),added_by:'Admin',
+    fy:getFYLabel(selectedFY),
+  };
+  if(!obj.debit_amount&&!obj.credit_amount){toast('⚠️ Enter debit or credit amount.');return;}
+  DB.journal.push(obj);
+  await pushUpdate(`➕ ${type}: ${obj.description} Dr:${fmt(obj.debit_amount)} Cr:${fmt(obj.credit_amount)}`);
+  saveDB();toast('<span class="spinner"></span>Saving…',900);
+  await postSheet('addJournal',{row:[obj.date,obj.entry_type,obj.debit_account,obj.credit_account,obj.category,obj.project,obj.vendor,obj.description,obj.debit_amount,obj.credit_amount,obj.mode,obj.status,obj.added_by,obj.fy]});
   toast('✅ Saved!');renderTab('add_entry');
 }
 
-// ═══ PROJECTS (with Sales entries) ══════════════════════════
+// ═══ REPORTS ═══════════════════════════════════════════════
+let reportSeg='net';
+function renderReports(c){
+  c.innerHTML=`<div class="sec-head"><h2>Reports — FY ${getFYLabel(selectedFY)}</h2></div>
+  <div class="seg"><button class="seg-btn${reportSeg==='net'?' active':''}" onclick="setRepSeg('net',this)">Net P&L</button><button class="seg-btn${reportSeg==='project'?' active':''}" onclick="setRepSeg('project',this)">Project P&L</button></div>
+  <div id="repContent"></div>`;
+  renderRepSeg();
+}
+function setRepSeg(s,el){reportSeg=s;document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderRepSeg();}
+function renderRepSeg(){const w=document.getElementById('repContent');if(w)reportSeg==='net'?renderNetPL(w):renderProjectPL(w);}
+function renderNetPL(wrap){
+  const rows=fyJournal();
+  const receipt=rows.filter(r=>(r.entry_type||r.type||'')==='Receipt').reduce((s,r)=>s+Number(r.credit_amount||r.credit||0),0);
+  const sales=rows.filter(r=>(r.entry_type||r.type||'')==='Sales').reduce((s,r)=>s+Number(r.debit_amount||r.debit||0),0);
+  const purchase=rows.filter(r=>(r.entry_type||r.type||'')==='Purchase').reduce((s,r)=>s+Number(r.debit_amount||r.debit||0),0);
+  const payment=rows.filter(r=>(r.entry_type||r.type||'')==='Payment').reduce((s,r)=>s+Number(r.debit_amount||r.debit||0),0);
+  const grossProfit=receipt-purchase;
+  const netProfit=receipt-(purchase+payment);
+  wrap.innerHTML=`<div class="card">
+    <div class="card-title">📊 Net Profit & Loss — FY ${getFYLabel(selectedFY)}</div>
+    <div class="pl-row header"><span>Particulars</span><span>Amount (₹)</span></div>
+    <div class="pl-row item"><span>Total Receipts (Income)</span><span style="color:var(--green);font-weight:700">${fmtN(receipt)}</span></div>
+    <div class="pl-row item"><span>Total Sales Billed</span><span style="color:var(--sub)">${fmtN(sales)}</span></div>
+    <div class="pl-row item"><span>Purchase / Direct Expense</span><span style="color:var(--red)">${fmtN(purchase)}</span></div>
+    <div class="pl-row total"><span>Gross Profit</span><span style="color:${grossProfit>=0?'var(--green)':'var(--red)'}">${fmtN(grossProfit)}</span></div>
+    <div style="height:6px"></div>
+    <div class="pl-row item"><span>Payments / Indirect Expense</span><span style="color:var(--red)">${fmtN(payment)}</span></div>
+    <div class="pl-row ${netProfit>=0?'profit':'loss'}"><span>Net Profit / Loss</span><span>${fmtN(netProfit)}</span></div>
+  </div>`;
+}
+function renderProjectPL(wrap){
+  const projs=projNames();
+  if(!projs.length){wrap.innerHTML=empty('🏗','No projects yet.');return;}
+  const rows=fyJournal();
+  wrap.innerHTML=`<div class="card"><div class="card-title">🏗 Project P&L — FY ${getFYLabel(selectedFY)}</div>
+  ${projs.map(p=>{
+    const pr=rows.filter(r=>(r.project||r.project_name||'')=== p);
+    const receipt=pr.filter(r=>(r.entry_type||r.type||'')==='Receipt').reduce((s,r)=>s+Number(r.credit_amount||r.credit||0),0);
+    const sales=pr.filter(r=>(r.entry_type||r.type||'')==='Sales').reduce((s,r)=>s+Number(r.debit_amount||r.debit||0),0);
+    const purchase=pr.filter(r=>(r.entry_type||r.type||'')==='Purchase').reduce((s,r)=>s+Number(r.debit_amount||r.debit||0),0);
+    const net=receipt-purchase;
+    return`<div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)">
+      <div style="font-weight:700;font-size:15px;margin-bottom:8px">🏗 ${p}</div>
+      <div class="pl-row item"><span style="font-size:13px">Receipts</span><span style="color:var(--green)">${fmtN(receipt)}</span></div>
+      <div class="pl-row item"><span style="font-size:13px">Sales Billed</span><span style="color:var(--sub)">${fmtN(sales)}</span></div>
+      <div class="pl-row item"><span style="font-size:13px">Purchase/Expense</span><span style="color:var(--red)">${fmtN(purchase)}</span></div>
+      <div class="pl-row ${net>=0?'profit':'loss'}"><span style="font-size:13px">Net P&L</span><span>${fmtN(net)}</span></div>
+    </div>`;
+  }).join('')}
+  </div>`;
+}
+
+// ═══ PROJECTS ══════════════════════════════════════════════
 function renderProjects(c){
+  const rows=fyJournal();
   const projBudget={};
   DB.estimates.filter(r=>r.status==='Approved').forEach(r=>{const p=r.project||r.project_name||'';projBudget[p]=(projBudget[p]||0)+Number(r.amount||0);});
-  c.innerHTML=`
-  <div class="sec-head"><h2>Projects</h2><button class="btn-sm green" onclick="showAddProject()">＋ New</button></div>
+  c.innerHTML=`<div class="sec-head"><h2>Projects</h2><button class="btn-sm green" onclick="showAddProject()">＋ New</button></div>
   ${DB.projects.length?DB.projects.map((r,i)=>{const nm=r.name||r.project_name||'';return`<div class="card">
     <div style="display:flex;justify-content:space-between;align-items:flex-start">
-      <div><div style="font-weight:700;font-size:16px">${nm}</div><div style="color:var(--sub);font-size:13px;margin-top:2px">${r.client||''}</div></div>
+      <div><div style="font-weight:700;font-size:16px">${nm}</div><div style="color:var(--sub);font-size:13px;margin-top:2px">${r.client||r.client_name||''}</div></div>
       <span class="tag t-${(r.status||'').toLowerCase().replace(' ','')}">${r.status}</span>
     </div>
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
@@ -656,10 +778,7 @@ function showAddProject(){
   openModal(`<div class="modal-title">🏗 New Project</div>
     <div class="field"><label>Project Name</label><input id="pj_name" placeholder="e.g. Sharma Residence"/></div>
     <div class="field"><label>Client Name</label><input id="pj_client" placeholder="Client name"/></div>
-    <div class="row2">
-      <div class="field"><label>Start Date</label><input id="pj_start" value="${today()}"/></div>
-      <div class="field"><label>Status</label><select id="pj_status"><option>Active</option><option>On Hold</option><option>Completed</option></select></div>
-    </div>
+    <div class="row2"><div class="field"><label>Start Date</label><input id="pj_start" value="${today()}"/></div><div class="field"><label>Status</label><select id="pj_status"><option>Active</option><option>On Hold</option><option>Completed</option></select></div></div>
     <button class="btn btn-green" onclick="submitProject()">Add Project</button>`);
 }
 async function submitProject(){
@@ -667,38 +786,31 @@ async function submitProject(){
   if(!obj.name){toast('⚠️ Name required.');return;}
   DB.projects.push(obj);await pushUpdate(`🏗 New project: ${obj.name}`);saveDB();
   await postSheet('addProject',{row:[obj.name,obj.client,obj.start,'',obj.status]});
-  toast('✅ Project added!');closeModal();renderTab('projects');
+  toast('✅ Added!');closeModal();renderTab('projects');
 }
-function delProject(i){
-  if(!confirm('Delete?'))return;
-  const r=DB.projects[i];DB.projects.splice(i,1);
-  pushUpdate(`🗑 Deleted project: ${r.name}`,'delete');saveDB();toast('✅ Deleted.');renderTab('projects');
-}
+function delProject(i){if(!confirm('Delete?'))return;const r=DB.projects[i];DB.projects.splice(i,1);pushUpdate(`🗑 Deleted project: ${r.name||r.project_name}`,'delete');saveDB();toast('✅ Deleted.');renderTab('projects');}
 function showAddSales(proj){
+  // Sales entry = Journal entry of type Sales
   openModal(`<div class="modal-title">🧾 New Sales Entry</div>
     <div class="field"><label>Date</label><input id="sl_date" value="${today()}"/></div>
-    <div class="field"><label>Project</label><input id="sl_proj" value="${proj}" readonly style="background:var(--bg);color:var(--sub)"/></div>
+    <div class="field"><label>Project</label><input id="sl_proj" value="${proj}" readonly style="background:var(--bg)"/></div>
     <div class="field"><label>Description</label><input id="sl_desc" placeholder="e.g. Invoice for 2nd floor slab"/></div>
-    <div class="field"><label>Invoice / Ref No</label><input id="sl_ref" placeholder="Optional"/></div>
-    <div class="field"><label>Amount (₹)</label><input type="number" id="sl_amt" inputmode="decimal" placeholder="0.00"/></div>
+    <div class="field"><label>Amount (₹) — goes to Debit (Client Receivable)</label><input type="number" id="sl_amt" inputmode="decimal" placeholder="0.00"/></div>
     <div class="field"><label>Status</label><select id="sl_status"><option>Pending</option><option>Partial</option><option>Received</option></select></div>
-    <button class="btn btn-green" onclick="submitSales()">Save Sales Entry</button>`);
+    <button class="btn btn-green" onclick="submitSales()">Save</button>`);
 }
 async function submitSales(){
-  const obj={date:v('sl_date'),project:v('sl_proj'),description:v('sl_desc'),ref:v('sl_ref'),amount:v('sl_amt'),status:v('sl_status'),addedBy:'Admin'};
-  if(!obj.amount){toast('⚠️ Amount required.');return;}
-  DB.salesEntries.push(obj);
-  await pushUpdate(`🧾 Sales entry: ${obj.description} ${fmt(obj.amount)} [${obj.project}]`);
-  saveDB();
-  await postSheet('addSalesEntry',{row:[obj.date,obj.project,obj.description,obj.ref,obj.amount,obj.status,'Admin']});
-  toast('✅ Sales entry saved!');closeModal();renderTab('projects');
+  const obj={date:v('sl_date'),entry_type:'Sales',debit_account:'Client / Receivable',credit_account:'Sales',category:'Sales',project:v('sl_proj'),vendor:'',description:v('sl_desc'),debit_amount:v('sl_amt'),credit_amount:v('sl_amt'),mode:'',status:v('sl_status'),added_by:'Admin',fy:getFYLabel(selectedFY)};
+  if(!obj.debit_amount){toast('⚠️ Amount required.');return;}
+  DB.journal.push(obj);await pushUpdate(`🧾 Sales: ${obj.description} ${fmt(obj.debit_amount)} [${obj.project}]`);saveDB();
+  await postSheet('addJournal',{row:[obj.date,obj.entry_type,obj.debit_account,obj.credit_account,obj.category,obj.project,obj.vendor,obj.description,obj.debit_amount,obj.credit_amount,obj.mode,obj.status,obj.added_by,obj.fy]});
+  toast('✅ Saved!');closeModal();renderTab('projects');
 }
 
 // ═══ ESTIMATES ══════════════════════════════════════════════
 function renderEstimates(c){
   const projs=projNames();
-  c.innerHTML=`
-  <div class="sec-head"><h2>Estimates</h2><button class="btn-sm green" onclick="showAddEstimate()">＋ New</button></div>
+  c.innerHTML=`<div class="sec-head"><h2>Estimates</h2><button class="btn-sm green" onclick="showAddEstimate()">＋ New</button></div>
   <div class="card" style="padding:12px">
     <div class="filter-row"><select id="estFP" onchange="renderEstTable()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
     <div id="estWrap"></div>
@@ -707,12 +819,12 @@ function renderEstimates(c){
 }
 function renderEstTable(){
   const fp=v('estFP');
-  const rows=DB.estimates.filter(r=>!fp||(r.project||r.project_name||'')=== fp);
+  const rows=DB.estimates.filter(r=>!fp||(r.project||r.project_name||'')===fp);
   const wrap=document.getElementById('estWrap');if(!wrap)return;
   wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table>
     <tr><th>No</th><th>Project</th><th>Amount</th><th>Status</th><th></th></tr>
     ${rows.map((r,i)=>`<tr>
-      <td>${r.est_no||r.estNo||''}<br/><span style="color:var(--sub);font-size:11px">${r.date||''}</span></td>
+      <td>${r.est_no||r.estimate_no||''}<br/><span style="color:var(--sub);font-size:11px">${r.date||''}</span></td>
       <td>${r.project||r.project_name||'—'}</td>
       <td style="font-weight:700">${fmt(r.amount)}</td>
       <td><span class="tag t-${(r.status||'').toLowerCase()}">${r.status}</span></td>
@@ -724,15 +836,9 @@ function showAddEstimate(){
   const projs=projNames();
   openModal(`<div class="modal-title">📋 New Estimate</div>
     <div class="field"><label>Project</label><select id="ep_proj"><option value="">— Select —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
-    <div class="row2">
-      <div class="field"><label>Estimate No</label><input id="ep_no" placeholder="EST-001"/></div>
-      <div class="field"><label>Date</label><input id="ep_date" value="${today()}"/></div>
-    </div>
+    <div class="row2"><div class="field"><label>No</label><input id="ep_no" placeholder="EST-001"/></div><div class="field"><label>Date</label><input id="ep_date" value="${today()}"/></div></div>
     <div class="field"><label>Scope</label><textarea id="ep_desc" placeholder="Work scope"></textarea></div>
-    <div class="row2">
-      <div class="field"><label>Amount (₹)</label><input type="number" id="ep_amt" inputmode="decimal" placeholder="0"/></div>
-      <div class="field"><label>Status</label><select id="ep_status"><option>Draft</option><option>Sent</option><option>Approved</option><option>Rejected</option></select></div>
-    </div>
+    <div class="row2"><div class="field"><label>Amount (₹)</label><input type="number" id="ep_amt" inputmode="decimal" placeholder="0"/></div><div class="field"><label>Status</label><select id="ep_status"><option>Draft</option><option>Sent</option><option>Approved</option><option>Rejected</option></select></div></div>
     <button class="btn btn-green" onclick="submitEstimate()">Save</button>`);
 }
 async function submitEstimate(){
@@ -742,37 +848,33 @@ async function submitEstimate(){
   await postSheet('addEstimate',{row:[obj.date,obj.estNo,obj.project,obj.description,obj.amount,obj.status,'']});
   toast('✅ Saved!');closeModal();renderTab('estimates');
 }
-function delEst(i){if(!confirm('Delete?'))return;const r=DB.estimates[i];DB.estimates.splice(i,1);pushUpdate(`🗑 Deleted estimate ${r.estNo||''}`,'delete');saveDB();toast('✅ Deleted.');renderEstTable();}
+function delEst(i){if(!confirm('Delete?'))return;const r=DB.estimates[i];DB.estimates.splice(i,1);pushUpdate(`🗑 Deleted estimate ${r.estNo||r.estimate_no||''}`,'delete');saveDB();toast('✅ Deleted.');renderEstTable();}
 function editEst(i){
   const r=DB.estimates[i],projs=projNames();
   openModal(`<div class="modal-title">✏️ Edit Estimate</div>
     <div class="field"><label>Project</label><select id="ee_proj"><option value="">—</option>${projs.map(p=>`<option${p===(r.project||r.project_name)?' selected':''}>${p}</option>`).join('')}</select></div>
     <div class="row2"><div class="field"><label>No</label><input id="ee_no" value="${r.est_no||r.estNo||''}"/></div><div class="field"><label>Date</label><input id="ee_date" value="${r.date||''}"/></div></div>
-    <div class="field"><label>Scope</label><textarea id="ee_desc">${r.description||r.scope||''}</textarea></div>
+    <div class="field"><label>Scope</label><textarea id="ee_desc">${r.description||''}</textarea></div>
     <div class="row2"><div class="field"><label>Amount</label><input type="number" id="ee_amt" value="${r.amount||''}"/></div><div class="field"><label>Status</label><select id="ee_status"><option${r.status==='Draft'?' selected':''}>Draft</option><option${r.status==='Sent'?' selected':''}>Sent</option><option${r.status==='Approved'?' selected':''}>Approved</option><option${r.status==='Rejected'?' selected':''}>Rejected</option></select></div></div>
     <button class="btn btn-green" onclick="saveEditEst(${i})">Save</button>`);
 }
-function saveEditEst(i){
-  DB.estimates[i]={...DB.estimates[i],project:v('ee_proj'),estNo:v('ee_no'),date:v('ee_date'),description:v('ee_desc'),amount:v('ee_amt'),status:v('ee_status')};
-  pushUpdate(`✏️ Estimate updated: ${v('ee_no')}`,'edit');saveDB();closeModal();toast('✅ Updated.');renderTab('estimates');
-}
+function saveEditEst(i){DB.estimates[i]={...DB.estimates[i],project:v('ee_proj'),estNo:v('ee_no'),date:v('ee_date'),description:v('ee_desc'),amount:v('ee_amt'),status:v('ee_status')};pushUpdate(`✏️ Estimate updated: ${v('ee_no')}`,'edit');saveDB();closeModal();toast('✅ Updated.');renderTab('estimates');}
 
-// ═══ VENDORS ════════════════════════════════════════════════
+// ═══ VENDORS ═══════════════════════════════════════════════
 function renderVendors(c){
   const isAdmin=currentRole==='admin';
-  c.innerHTML=`
-  <div class="sec-head"><h2>Vendors</h2><button class="btn-sm green" onclick="showAddVendor()">＋ New</button></div>
-  ${isAdmin&&DB.vendors.length?DB.vendors.map((r,i)=>`<div class="card">
+  c.innerHTML=`<div class="sec-head"><h2>Vendors</h2><button class="btn-sm green" onclick="showAddVendor()">＋ New</button></div>
+  ${DB.vendors.length?DB.vendors.map((r,i)=>`<div class="card">
     <div style="display:flex;justify-content:space-between;align-items:flex-start">
       <div><div style="font-weight:700;font-size:16px">${r.name||r.vendor_name||''}</div><div style="color:var(--sub);font-size:13px;margin-top:2px">${r.category||''}${r.phone?' · '+r.phone:''}</div></div>
-      <div style="display:flex;gap:6px"><button class="btn-sm blue" onclick="editVendor(${i})">✏️</button><button class="btn-sm red" onclick="delVendor(${i})">🗑</button></div>
+      ${isAdmin?`<div style="display:flex;gap:6px"><button class="btn-sm blue" onclick="editVendor(${i})">✏️</button><button class="btn-sm red" onclick="delVendor(${i})">🗑</button></div>`:''}
     </div>${r.gst?`<div style="margin-top:6px;font-size:12px;color:var(--sub)">GST: ${r.gst}</div>`:''}
-  </div>`).join(''):isAdmin?empty('🏪','No vendors yet.'):empty('🏪','No vendors. Add one!')}`;
+  </div>`).join(''):empty('🏪','No vendors yet.')}`;
 }
 function showAddVendor(){
   openModal(`<div class="modal-title">🏪 Add Vendor</div>
     <div class="field"><label>Vendor Name</label><input id="vn_name" placeholder="Name"/></div>
-    <div class="row2"><div class="field"><label>Contact</label><input id="vn_contact" placeholder="Person name"/></div><div class="field"><label>Phone</label><input id="vn_phone" inputmode="tel" placeholder="+91"/></div></div>
+    <div class="row2"><div class="field"><label>Contact</label><input id="vn_contact" placeholder="Person"/></div><div class="field"><label>Phone</label><input id="vn_phone" inputmode="tel" placeholder="+91"/></div></div>
     <div class="row2"><div class="field"><label>GST No</label><input id="vn_gst" placeholder="Optional"/></div><div class="field"><label>Category</label><select id="vn_cat"><option>Material Supplier</option><option>Labour Contractor</option><option>Equipment Rental</option><option>Service Provider</option><option>Other</option></select></div></div>
     <button class="btn btn-green" onclick="submitVendor()">Save</button>`);
 }
@@ -783,7 +885,7 @@ async function submitVendor(){
   await postSheet('addVendor',{row:[obj.name,obj.contact,obj.phone,obj.gst,obj.category,'']});
   toast('✅ Saved!');closeModal();renderTab('vendors');
 }
-function delVendor(i){if(!confirm('Delete?'))return;const r=DB.vendors[i];DB.vendors.splice(i,1);pushUpdate(`🗑 Deleted vendor: ${r.name}`,'delete');saveDB();toast('✅ Deleted.');renderTab('vendors');}
+function delVendor(i){if(!confirm('Delete?'))return;const r=DB.vendors[i];DB.vendors.splice(i,1);pushUpdate(`🗑 Deleted vendor: ${r.name||r.vendor_name}`,'delete');saveDB();toast('✅ Deleted.');renderTab('vendors');}
 function editVendor(i){
   const r=DB.vendors[i];
   openModal(`<div class="modal-title">✏️ Edit Vendor</div>
@@ -794,82 +896,15 @@ function editVendor(i){
 }
 function saveEditVendor(i){DB.vendors[i]={...DB.vendors[i],name:v('ev_name'),contact:v('ev_contact'),phone:v('ev_phone'),gst:v('ev_gst'),category:v('ev_cat')};pushUpdate(`✏️ Updated vendor: ${v('ev_name')}`,'edit');saveDB();closeModal();toast('✅ Updated.');renderTab('vendors');}
 
-// ═══ REPORTS ════════════════════════════════════════════════
-let reportSeg='net';
-function renderReports(c){
-  c.innerHTML=`
-  <div class="sec-head"><h2>Reports</h2></div>
-  <div class="seg">
-    <button class="seg-btn${reportSeg==='net'?' active':''}" onclick="setReportSeg('net',this)">Net P&L</button>
-    <button class="seg-btn${reportSeg==='project'?' active':''}" onclick="setReportSeg('project',this)">Project P&L</button>
-  </div>
-  <div id="reportContent"></div>`;
-  renderReportSeg();
-}
-function setReportSeg(s,el){reportSeg=s;document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderReportSeg();}
-function renderReportSeg(){
-  const wrap=document.getElementById('reportContent');if(!wrap)return;
-  if(reportSeg==='net')renderNetPL(wrap);
-  else renderProjectPL(wrap);
-}
-function renderNetPL(wrap){
-  const income=DB.transactions.filter(r=>(r.type||r.entry_type||'')==='Income').reduce((s,r)=>s+Number(r.amount||0),0);
-  const directExp=DB.transactions.filter(r=>(r.type||r.entry_type||'')==='Direct Expense').reduce((s,r)=>s+Number(r.amount||0),0);
-  const indirectExp=DB.transactions.filter(r=>(r.type||r.entry_type||'')==='Indirect Expense').reduce((s,r)=>s+Number(r.amount||0),0);
-  const totalExp=directExp+indirectExp;
-  const grossProfit=income-directExp;
-  const netProfit=grossProfit-indirectExp;
-  wrap.innerHTML=`<div class="card">
-    <div class="card-title">📊 Net Profit & Loss Statement</div>
-    <div class="pl-row header"><span>Particulars</span><span>Amount (₹)</span></div>
-    <div class="pl-row item"><span>Total Income</span><span style="color:var(--green);font-weight:700">${fmtN(income)}</span></div>
-    <div class="pl-row item"><span>Direct Expenses</span><span style="color:var(--red)">${fmtN(directExp)}</span></div>
-    <div class="pl-row total"><span>Gross Profit</span><span style="color:${grossProfit>=0?'var(--green)':'var(--red)'}">${fmtN(grossProfit)}</span></div>
-    <div style="height:8px"></div>
-    <div class="pl-row item"><span>Indirect Expenses</span><span style="color:var(--red)">${fmtN(indirectExp)}</span></div>
-    <div class="pl-row ${netProfit>=0?'profit':'loss'}"><span>Net Profit / Loss</span><span>${fmtN(netProfit)}</span></div>
-  </div>
-  <div class="card">
-    <div class="card-title">📂 Expense Breakdown</div>
-    ${[['Direct Expenses',directExp,'var(--blue)'],['Indirect Expenses',indirectExp,'var(--orange)']].map(([l,a,c])=>`<div class="pl-row item"><span>${l}</span><span style="color:${c};font-weight:700">${fmtN(a)}</span></div>`).join('')}
-    <div class="pl-row total"><span>Total Expenses</span><span style="color:var(--red)">${fmtN(totalExp)}</span></div>
-  </div>`;
-}
-function renderProjectPL(wrap){
-  const projs=projNames();
-  if(!projs.length){wrap.innerHTML=empty('🏗','No projects yet.');return;}
-  const rows=projs.map(p=>{
-    const income=DB.transactions.filter(r=>(r.project||r.project_name||'')=== p&&(r.type||r.entry_type||'')==='Income').reduce((s,r)=>s+Number(r.amount||0),0);
-    const expense=DB.transactions.filter(r=>(r.project||r.project_name||'')=== p&&(r.type||r.entry_type||'')==='Direct Expense').reduce((s,r)=>s+Number(r.amount||0),0);
-    const sales=DB.salesEntries.filter(r=>(r.project||r.project_name||'')=== p).reduce((s,r)=>s+Number(r.amount||0),0);
-    const net=income-expense;
-    return{p,income,expense,sales,net};
-  });
-  wrap.innerHTML=`<div class="card">
-    <div class="card-title">🏗 Project-wise P&L</div>
-    ${rows.map(r=>`
-    <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)">
-      <div style="font-weight:700;font-size:15px;margin-bottom:8px">🏗 ${r.p}</div>
-      <div class="pl-row item"><span style="font-size:13px">Income Received</span><span style="color:var(--green)">${fmtN(r.income)}</span></div>
-      <div class="pl-row item"><span style="font-size:13px">Sales Billed</span><span style="color:var(--sub)">${fmtN(r.sales)}</span></div>
-      <div class="pl-row item"><span style="font-size:13px">Direct Expenses</span><span style="color:var(--red)">${fmtN(r.expense)}</span></div>
-      <div class="pl-row ${r.net>=0?'profit':'loss'}"><span style="font-size:13px">Net P&L</span><span>${fmtN(r.net)}</span></div>
-    </div>`).join('')}
-  </div>`;
-}
-
-// ═══ SETTINGS ═══════════════════════════════════════════════
+// ═══ SETTINGS ══════════════════════════════════════════════
 function renderSettings(c){
-  c.innerHTML=`
-  <div class="sec-head"><h2>Settings</h2></div>
-  <div class="card">
-    <div class="card-title">🔗 API URL</div>
+  c.innerHTML=`<div class="sec-head"><h2>Settings</h2></div>
+  <div class="card"><div class="card-title">🔗 API URL</div>
     <div class="field"><label>Apps Script Web App URL</label><input id="apiUrl" value="${API_URL}" placeholder="https://script.google.com/macros/s/…/exec"/></div>
     <button class="btn btn-primary" onclick="saveAPI()">Save & Test</button>
   </div>
-  <div class="card">
-    <div class="card-title">📊 Data Summary</div>
-    ${[['Transactions',DB.transactions.length],['Estimates',DB.estimates.length],['Projects',DB.projects.length],['Vendors',DB.vendors.length],['Site Entries',DB.siteEntries.length],['Sales Entries',DB.salesEntries.length]].map(([l,n])=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)"><span style="font-size:14px;color:var(--sub)">${l}</span><span style="font-weight:700">${n}</span></div>`).join('')}
+  <div class="card"><div class="card-title">📊 Data Summary</div>
+    ${[['Journal Entries',DB.journal.length],['Projects',DB.projects.length],['Estimates',DB.estimates.length],['Vendors',DB.vendors.length]].map(([l,n])=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)"><span style="font-size:14px;color:var(--sub)">${l}</span><span style="font-weight:700">${n}</span></div>`).join('')}
   </div>`;
 }
 async function saveAPI(){
@@ -884,71 +919,84 @@ async function saveAPI(){
 // ═══ SUPERVISOR: ADD SITE ENTRY ══════════════════════════════
 function renderSiteAdd(c){
   const projs=projNames(),vends=vendNames();
-  c.innerHTML=`
-  <div class="sec-head"><h2>Add Site Entry</h2></div>
+  c.innerHTML=`<div class="sec-head"><h2>Add Site Entry</h2></div>
   <div class="card">
     <div class="row2">
       <div class="field"><label>Date</label><input id="sDate" value="${today()}"/></div>
-      <div class="field"><label>Entry Type</label><select id="sType" onchange="togglePhotoField()"><option>Bill / Material Receipt</option><option>Cash Expense</option></select></div>
+      <div class="field"><label>Entry Type</label><select id="sType" onchange="togglePhotoField()"><option>Purchase</option><option>Payment</option></select></div>
     </div>
     <div class="field"><label>Project</label><select id="sProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
     <div class="field"><label>Vendor</label><select id="sVendor" onchange="document.getElementById('sVendorOther').style.display=this.value==='__other__'?'block':'none'"><option value="">— Select Vendor —</option>${vends.map(v=>`<option>${v}</option>`).join('')}<option value="__other__">Other (specify)</option></select></div>
-    <input id="sVendorOther" style="display:none;width:100%;padding:14px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;margin-bottom:14px" placeholder="Vendor name"/>
+    <input id="sVendorOther" style="display:none;width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;margin-bottom:14px" placeholder="Vendor name"/>
     <div class="field"><label>Description</label><input id="sDesc" placeholder="e.g. Cement 50 bags"/></div>
     <div class="field"><label>Amount (₹)</label><input type="number" id="sAmt" inputmode="decimal" placeholder="0.00"/></div>
     <div class="field"><label>Bill / Receipt No</label><input id="sBill" placeholder="Optional"/></div>
     <div id="photoSection" class="field">
       <label>📷 Bill Photo</label>
       <div class="photo-wrap" onclick="document.getElementById('sPhoto').click()">
-        <div class="pi-ico">📸</div><div class="pi-lbl">Tap to take photo or choose from gallery</div>
+        <div class="pi-ico">📸</div><div class="pi-lbl">Tap to take or choose photo</div>
         <input type="file" id="sPhoto" accept="image/*" capture="environment"/>
       </div>
       <div id="photoPreview"></div>
     </div>
-    <button class="btn btn-green" style="margin-top:4px" onclick="submitSiteEntry()">📤 Submit Entry</button>
+    <button class="btn btn-green" style="margin-top:6px" onclick="submitSiteEntry()">📤 Submit Entry</button>
   </div>`;
   document.getElementById('sPhoto').addEventListener('change',function(){
     const file=this.files[0];if(!file)return;
     const reader=new FileReader();
-    reader.onload=e=>document.getElementById('photoPreview').innerHTML=`<img src="${e.target.result}"/>`;
+    reader.onload=e=>document.getElementById('photoPreview').innerHTML=`<img src="${e.target.result}" style="width:100%;border-radius:10px;margin-top:8px"/>`;
     reader.readAsDataURL(file);
   });
 }
-function togglePhotoField(){document.getElementById('photoSection').style.display=v('sType')==='Bill / Material Receipt'?'block':'none';}
+function togglePhotoField(){document.getElementById('photoSection').style.display=v('sType')==='Purchase'?'block':'none';}
 async function submitSiteEntry(){
   const vs=v('sVendor'),vendor=vs==='__other__'?v('sVendorOther'):vs;
-  const obj={date:v('sDate'),type:v('sType'),project:v('sProj'),vendor,description:v('sDesc'),amount:v('sAmt'),bill:v('sBill'),addedBy:'Supervisor'};
-  if(!obj.description||!obj.amount){toast('⚠️ Description and Amount required.');return;}
+  const type=v('sType');
+  const m=TYPE_META[type]||{};
+  const obj={
+    date:v('sDate'),entry_type:type,
+    debit_account:m.debit,credit_account:m.credit,
+    category:type==='Purchase'?'Material Purchase':'Payment',
+    project:v('sProj'),vendor,
+    description:v('sDesc'),
+    debit_amount:type==='Purchase'?v('sAmt'):'',
+    credit_amount:type==='Purchase'?v('sAmt'):v('sAmt'),
+    mode:'Cash',status:'Paid',added_by:'Supervisor',
+    bill:v('sBill'),fy:getFYLabel(selectedFY),
+  };
+  if(!obj.description||(!obj.debit_amount&&!obj.credit_amount)){toast('⚠️ Description and Amount required.');return;}
   const photoFile=document.getElementById('sPhoto')?.files?.[0];
   if(photoFile&&API_URL){
     toast('<span class="spinner"></span>Uploading photo…',12000);
     try{
       const b64=await fileToB64(photoFile);
       const res=await jsonpGet({action:'uploadPhoto',fileName:photoFile.name,fileData:encodeURIComponent(b64),mimeType:photoFile.type});
-      if(res.ok)obj.photoUrl=res.url;
+      if(res.ok)obj.photo_url=res.url;
     }catch(e){console.warn('Photo upload failed',e);}
   }
-  DB.siteEntries.push(obj);
-  await pushUpdate(`📦 Site entry: ${obj.description} ${fmt(obj.amount)} [${obj.vendor||'No vendor'}] by Supervisor`);
+  DB.journal.push(obj);
+  await pushUpdate(`📦 ${type} by Supervisor: ${obj.description} ${fmt(obj.debit_amount||obj.credit_amount)} [${vendor||'No vendor'}]`);
   saveDB();
   toast('<span class="spinner"></span>Submitting…',1500);
-  await postSheet('addSiteEntry',{row:[obj.date,obj.type,obj.project,obj.vendor,obj.description,obj.amount,obj.bill,obj.photoUrl||'','Supervisor']});
+  await postSheet('addJournal',{row:[obj.date,obj.entry_type,obj.debit_account,obj.credit_account,obj.category,obj.project,obj.vendor,obj.description,obj.debit_amount,obj.credit_amount,obj.mode,obj.status,obj.added_by,obj.fy,obj.bill||'',obj.photo_url||'']});
   toast('✅ Submitted!');renderTab('add_site');
 }
 function fileToB64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=e=>res(e.target.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
 
-// ═══ SUPERVISOR: VIEW ENTRIES ═══════════════════════════════
+// ═══ SUPERVISOR: VIEW ENTRIES ════════════════════════════════
 function renderSiteView(c){
   const projs=projNames(),vends=vendNames();
-  c.innerHTML=`
-  <div class="sec-head"><h2>My Entries</h2></div>
+  c.innerHTML=`<div class="sec-head"><h2>My Entries — FY ${getFYLabel(selectedFY)}</h2></div>
   <div class="card" style="padding:12px">
-    <div class="filter-row">
-      <input type="text" id="svDate" placeholder="Filter date" oninput="applySiteFilter()"/>
-      <select id="svType" onchange="applySiteFilter()"><option value="">All Types</option><option>Bill / Material Receipt</option><option>Cash Expense</option></select>
+    <div class="date-range">
+      <input type="text" id="svFrom" placeholder="From DD/MM/YYYY" oninput="applySiteFilter()"/>
+      <input type="text" id="svTo" placeholder="To DD/MM/YYYY" oninput="applySiteFilter()"/>
     </div>
     <div class="filter-row">
+      <select id="svType" onchange="applySiteFilter()"><option value="">All Types</option><option>Purchase</option><option>Payment</option></select>
       <select id="svProj" onchange="applySiteFilter()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
+    </div>
+    <div class="filter-row">
       <select id="svVend" onchange="applySiteFilter()"><option value="">All Vendors</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select>
     </div>
     <div id="siteWrap"></div>
@@ -956,23 +1004,21 @@ function renderSiteView(c){
   applySiteFilter();
 }
 function applySiteFilter(){
-  const fd=v('svDate'),ft=v('svType'),fp=v('svProj'),fv=v('svVend');
-  let rows=DB.siteEntries.slice().sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
-  if(fd)rows=rows.filter(r=>String(r.date||'').includes(fd));
-  if(ft)rows=rows.filter(r=>r.type===ft);
-  if(fp)rows=rows.filter(r=>(r.project||r.project_name||'')=== fp);
-  if(fv)rows=rows.filter(r=>(r.vendor||r.vendor_name||'')=== fv);
+  const from=v('svFrom'),to=v('svTo'),ft=v('svType'),fp=v('svProj'),fv=v('svVend');
+  let rows=getJournalRows({type:ft,project:fp,vendor:fv,from,to})
+    .filter(r=>(r.added_by||'').toLowerCase()==='supervisor');
   const wrap=document.getElementById('siteWrap');if(!wrap)return;
   wrap.innerHTML=rows.length?rows.map(r=>`<div style="padding:12px 0;border-bottom:1px solid var(--border)">
     <div style="display:flex;justify-content:space-between;align-items:flex-start">
-      <div><div style="font-weight:600;font-size:15px">${r.description||''}</div>
-        <div style="color:var(--sub);font-size:12px;margin-top:3px">${r.date||''} · ${r.type||''}</div>
+      <div>
+        <div style="font-weight:600;font-size:15px">${r.description||''}</div>
+        <div style="color:var(--sub);font-size:12px;margin-top:3px">${r.date||r.entry_date||''} · ${r.entry_type||r.type||''}</div>
         ${r.project?`<div style="color:var(--sub);font-size:12px">🏗 ${r.project}</div>`:''}
         ${r.vendor?`<div style="color:var(--sub);font-size:12px">🏪 ${r.vendor}</div>`:''}
       </div>
       <div style="text-align:right">
-        <div style="font-weight:700;color:var(--red);font-size:15px">${fmt(r.amount)}</div>
-        ${r.photoUrl?`<a href="${r.photoUrl}" target="_blank" style="font-size:12px;color:var(--blue)">📷 View</a>`:r.bill?`<div style="font-size:12px;color:var(--sub)">${r.bill}</div>`:''}
+        <div style="font-weight:700;color:var(--red);font-size:15px">${fmt(r.debit_amount||r.credit_amount||0)}</div>
+        ${r.photo_url?`<a href="${r.photo_url}" target="_blank" style="font-size:12px;color:var(--blue)">📷 View</a>`:r.bill?`<div style="font-size:12px;color:var(--sub)">${r.bill}</div>`:''}
       </div>
     </div>
   </div>`).join(''):empty('📭','No entries found.');
