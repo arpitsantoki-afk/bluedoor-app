@@ -252,18 +252,33 @@ async function syncAll(){
     {action:'getSalesEntries',key:'salesEntries'},
     {action:'getUpdates',key:'updates'},
   ];
-  let ok=true;
+  const log=[];
+  let allOk=true;
   for(const c of cfg){
     try{
       const r=await jsonpGet({action:c.action});
-      if(r.ok&&r.data)DB[c.key]=r.data;
-      else ok=false;
-    }catch(e){ok=false;}
+      if(r.ok&&Array.isArray(r.data)){
+        DB[c.key]=r.data;
+        log.push(`✅ ${c.action}: ${r.data.length} rows`);
+      } else {
+        log.push(`⚠️ ${c.action}: ${r.error||JSON.stringify(r)}`);
+        allOk=false;
+      }
+    }catch(e){
+      log.push(`❌ ${c.action}: ${e.message}`);
+      allOk=false;
+    }
   }
   saveDB();
-  setConn(ok?'online':'offline');
+  setConn(allOk?'online':'offline');
   document.getElementById('toast').style.display='none';
-  toast(ok?'✅ Sync complete!':'⚠️ Partial sync. Check connection.');
+  // Show diagnostic popup
+  openModal(`<div class="modal-title">${allOk?'✅ Sync Complete':'⚠️ Sync Issues'}</div>
+    <div style="background:var(--bg);border-radius:10px;padding:14px;font-size:13px;line-height:2">
+      ${log.map(l=>`<div>${l}</div>`).join('')}
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--sub)">API: ${API_URL.slice(0,60)}…</div>
+    <br/><button class="btn btn-primary" onclick="closeModal()">OK</button>`);
   renderCurrentTab();
 }
 
