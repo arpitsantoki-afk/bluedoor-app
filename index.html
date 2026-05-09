@@ -392,8 +392,9 @@ tr:last-child td{border-bottom:none;}
 
 <script>
 // ═══ STATE ═══════════════════════════════════════════════════════
+const DEFAULT_API = 'https://script.google.com/macros/s/AKfycbzrXCFRdeSzVdA7D_cyvAwrNSuUdZ8VuArZKVOOZELTLdNmFvcS_Nxaz0WG5_FHuVFKGg/exec'; // ← paste your /exec URL here
 let currentRole=null,currentTabId='';
-let API_URL=ls('bdAPI')||'';
+let API_URL=ls('bdAPI')||DEFAULT_API;
 const DEMO={admin:'admin123',supervisor:'super123'};
 let DB={
   transactions:lp('bdTx',[]),projects:lp('bdProj',[]),estimates:lp('bdEst',[]),
@@ -498,16 +499,16 @@ async function doLogin(){
   if(!pw){showErr('Please enter password.');return;}
   if(API_URL){
     try{
-      toast('<span class="spinner"></span>Verifying…',5000);
+      toast('<span class="spinner"></span>Verifying…',10000);
       const d=await jsonpGet({action:'login',role,pass:pw});
       document.getElementById('toast').style.display='none';
       if(!d.ok){showErr('Incorrect password.');return;}
     }catch(e){
       document.getElementById('toast').style.display='none';
-      if(pw!==DEMO[role]){showErr('Backend unreachable. Check API URL in Settings.');return;}
+      showErr('Could not connect. Check your internet connection.');return;
     }
-  }else{
-    if(pw!==DEMO[role]){showErr('Wrong password.');return;}
+  } else {
+    showErr('App not configured. Contact admin.');return;
   }
   if(document.getElementById('rememberMe').checked)
     localStorage.setItem('bdRemember',JSON.stringify({role,ts:Date.now()}));
@@ -519,7 +520,8 @@ function startApp(){
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('appShell').style.display='block';
   document.getElementById('roleBadge').textContent=currentRole==='admin'?'Admin':'Supervisor';
-  buildNav();checkConn();
+  buildNav();
+  checkConn().then(ok=>{ if(ok) syncAll(); });
 }
 
 // ═══ NAV ════════════════════════════════════════════════════════
