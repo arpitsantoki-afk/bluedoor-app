@@ -212,7 +212,7 @@ function setFY(y){selectedFY=y;localStorage.setItem('bdFY',y);document.getElemen
 function inFY(s){if(!s)return false;const d=parseDMY(String(s));if(!d)return false;const{from,to}=getFYRange(selectedFY);return d>=from&&d<=to;}
 
 // ═══ STATE ═══════════════════════════════════════════════════
-let currentRole=null,currentTabId='';
+let currentRole=null, currentName='', currentTabId='';
 localStorage.setItem('bdAPI',DEFAULT_API);
 let API_URL=DEFAULT_API;
 let DB={
@@ -300,7 +300,10 @@ async function syncAll(){
 window.onload=()=>{
   document.getElementById('fyLabel').textContent=getFYLabel(selectedFY);
   const s=lp('bdRemember',null);
-  if(s&&s.role&&Date.now()-s.ts<30*864e5){currentRole=s.role;startApp();return;}
+  if(s&&s.role&&Date.now()-s.ts<30*864e5){
+    currentRole=s.role;currentName=s.name||( s.role==='admin'?'Admin':'Supervisor');
+    startApp();return;
+  }
 };
 async function doLogin(){
   const role=document.getElementById('roleSelect').value;
@@ -312,17 +315,20 @@ async function doLogin(){
     const d=await jsonpGet({action:'login',role,pass:pw});
     document.getElementById('toast').style.display='none';
     if(!d.ok){showErr('Incorrect password.');return;}
+    currentRole=d.role;
+    currentName=d.name||( role==='admin'?'Admin':'Supervisor');
   }catch(e){document.getElementById('toast').style.display='none';showErr('Connection failed. Check internet.');return;}
   if(document.getElementById('rememberMe').checked)
-    localStorage.setItem('bdRemember',JSON.stringify({role,ts:Date.now()}));
-  currentRole=role;startApp();
+    localStorage.setItem('bdRemember',JSON.stringify({role:currentRole,name:currentName,ts:Date.now()}));
+  startApp();
 }
 function showErr(m){const e=document.getElementById('loginError');e.textContent=m;e.style.display='block';}
 function logout(){localStorage.removeItem('bdRemember');currentRole=null;document.getElementById('loginScreen').style.display='flex';document.getElementById('appShell').style.display='none';document.getElementById('pwInput').value='';}
 function startApp(){
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('appShell').style.display='block';
-  document.getElementById('roleBadge').textContent=currentRole==='admin'?'Admin':'Supervisor';
+  // Show supervisor name in badge
+  document.getElementById('roleBadge').textContent=currentRole==='admin'?'Admin':currentName;
   document.getElementById('fyLabel').textContent=getFYLabel(selectedFY);
   buildNav();checkConn().then(ok=>{if(ok)syncAll();});
 }
@@ -476,15 +482,16 @@ function applyTxFilter(){
   if(!wrap)return;
   wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table>
     <tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th><th></th></tr>
-    ${rows.map((r,i)=>{
+    ${rows.map((r)=>{
       const idx=DB.transactions.indexOf(r);
       const type=r.type||r.entry_type||'';
       const inc=isIncome(type);
+      const amt=Number(r.amount||0);
       const proj=r.project||r.project_name||'';
       const desc=r.description||r.category||'';
       const apStatus=r.approval_status||r.status2||'Approved';
       const isPending=apStatus==='Pending';
-      return`<tr style="${isPending?'opacity:.7;background:#fffbf0':''}">
+      return`<tr style="${isPending?'opacity:.75;background:#fffbf0':''}">
         <td style="white-space:nowrap;font-size:12px">${displayDate(r.date||'')}</td>
         <td>
           <span class="tag t-${typeTag(type)}">${type}</span>
@@ -492,8 +499,8 @@ function applyTxFilter(){
           <br/><span style="font-size:12px;color:var(--sub)">${desc}</span>
           ${proj?`<br/><span style="font-size:11px;color:var(--sub)">🏗 ${proj}</span>`:''}
         </td>
-        <td style="color:var(--red);font-weight:700;white-space:nowrap">${!inc?fmtN(r.amount):'—'}</td>
-        <td style="color:var(--green);font-weight:700;white-space:nowrap">${inc?fmtN(r.amount):'—'}</td>
+        <td style="color:var(--red);font-weight:700;white-space:nowrap">${inc?'—':fmtN(amt)}</td>
+        <td style="color:var(--green);font-weight:700;white-space:nowrap">${inc?fmtN(amt):'—'}</td>
         <td><div style="display:flex;flex-direction:column;gap:4px">
           ${currentRole==='admin'&&isPending?`<button class="btn-sm green" onclick="approveTx(${idx})">✓</button>`:''}
           ${currentRole==='admin'?`<button class="btn-sm blue" onclick="editTx(${idx})">✏️</button>`:''}
@@ -659,34 +666,91 @@ async function submitTx(){
 function renderPettyCash(c){
   const isAdmin=currentRole==='admin';
   const pcRows=fyPC();
-  // Balance = sum of top-ups by admin minus sum of expenses
-  const topups=pcRows.filter(r=>r.entry_type==='Top-up'||(r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
-  const expenses=pcRows.filter(r=>r.entry_type!=='Top-up'&&(r.type||'')!=='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
-  const balance=topups-expenses;
-  // Pending approvals
-  const pending=pcRows.filter(r=>(r.approval_status||'Pending')==='Pending');
 
-  c.innerHTML=`<div class="sec-head"><h2>Petty Cash</h2></div>
-  <div class="pc-balance">
-    <div class="pb-lbl">Available Balance</div>
-    <div class="pb-val">${fmt(balance)}</div>
-    <div style="font-size:12px;opacity:.7;margin-top:4px">Topped up: ${fmt(topups)} | Spent: ${fmt(expenses)}</div>
-  </div>
-  ${isAdmin?`<div style="display:flex;gap:10px;margin-bottom:12px">
-    <button class="btn btn-green" style="flex:1;padding:12px" onclick="showTopup()">＋ Top-up Cash</button>
-  </div>`:''}
-  ${!isAdmin?`<div class="card">
-    <div class="card-title">➕ Add Cash Expense</div>
-    <div class="field"><label>Date</label><input type="date" id="pcDate" value="${todayISO()}"/></div>
-    <div class="field"><label>Description</label><input id="pcDesc" placeholder="What was it spent on?"/></div>
-    <div class="field"><label>Amount (₹)</label><input type="number" id="pcAmt" inputmode="decimal" placeholder="0.00"/></div>
-    <button class="btn btn-green" onclick="submitPCExpense()">Submit Expense</button>
-  </div>`:''}
-  <div class="card" style="padding:12px">
-    <div class="card-title">📋 Petty Cash Log</div>
-    ${pending.length&&isAdmin?`<div style="background:#fef3cd;border-radius:8px;padding:10px;margin-bottom:10px;font-size:13px;color:#856404;font-weight:600">⏳ ${pending.length} expense${pending.length>1?'s':''} pending your approval</div>`:''}
-    <div id="pcLog">${renderPCLog(pcRows,isAdmin)}</div>
-  </div>`;
+  if(isAdmin){
+    // Get all unique supervisor names from petty cash entries
+    const supNames=[...new Set(pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up').map(r=>r.added_by||r.addedBy||'Unknown'))].filter(Boolean);
+    // Build supervisor selector
+    const selHTML=`<div class="field"><label>View By Supervisor</label>
+      <select id="pcSupSel" onchange="renderPCSupView()">
+        <option value="">All Supervisors</option>
+        ${supNames.map(n=>`<option>${n}</option>`).join('')}
+      </select>
+    </div>`;
+
+    c.innerHTML=`<div class="sec-head"><h2>Petty Cash</h2></div>
+    ${selHTML}
+    <div id="pcSupContent"></div>
+    <div style="display:flex;gap:10px;margin-bottom:12px">
+      <button class="btn btn-green" style="flex:1;padding:12px" onclick="showTopup()">＋ Top-up Cash</button>
+    </div>`;
+    renderPCSupView();
+  } else {
+    // Supervisor view — own entries only
+    const myRows=pcRows.filter(r=>(r.added_by||r.addedBy||'')===currentName||(r.entry_type||r.type||'')==='Top-up');
+    const topups=myRows.filter(r=>(r.entry_type||r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
+    const expenses=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===currentName&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
+    const balance=topups-expenses;
+    c.innerHTML=`<div class="sec-head"><h2>My Petty Cash</h2></div>
+    <div class="pc-balance">
+      <div class="pb-lbl">My Balance</div>
+      <div class="pb-val">${fmt(balance)}</div>
+      <div style="font-size:12px;opacity:.7;margin-top:4px">Topped up: ${fmt(topups)} | Approved spent: ${fmt(expenses)}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">➕ Add Cash Expense</div>
+      <div class="field"><label>Date</label><input type="date" id="pcDate" value="${todayISO()}"/></div>
+      <div class="field"><label>Description</label><input id="pcDesc" placeholder="What was it spent on?"/></div>
+      <div class="field"><label>Amount (₹)</label><input type="number" id="pcAmt" inputmode="decimal" placeholder="0.00"/></div>
+      <button class="btn btn-green" onclick="submitPCExpense()">Submit Expense</button>
+    </div>
+    <div class="card" style="padding:12px">
+      <div class="card-title">📋 My Entries</div>
+      ${renderPCLog(pcRows.filter(r=>(r.added_by||r.addedBy||'')=== currentName||(r.entry_type||r.type||'')==='Top-up'),false)}
+    </div>`;
+  }
+}
+
+function renderPCSupView(){
+  const sel=v('pcSupSel');
+  const pcRows=fyPC();
+  const wrap=document.getElementById('pcSupContent');
+  if(!wrap)return;
+
+  // If a supervisor is selected, show their stats
+  if(sel){
+    const topups=pcRows.filter(r=>(r.entry_type||r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
+    const expenses=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===sel&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
+    const pending=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===sel&&(r.approval_status||'Pending')==='Pending').reduce((s,r)=>s+Number(r.amount||0),0);
+    const balance=topups-expenses;
+    const rows=pcRows.filter(r=>(r.added_by||r.addedBy||'')===sel||(r.entry_type||r.type||'')==='Top-up');
+    wrap.innerHTML=`<div class="pc-balance">
+      <div class="pb-lbl">${sel} — Balance</div>
+      <div class="pb-val">${fmt(balance)}</div>
+      <div style="font-size:12px;opacity:.7;margin-top:4px">Topped up: ${fmt(topups)} | Spent: ${fmt(expenses)} | Pending: ${fmt(pending)}</div>
+    </div>
+    <div class="card" style="padding:12px"><div class="card-title">${sel}'s Entries</div>${renderPCLog(rows,true)}</div>`;
+  } else {
+    // All supervisors summary
+    const supNames=[...new Set(pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up').map(r=>r.added_by||r.addedBy||'Unknown'))].filter(Boolean);
+    const topupsAll=pcRows.filter(r=>(r.entry_type||r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
+    if(!supNames.length){wrap.innerHTML=empty('💵','No supervisor entries yet.');return;}
+    wrap.innerHTML=`<div class="pc-balance">
+      <div class="pb-lbl">Total Topped Up</div>
+      <div class="pb-val">${fmt(topupsAll)}</div>
+    </div>
+    ${supNames.map(name=>{
+      const exp=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===name&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
+      const pend=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===name&&(r.approval_status||'Pending')==='Pending').reduce((s,r)=>s+Number(r.amount||0),0);
+      return`<div class="card" style="padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div><div style="font-weight:700;font-size:15px">👷 ${name}</div><div style="font-size:12px;color:var(--sub);margin-top:2px">Spent: ${fmt(exp)} | Pending: ${fmt(pend)}</div></div>
+          <div style="text-align:right"><div style="font-size:11px;color:var(--sub)">Balance</div><div style="font-weight:700;color:var(--blue)">${fmt(topupsAll-exp)}</div></div>
+        </div>
+      </div>`;
+    }).join('')}
+    <div class="card" style="padding:12px"><div class="card-title">📋 All Petty Cash Entries</div>${renderPCLog(pcRows,true)}</div>`;
+  }
 }
 function renderPCLog(rows,isAdmin){
   if(!rows.length)return empty('💵','No petty cash entries yet.');
@@ -718,19 +782,31 @@ function showTopup(){
     <button class="btn btn-green" onclick="submitTopup()">Add Top-up</button>`);
 }
 async function submitTopup(){
-  const obj={date:isoToDMY(v('tu_date')),entry_type:'Top-up',description:v('tu_note')||'Petty cash top-up',amount:v('tu_amt'),approval_status:'Approved',addedBy:'Admin'};
-  if(!obj.amount){toast('⚠️ Enter amount.');return;}
-  DB.pettycash.push(obj);
-  await pushUpdate(`💵 Petty cash top-up: ${fmt(obj.amount)}`);
-  saveDB();await postSheet('addPettyCash',{row:[obj.date,obj.entry_type,obj.description,obj.amount,obj.approval_status,'Admin']});
-  toast('✅ Top-up added!');closeModal();renderTab('petty_cash');
+  const amt=v('tu_amt');
+  const note=v('tu_note')||'Petty Cash Top-up';
+  const dateISO=v('tu_date');
+  if(!amt){toast('⚠️ Enter amount.');return;}
+  const dateDMY=isoToDMY(dateISO);
+
+  // 1. Add to petty cash log
+  const pcObj={date:dateDMY,entry_type:'Top-up',description:note,amount:amt,approval_status:'Approved',addedBy:'Admin'};
+  DB.pettycash.push(pcObj);
+  await postSheet('addPettyCash',{row:[pcObj.date,pcObj.entry_type,pcObj.description,pcObj.amount,pcObj.approval_status,'Admin']});
+
+  // 2. Simultaneous indirect expense in transaction ledger
+  const txObj={date:dateDMY,type:'Indirect Expense',category:'Petty Cash',project:'',description:note,amount:amt,mode:'Cash',approval_status:'Approved',status2:'Approved',addedBy:'Admin'};
+  DB.transactions.push(txObj);
+  await postSheet('addTransaction',{row:[txObj.date,txObj.type,txObj.category,txObj.project,txObj.description,txObj.amount,'Cash','Approved','Admin']});
+
+  await pushUpdate(`💵 Petty cash top-up: ${fmt(amt)} → also recorded as Indirect Expense`);
+  saveDB();toast('✅ Top-up added & recorded in ledger!');closeModal();renderTab('petty_cash');
 }
 async function submitPCExpense(){
-  const obj={date:isoToDMY(v('pcDate')),entry_type:'Expense',description:v('pcDesc'),amount:v('pcAmt'),approval_status:'Pending',addedBy:'Supervisor'};
+  const obj={date:isoToDMY(v('pcDate')),entry_type:'Expense',description:v('pcDesc'),amount:v('pcAmt'),approval_status:'Pending',addedBy:currentName};
   if(!obj.description||!obj.amount){toast('⚠️ Description and Amount required.');return;}
   DB.pettycash.push(obj);
-  await pushUpdate(`💵 Petty cash expense (pending): ${obj.description} ${fmt(obj.amount)}`);
-  saveDB();await postSheet('addPettyCash',{row:[obj.date,obj.entry_type,obj.description,obj.amount,obj.approval_status,'Supervisor']});
+  await pushUpdate(`💵 Petty cash expense by ${currentName} (pending): ${obj.description} ${fmt(obj.amount)}`);
+  saveDB();await postSheet('addPettyCash',{row:[obj.date,obj.entry_type,obj.description,obj.amount,obj.approval_status,currentName]});
   toast('✅ Expense submitted — pending admin approval.');renderTab('petty_cash');
 }
 async function approvePC(i){
@@ -1006,7 +1082,7 @@ function renderSiteAdd(c){
 function togglePhotoField(){}
 async function submitSiteEntry(){
   const vs=v('sVendor'),vendor=vs==='__other__'?v('sVendorOther'):vs;
-  const obj={date:isoToDMY(v('sDate')),type:'Bill / Material Receipt',project:v('sProj'),vendor,description:v('sDesc'),amount:v('sAmt'),bill:v('sBill'),approval_status:'Pending',addedBy:'Supervisor'};
+  const obj={date:isoToDMY(v('sDate')),type:'Bill / Material Receipt',project:v('sProj'),vendor,description:v('sDesc'),amount:v('sAmt'),bill:v('sBill'),approval_status:'Pending',addedBy:currentName};
   if(!obj.description||!obj.amount){toast('⚠️ Description and Amount required.');return;}
   const photoFile=document.getElementById('sPhoto')?.files?.[0];
   if(photoFile&&API_URL){
