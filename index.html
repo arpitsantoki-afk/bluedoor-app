@@ -184,8 +184,9 @@ function showFYPicker(){
 function setFY(y){selectedFY=y;localStorage.setItem('bdFY',y);document.getElementById('fyLabel').textContent=getFYLabel(y);closeModal();renderCurrentTab();}
 function inFY(s){if(!s)return false;const d=parseDMY(String(s));if(!d)return false;const{from,to}=getFYRange(selectedFY);return d>=from&&d<=to;}
 let currentRole=null,currentName='',currentTabId='';
-localStorage.setItem('bdAPI',DEFAULT_API);
-let API_URL=DEFAULT_API;
+// Only set API URL if not already saved, never overwrite user's saved URL
+if(!localStorage.getItem('bdAPI'))localStorage.setItem('bdAPI',DEFAULT_API);
+let API_URL=localStorage.getItem('bdAPI')||DEFAULT_API;
 let DB={
   transactions:lp('bdTx',[]),projects:lp('bdProj',[]),estimates:lp('bdEst',[]),
   vendors:lp('bdVend',[]),siteEntries:lp('bdSite',[]),salesEntries:lp('bdSales',[]),
@@ -219,6 +220,7 @@ function jsonpGet(params){
   });
 }
 async function postSheet(action,payload){
+  API_URL=localStorage.getItem('bdAPI')||DEFAULT_API;
   if(!API_URL)return{ok:true,offline:true};
   try{await fetch(API_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({action,...payload}),headers:{'Content-Type':'text/plain'}});return{ok:true};}
   catch(e){return{ok:false};}
@@ -229,6 +231,8 @@ async function checkConn(){
   catch(e){setConn('offline');return false;}
 }
 async function syncAll(){
+  // Always read latest API URL from storage
+  API_URL=localStorage.getItem('bdAPI')||DEFAULT_API;
   if(!API_URL){toast('⚠️ No API URL set.');return;}
   setConn('syncing');toast('<span class="spinner"></span>Syncing…',30000);
   const cfg=[
@@ -287,7 +291,11 @@ function startApp(){
   document.getElementById('appShell').style.display='block';
   document.getElementById('roleBadge').textContent=currentRole==='admin'?'Admin':currentName;
   document.getElementById('fyLabel').textContent=getFYLabel(selectedFY);
-  buildNav();checkConn().then(ok=>{if(ok)syncAll();});
+  // Refresh API_URL from storage in case it was updated
+  API_URL=localStorage.getItem('bdAPI')||DEFAULT_API;
+  buildNav();
+  // Auto sync on load
+  setTimeout(()=>syncAll(),500);
 }
 const ADMIN_TABS=[{id:'dashboard',icon:'🏠',label:'Home'},{id:'ledger',icon:'📒',label:'Ledger'},{id:'add_entry',icon:'➕',label:'Add'},{id:'reports',icon:'📈',label:'Reports'},{id:'more',icon:'⋯',label:'More'}];
 const SUPER_TABS=[{id:'add_site',icon:'➕',label:'Site Entry'},{id:'petty_cash',icon:'💵',label:'Petty Cash'},{id:'view_site',icon:'📋',label:'My Entries'},{id:'vendors',icon:'🏪',label:'Vendors'}];
@@ -749,9 +757,12 @@ function renderSettings(c){
   </div>`;
 }
 async function saveAPI(){
-  API_URL=document.getElementById('apiUrl').value.trim();localStorage.setItem('bdAPI',API_URL);
-  toast('<span class="spinner"></span>Testing…',5000);const ok=await checkConn();
-  document.getElementById('toast').style.display='none';toast(ok?'✅ Connected!':'❌ Could not connect.');
+  API_URL=document.getElementById('apiUrl').value.trim();
+  localStorage.setItem('bdAPI',API_URL);
+  toast('<span class="spinner"></span>Testing…',5000);
+  const ok=await checkConn();
+  document.getElementById('toast').style.display='none';
+  toast(ok?'✅ Connected!':'❌ Could not connect.');
 }
 function renderPettyCash(c){
   const isAdmin=currentRole==='admin';
