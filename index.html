@@ -355,18 +355,13 @@ async function pushUpdate(msg,type='add'){
 // ═══ DASHBOARD ═══════════════════════════════════════════════
 function renderDashboard(c){
   const pendingTx=DB.transactions.filter(r=>(r.approval_status||r.status2||'Approved')==='Pending');
-  const pendingPC=DB.pettycash.filter(r=>(r.approval_status||'Pending')==='Pending');
-  const pendingTotal=pendingTx.length+pendingPC.length;
-
-  // Debug info
-  const debugInfo=`DB.updates.length=${DB.updates.length} | first=${DB.updates.length?JSON.stringify(DB.updates[0]).slice(0,80):'none'}`;
 
   const feed=DB.updates.slice(0,30).map(u=>{
-    const msg=u.msg||u.message||String(u.Message||'');
-    const rawDate=u.time||u.date||String(u.Date||'');
-    const time=displayDate(rawDate);
-    const by=u.by||u.added_by||String(u.Added_by||u['added by']||'');
-    const type=u.type||String(u.Type||'add');
+    const msg=u.message||u.msg||'';
+    const rawDate=String(u.date||u.time||'');
+    const time=rawDate.includes('T')?isoToDMY(rawDate.slice(0,10)):displayDate(rawDate);
+    const by=u.added_by||u.by||'';
+    const type=u.type||'add';
     const cls=type==='delete'?'del':type==='edit'?'edit':type==='approve'?'approve':'';
     return`<div class="feed-item ${cls}">
       <div class="feed-msg">${msg||'—'}</div>
@@ -376,7 +371,6 @@ function renderDashboard(c){
 
   c.innerHTML=`
   <div class="sec-head"><h2>Activity — FY ${getFYLabel(selectedFY)}</h2><button class="btn-sm blue" onclick="syncAll()">⟳ Refresh</button></div>
-  <div class="debug-box">${debugInfo}</div>
   ${pendingTotal>0&&currentRole==='admin'?`<div style="background:#fef3cd;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:14px;font-weight:600;color:#856404">⏳ ${pendingTotal} pending approval${pendingTotal>1?'s':''}</span><button class="btn-sm orange" onclick="switchTab('ledger')">Review →</button></div>`:''}
   <div class="card">${feed||empty('📭','No activity yet.')}</div>`;
 }
