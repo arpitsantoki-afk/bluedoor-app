@@ -288,12 +288,14 @@ async function syncAll(){
       else{log.push(`⚠️ ${c.action}: ${r.error||'empty'}`);allOk=false;}
     }catch(e){log.push(`❌ ${c.action}: ${e.message}`);allOk=false;}
   }
-  saveDB();setConn(allOk?'online':'offline');
+  saveDB();
+  setConn(allOk?'online':'offline');
   document.getElementById('toast').style.display='none';
+  // Render AFTER saveDB so DB.updates is populated
+  renderCurrentTab();
   openModal(`<div class="modal-title">${allOk?'✅ Sync Complete':'⚠️ Sync Issues'}</div>
     <div style="background:var(--bg);border-radius:10px;padding:14px;font-size:13px;line-height:2">${log.map(l=>`<div>${l}</div>`).join('')}</div>
-    <br/><button class="btn btn-primary" onclick="closeModal()">OK</button>`);
-  renderCurrentTab();
+    <br/><button class="btn btn-primary" onclick="closeModal();renderCurrentTab()">OK</button>`);
 }
 
 // ═══ LOGIN ══════════════════════════════════════════════════
