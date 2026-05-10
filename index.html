@@ -17,7 +17,6 @@
 html,body{height:100%;overflow:hidden;}
 body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:16px;-webkit-text-size-adjust:none;text-size-adjust:none;}
 #page{position:fixed;top:var(--top-h);bottom:var(--nav-h);left:0;right:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 10px;}
-/* TOPBAR */
 .topbar{position:fixed;top:0;left:0;right:0;height:var(--top-h);background:var(--blue);z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2);}
 .topbar-row1{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 4px;}
 .topbar-left{display:flex;align-items:center;gap:10px;}
@@ -26,7 +25,6 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg)
 .topbar-title{color:white;font-size:16px;font-weight:700;}
 .topbar-right{display:flex;align-items:center;gap:6px;}
 .icon-btn{background:rgba(255,255,255,.15);border:none;color:white;width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;}
-/* FY BAR */
 .fy-bar{display:flex;align-items:center;justify-content:space-between;padding:0 16px 8px;}
 .fy-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border-radius:20px;padding:5px 12px;cursor:pointer;border:none;}
 .fy-pill span{color:white;font-size:13px;font-weight:600;}
@@ -35,18 +33,15 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg)
 .dot.online{background:#2ecc71;}.dot.offline{background:#e74c3c;}.dot.syncing{background:var(--orange);animation:blink .7s infinite;}
 .status-pill span{color:rgba(255,255,255,.9);font-size:12px;font-weight:600;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-/* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--white);border-top:1px solid var(--border);display:flex;align-items:stretch;z-index:100;padding-bottom:env(safe-area-inset-bottom);}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;cursor:pointer;padding:6px 2px;color:var(--sub);}
 .nav-item.active{color:var(--blue);}
 .nav-item .ni{font-size:24px;line-height:1;}
 .nav-item .nl{font-size:11px;font-weight:700;white-space:nowrap;}
-/* LAYOUT */
 .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
 .sec-head h2{font-size:18px;font-weight:700;}
 .card{background:var(--white);border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:var(--shadow);}
 .card-title{font-size:15px;font-weight:700;color:var(--blue);margin-bottom:12px;}
-/* FORM */
 .field{margin-bottom:14px;}
 .field label{display:block;font-size:12px;font-weight:700;color:var(--sub);margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px;}
 .field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;background:var(--white);color:var(--text);outline:none;appearance:none;-webkit-appearance:none;}
@@ -54,7 +49,6 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg)
 .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a8d' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}
 .field textarea{resize:none;min-height:76px;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-/* BUTTONS */
 .btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:15px;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;}
 .btn-primary{background:var(--blue);color:white;}
 .btn-green{background:var(--green);color:white;}
@@ -62,29 +56,31 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg)
 .btn-sm.blue{background:var(--lb);color:var(--blue);}
 .btn-sm.red{background:#fce8e6;color:var(--red);}
 .btn-sm.green{background:#d5f5e3;color:var(--green);}
+.btn-sm.orange{background:#fef3cd;color:#856404;}
 /* FEED */
 .feed-item{padding:12px;border-radius:10px;margin-bottom:8px;border-left:3px solid var(--blue);background:var(--lb);}
 .feed-item.del{border-color:var(--red);background:#fce8e6;}
 .feed-item.edit{border-color:var(--orange);background:#fef3cd;}
+.feed-item.approve{border-color:var(--green);background:#d5f5e3;}
 .feed-msg{font-size:14px;line-height:1.5;}
 .feed-time{font-size:12px;color:var(--sub);margin-top:3px;}
 /* TABLE */
 .tbl-wrap{overflow-x:auto;border-radius:10px;margin-top:6px;}
 table{width:100%;border-collapse:collapse;font-size:13px;}
 th{background:var(--lb);padding:10px;text-align:left;font-weight:700;color:var(--blue);white-space:nowrap;font-size:12px;}
-td{padding:10px;border-bottom:1px solid var(--border);vertical-align:middle;}
+td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
 tr:last-child td{border-bottom:none;}
 /* TAGS */
-.tag{display:inline-block;padding:4px 9px;border-radius:20px;font-size:11px;font-weight:700;}
+.tag{display:inline-block;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:700;}
 .t-di{background:#d5f5e3;color:#1a7a41;}
 .t-ii{background:#e8f1fb;color:var(--blue);}
 .t-de{background:#fce8e6;color:#a93226;}
 .t-ie{background:#fef3cd;color:#856404;}
-.t-paid{background:#d5f5e3;color:#1a7a41;}
+.t-approved{background:#d5f5e3;color:#1a7a41;}
 .t-pending{background:#fce8e6;color:#a93226;}
-.t-partial,.t-sent{background:#fef3cd;color:#856404;}
-.t-approved,.t-active{background:#d5f5e3;color:#1a7a41;}
-.t-draft{background:#e8eaf0;color:#555;}
+.t-active{background:#d5f5e3;color:#1a7a41;}
+.t-draft,.t-hold{background:#e8eaf0;color:#555;}
+.t-sent{background:#fef3cd;color:#856404;}
 /* LEDGER */
 .led-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;}
 .led-box{border-radius:10px;padding:10px 8px;text-align:center;}
@@ -93,7 +89,7 @@ tr:last-child td{border-bottom:none;}
 .lb-dr{background:#fce8e6;}.lb-cr{background:#d5f5e3;}.lb-bal{background:var(--lb);}
 /* FILTERS */
 .filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
-.filter-row input,.filter-row select{flex:1;min-width:110px;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;background:white;color:var(--text);outline:none;appearance:none;-webkit-appearance:none;}
+.filter-row input,.filter-row select{flex:1;min-width:100px;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;background:white;color:var(--text);outline:none;appearance:none;-webkit-appearance:none;}
 /* SEGMENT */
 .seg{display:flex;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:14px;}
 .seg-btn{flex:1;padding:9px;border:none;background:none;border-radius:8px;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;}
@@ -140,6 +136,10 @@ tr:last-child td{border-bottom:none;}
 .pl-row.total{background:var(--lb);font-weight:700;}
 .pl-row.profit{background:#d5f5e3;font-weight:700;}
 .pl-row.loss{background:#fce8e6;font-weight:700;}
+/* PETTY CASH */
+.pc-balance{background:linear-gradient(135deg,var(--blue),#0d3a6e);border-radius:12px;padding:18px;margin-bottom:12px;color:white;text-align:center;}
+.pc-balance .pb-lbl{font-size:12px;opacity:.8;text-transform:uppercase;letter-spacing:.5px;}
+.pc-balance .pb-val{font-size:28px;font-weight:700;margin-top:4px;}
 </style>
 </head>
 <body>
@@ -195,37 +195,21 @@ tr:last-child td{border-bottom:none;}
 // ═══ CONFIG ══════════════════════════════════════════════════
 const DEFAULT_API='https://script.google.com/macros/s/AKfycbzrXCFRdeSzVdA7D_cyvAwrNSuUdZ8VuArZKVOOZELTLdNmFvcS_Nxaz0WG5_FHuVFKGg/exec';
 
-// ═══ FINANCIAL YEAR ══════════════════════════════════════════
-function getCurrentFY(){
-  const d=new Date();const mo=d.getMonth()+1;const yr=d.getFullYear();
-  return mo>=4?yr:yr-1;
-}
+// ═══ FY ══════════════════════════════════════════════════════
+function getCurrentFY(){const d=new Date();const m=d.getMonth()+1;const y=d.getFullYear();return m>=4?y:y-1;}
 function getFYLabel(y){return `${y}-${String(y+1).slice(2)}`;}
 function getFYRange(y){return{from:new Date(y,3,1).getTime(),to:new Date(y+1,2,31,23,59,59).getTime()};}
 let selectedFY=parseInt(localStorage.getItem('bdFY')||getCurrentFY());
-
 function showFYPicker(){
-  const cur=getCurrentFY();
-  const opts=[];for(let y=cur+1;y>=cur-4;y--)opts.push(y);
+  const cur=getCurrentFY();const opts=[];for(let y=cur+1;y>=cur-4;y--)opts.push(y);
   openModal(`<div class="modal-title">📅 Select Financial Year</div>
     <div style="display:flex;flex-direction:column;gap:8px">
-      ${opts.map(y=>`<button onclick="setFY(${y})" style="padding:14px;border-radius:10px;border:2px solid ${y===selectedFY?'var(--blue)':'var(--border)'};background:${y===selectedFY?'var(--lb)':'white'};font-size:16px;font-weight:${y===selectedFY?'700':'400'};color:${y===selectedFY?'var(--blue)':'var(--text)'};cursor:pointer;text-align:left">
-        FY ${getFYLabel(y)} ${y===cur?'<span style="font-size:12px;color:var(--green);font-weight:600">(Current)</span>':''}
-      </button>`).join('')}
-    </div>`);
+    ${opts.map(y=>`<button onclick="setFY(${y})" style="padding:14px;border-radius:10px;border:2px solid ${y===selectedFY?'var(--blue)':'var(--border)'};background:${y===selectedFY?'var(--lb)':'white'};font-size:16px;font-weight:${y===selectedFY?700:400};color:${y===selectedFY?'var(--blue)':'var(--text)'};cursor:pointer;text-align:left">
+      FY ${getFYLabel(y)} ${y===cur?'<span style="font-size:12px;color:var(--green);font-weight:600">(Current)</span>':''}
+    </button>`).join('')}</div>`);
 }
-function setFY(y){
-  selectedFY=y;localStorage.setItem('bdFY',y);
-  document.getElementById('fyLabel').textContent=getFYLabel(y);
-  closeModal();renderCurrentTab();
-}
-function inFY(dateStr){
-  if(!dateStr)return false;
-  const d=parseDMY(String(dateStr));
-  if(!d)return false;
-  const{from,to}=getFYRange(selectedFY);
-  return d>=from&&d<=to;
-}
+function setFY(y){selectedFY=y;localStorage.setItem('bdFY',y);document.getElementById('fyLabel').textContent=getFYLabel(y);closeModal();renderCurrentTab();}
+function inFY(s){if(!s)return false;const d=parseDMY(String(s));if(!d)return false;const{from,to}=getFYRange(selectedFY);return d>=from&&d<=to;}
 
 // ═══ STATE ═══════════════════════════════════════════════════
 let currentRole=null,currentTabId='';
@@ -238,6 +222,7 @@ let DB={
   vendors:lp('bdVend',[]),
   siteEntries:lp('bdSite',[]),
   salesEntries:lp('bdSales',[]),
+  pettycash:lp('bdPC',[]),
   categories:lp('bdCats',['Material Purchase','Labour / Subcontractor','Site Expenses','Office Expenses','Transport','Consultation Fees','Professional Fees','Salaries','Other']),
   updates:lp('bdUpdates',[]),
 };
@@ -250,6 +235,7 @@ function saveDB(){
   localStorage.setItem('bdVend',JSON.stringify(DB.vendors));
   localStorage.setItem('bdSite',JSON.stringify(DB.siteEntries));
   localStorage.setItem('bdSales',JSON.stringify(DB.salesEntries));
+  localStorage.setItem('bdPC',JSON.stringify(DB.pettycash));
   localStorage.setItem('bdCats',JSON.stringify(DB.categories));
   localStorage.setItem('bdUpdates',JSON.stringify(DB.updates));
 }
@@ -264,8 +250,7 @@ function jsonpGet(params){
   return new Promise((res,rej)=>{
     const cb='_cb'+Date.now()+'_'+Math.floor(Math.random()*99999);
     const qs=Object.entries({...params,callback:cb}).map(([k,v])=>`${k}=${encodeURIComponent(v)}`).join('&');
-    const sc=document.createElement('script');
-    let done=false;
+    const sc=document.createElement('script');let done=false;
     const t=setTimeout(()=>{if(!done){done=true;sc.remove();window[cb]=()=>{};rej(new Error('Timeout'));}},25000);
     window[cb]=d=>{if(!done){done=true;clearTimeout(t);sc.remove();res(d);}};
     sc.onerror=()=>{if(!done){done=true;clearTimeout(t);window[cb]=()=>{};rej(new Error('Network error'));}};
@@ -292,6 +277,7 @@ async function syncAll(){
     {action:'getVendors',key:'vendors'},
     {action:'getSiteEntries',key:'siteEntries'},
     {action:'getSalesEntries',key:'salesEntries'},
+    {action:'getPettyCash',key:'pettycash'},
     {action:'getUpdates',key:'updates'},
   ];
   const log=[];let allOk=true;
@@ -319,18 +305,14 @@ window.onload=()=>{
 async function doLogin(){
   const role=document.getElementById('roleSelect').value;
   const pw=document.getElementById('pwInput').value.trim();
-  const err=document.getElementById('loginError');
-  err.style.display='none';
+  const err=document.getElementById('loginError');err.style.display='none';
   if(!pw){showErr('Please enter password.');return;}
   try{
     toast('<span class="spinner"></span>Verifying…',15000);
     const d=await jsonpGet({action:'login',role,pass:pw});
     document.getElementById('toast').style.display='none';
     if(!d.ok){showErr('Incorrect password.');return;}
-  }catch(e){
-    document.getElementById('toast').style.display='none';
-    showErr('Connection failed. Check internet and try again.');return;
-  }
+  }catch(e){document.getElementById('toast').style.display='none';showErr('Connection failed. Check internet.');return;}
   if(document.getElementById('rememberMe').checked)
     localStorage.setItem('bdRemember',JSON.stringify({role,ts:Date.now()}));
   currentRole=role;startApp();
@@ -347,58 +329,43 @@ function startApp(){
 
 // ═══ NAV ════════════════════════════════════════════════════
 const ADMIN_TABS=[{id:'dashboard',icon:'🏠',label:'Home'},{id:'ledger',icon:'📒',label:'Ledger'},{id:'add_entry',icon:'➕',label:'Add'},{id:'reports',icon:'📈',label:'Reports'},{id:'more',icon:'⋯',label:'More'}];
-const SUPER_TABS=[{id:'add_site',icon:'➕',label:'Add Entry'},{id:'view_site',icon:'📋',label:'My Entries'},{id:'vendors',icon:'🏪',label:'Vendors'}];
-const MORE_TABS=[{id:'estimates',icon:'📋',label:'Estimates'},{id:'projects',icon:'🏗',label:'Projects'},{id:'vendors',icon:'🏪',label:'Vendors'},{id:'settings',icon:'⚙️',label:'Settings'}];
+const SUPER_TABS=[{id:'add_site',icon:'➕',label:'Site Entry'},{id:'petty_cash',icon:'💵',label:'Petty Cash'},{id:'view_site',icon:'📋',label:'My Entries'},{id:'vendors',icon:'🏪',label:'Vendors'}];
+const MORE_TABS=[{id:'estimates',icon:'📋',label:'Estimates'},{id:'projects',icon:'🏗',label:'Projects'},{id:'vendors',icon:'🏪',label:'Vendors'},{id:'petty_cash',icon:'💵',label:'Petty Cash'},{id:'settings',icon:'⚙️',label:'Settings'}];
 function buildNav(){
   const tabs=currentRole==='admin'?ADMIN_TABS:SUPER_TABS;
   const nav=document.getElementById('bottomNav');
   nav.innerHTML=tabs.map((t,i)=>`<button class="nav-item${i===0?' active':''}" onclick="onNav(this,'${t.id}')"><span class="ni">${t.icon}</span><span class="nl">${t.label}</span></button>`).join('');
   switchTab(tabs[0].id);
 }
-function onNav(el,id){
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  el.classList.add('active');if(id==='more'){showMore();return;}switchTab(id);
-}
+function onNav(el,id){document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));el.classList.add('active');if(id==='more'){showMore();return;}switchTab(id);}
 function showMore(){openModal(`<div class="modal-title">More</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${MORE_TABS.map(t=>`<button onclick="closeModal();switchTab('${t.id}')" style="padding:18px 10px;background:var(--lb);border:none;border-radius:12px;cursor:pointer;font-size:15px;font-weight:600;color:var(--blue)">${t.icon}<br/><span style="font-size:13px">${t.label}</span></button>`).join('')}</div>`);}
 function switchTab(id){currentTabId=id;renderTab(id);}
 function renderCurrentTab(){renderTab(currentTabId);}
 function renderTab(id){
   const c=document.getElementById('page');c.innerHTML='';c.scrollTop=0;
-  const fns={dashboard:renderDashboard,ledger:renderLedger,add_entry:renderAddEntry,reports:renderReports,projects:renderProjects,estimates:renderEstimates,vendors:renderVendors,settings:renderSettings,add_site:renderSiteAdd,view_site:renderSiteView};
+  const fns={dashboard:renderDashboard,ledger:renderLedger,add_entry:renderAddEntry,reports:renderReports,projects:renderProjects,estimates:renderEstimates,vendors:renderVendors,settings:renderSettings,add_site:renderSiteAdd,view_site:renderSiteView,petty_cash:renderPettyCash};
   if(fns[id])fns[id](c);
 }
 
 // ═══ HELPERS ════════════════════════════════════════════════
 function fmt(n){return '₹'+Number(n||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function fmtN(n){return Number(n||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});}
-
-// Date helpers — store as DD/MM/YYYY internally
 function todayISO(){const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
-function isoToDMY(iso){if(!iso)return '';const[y,m,d]=iso.split('-');return `${d}/${m}/${y}`;}
-function dmyToISO(dmy){if(!dmy)return '';const[d,m,y]=String(dmy).split('/');return `${y}-${pad(m)}-${pad(d)}`;}
+function isoToDMY(s){if(!s)return '';const[y,m,d]=s.split('-');return `${d}/${m}/${y}`;}
+function dmyToISO(s){if(!s)return '';const p=String(s).split('/');if(p.length!==3)return '';return `${p[2]}-${pad(p[1])}-${pad(p[0])}`;}
 function pad(n){return String(n).padStart(2,'0');}
-
-// Fix: parse date regardless of format (DMY or ISO or Date object)
 function parseDMY(s){
-  if(!s)return 0;
-  s=String(s).trim();
-  // ISO format yyyy-mm-dd
+  if(!s)return 0;s=String(s).trim();
   if(/^\d{4}-\d{2}-\d{2}/.test(s)){const d=new Date(s);return isNaN(d)?0:d.getTime();}
-  // DD/MM/YYYY
-  const p=s.split('/');
-  if(p.length===3){const d=new Date(p[2],p[1]-1,p[0]);return isNaN(d)?0:d.getTime();}
-  // Fallback
+  const p=s.split('/');if(p.length===3){const d=new Date(p[2],p[1]-1,p[0]);return isNaN(d)?0:d.getTime();}
   const d=new Date(s);return isNaN(d)?0:d.getTime();
 }
-// Always display dates as DD/MM/YYYY
 function displayDate(s){
-  if(!s)return '—';
-  s=String(s).trim();
+  if(!s)return '—';s=String(s).trim();
   if(/^\d{4}-\d{2}-\d{2}/.test(s))return isoToDMY(s.slice(0,10));
   if(/^\d{2}\/\d{2}\/\d{4}/.test(s))return s.slice(0,10);
   return s;
 }
-
 function toast(msg,dur=2500){const t=document.getElementById('toast');t.innerHTML=msg;t.style.display='block';if(dur>0)setTimeout(()=>t.style.display='none',dur);}
 function v(id){const el=document.getElementById(id);return el?el.value:'';}
 function projNames(){return DB.projects.map(p=>p.name||p.project_name||'').filter(Boolean);}
@@ -407,37 +374,55 @@ function openModal(html){document.getElementById('modalBody').innerHTML=html;doc
 function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
 function handleModalTap(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
 function empty(icon,msg){return `<div class="empty"><div class="ei">${icon}</div><p>${msg}</p></div>`;}
-
-// FY filter
-function fyTx(){return DB.transactions.filter(r=>inFY(r.date||''));}
+// Entry type helpers
+const INC_TYPES=['Direct Income','Indirect Income'];
+function isIncome(t){return INC_TYPES.includes(t);}
+function isDirect(t){return t==='Direct Income'||t==='Direct Expense';}
+function typeTag(t){
+  const m={'Direct Income':'di','Indirect Income':'ii','Direct Expense':'de','Indirect Expense':'ie'};
+  return m[t]||'de';
+}
+// FY filters — only approved entries counted in reports
+function fyTx(approvedOnly=false){
+  return DB.transactions.filter(r=>{
+    if(!inFY(r.date||''))return false;
+    if(approvedOnly&&(r.approval_status||r.status2||'Approved')!=='Approved')return false;
+    return true;
+  });
+}
 function fySite(){return DB.siteEntries.filter(r=>inFY(r.date||''));}
 function fySales(){return DB.salesEntries.filter(r=>inFY(r.date||''));}
+function fyPC(){return DB.pettycash.filter(r=>inFY(r.date||''));}
 
-// Entry types
-const INCOME_TYPES=['Direct Income','Indirect Income'];
-const EXPENSE_TYPES=['Direct Expense','Indirect Expense'];
-const ALL_TYPES=[...INCOME_TYPES,...EXPENSE_TYPES];
-function isIncome(type){return INCOME_TYPES.includes(type);}
-function isDirect(type){return type==='Direct Income'||type==='Direct Expense';}
-function typeTag(type){
-  const map={'Direct Income':'di','Indirect Income':'ii','Direct Expense':'de','Indirect Expense':'ie'};
-  return map[type]||'de';
-}
-
+// ═══ UPDATE FEED — FIX BUG 1 ════════════════════════════════
+// Store rich update objects. msg must always be a non-empty string.
 async function pushUpdate(msg,type='add'){
-  const entry={msg:String(msg||''),type,time:displayDate(new Date().toISOString()),by:currentRole||'system'};
+  // Sanitise: ensure msg is always a meaningful string
+  const cleanMsg=String(msg||'').replace(/undefined/g,'—').trim()||'Entry saved';
+  const entry={msg:cleanMsg,type,time:displayDate(todayISO()),by:currentRole||'system'};
   DB.updates.unshift(entry);if(DB.updates.length>80)DB.updates=DB.updates.slice(0,80);saveDB();
   await postSheet('addUpdate',{row:[entry.time,entry.type,entry.msg,entry.by]});
 }
 
 // ═══ DASHBOARD ══════════════════════════════════════════════
 function renderDashboard(c){
-  // Fix bug 1: guard against undefined msg
-  const feed=DB.updates.slice(0,30).map(u=>`<div class="feed-item ${u.type==='delete'?'del':u.type==='edit'?'edit':''}">
-    <div class="feed-msg">${u.msg||'Entry updated'}</div>
-    <div class="feed-time">${u.time||''}${u.by?' · '+u.by:''}</div>
-  </div>`).join('');
-  c.innerHTML=`<div class="sec-head"><h2>Activity — FY ${getFYLabel(selectedFY)}</h2><button class="btn-sm blue" onclick="syncAll()">⟳ Refresh</button></div>
+  // Show pending count badge
+  const pendingTx=DB.transactions.filter(r=>(r.approval_status||r.status2||'Approved')==='Pending');
+  const pendingPC=DB.pettycash.filter(r=>(r.approval_status||'Pending')==='Pending');
+  const pendingTotal=pendingTx.length+pendingPC.length;
+  const feed=DB.updates.slice(0,30).map(u=>{
+    const cls=u.type==='delete'?'del':u.type==='edit'?'edit':u.type==='approve'?'approve':'';
+    return `<div class="feed-item ${cls}">
+      <div class="feed-msg">${u.msg||'Entry saved'}</div>
+      <div class="feed-time">${u.time||''}${u.by?' · '+u.by:''}</div>
+    </div>`;
+  }).join('');
+  c.innerHTML=`
+  <div class="sec-head"><h2>Activity — FY ${getFYLabel(selectedFY)}</h2><button class="btn-sm blue" onclick="syncAll()">⟳ Refresh</button></div>
+  ${pendingTotal>0&&currentRole==='admin'?`<div style="background:#fef3cd;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between">
+    <span style="font-size:14px;font-weight:600;color:#856404">⏳ ${pendingTotal} pending approval${pendingTotal>1?'s':''}</span>
+    <button class="btn-sm orange" onclick="switchTab('ledger')">Review →</button>
+  </div>`:''}
   <div class="card">${feed||empty('📭','No activity yet.')}</div>`;
 }
 
@@ -459,7 +444,7 @@ function renderTxLedger(wrap){
   const projs=projNames();
   wrap.innerHTML=`<div class="card" style="padding:12px">
     <div class="filter-row">
-      <input type="text" id="fDate" placeholder="Filter date (dd/mm)" oninput="applyTxFilter()"/>
+      <input type="text" id="fDate" placeholder="Filter date" oninput="applyTxFilter()"/>
       <select id="fType" onchange="applyTxFilter()">
         <option value="">All Types</option>
         <option>Direct Income</option><option>Indirect Income</option>
@@ -468,6 +453,7 @@ function renderTxLedger(wrap){
     </div>
     <div class="filter-row">
       <select id="fProj" onchange="applyTxFilter()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
+      <select id="fStatus" onchange="applyTxFilter()"><option value="">All Status</option><option>Approved</option><option>Pending</option></select>
     </div>
     <div id="txWrap"></div>
     <div class="led-row" id="ledTotals"></div>
@@ -475,33 +461,43 @@ function renderTxLedger(wrap){
   applyTxFilter();
 }
 function applyTxFilter(){
-  const fd=v('fDate'),ft=v('fType'),fp=v('fProj');
-  let rows=fyTx().slice().sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
+  const fd=v('fDate'),ft=v('fType'),fp=v('fProj'),fs=v('fStatus');
+  let rows=fyTx(false).slice().sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
   if(fd)rows=rows.filter(r=>displayDate(r.date||'').includes(fd));
   if(ft)rows=rows.filter(r=>(r.type||r.entry_type||'')===ft);
   if(fp)rows=rows.filter(r=>(r.project||r.project_name||'')===fp);
+  if(fs)rows=rows.filter(r=>(r.approval_status||r.status2||'Approved')===fs);
+  // totals only from approved
   let dr=0,cr=0;
-  rows.forEach(r=>{isIncome(r.type||r.entry_type||'')?cr+=Number(r.amount||0):dr+=Number(r.amount||0);});
+  rows.filter(r=>(r.approval_status||r.status2||'Approved')==='Approved').forEach(r=>{
+    isIncome(r.type||r.entry_type||'')?cr+=Number(r.amount||0):dr+=Number(r.amount||0);
+  });
   const wrap=document.getElementById('txWrap'),tot=document.getElementById('ledTotals');
   if(!wrap)return;
   wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table>
     <tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th><th></th></tr>
     ${rows.map((r,i)=>{
+      const idx=DB.transactions.indexOf(r);
       const type=r.type||r.entry_type||'';
       const inc=isIncome(type);
       const proj=r.project||r.project_name||'';
       const desc=r.description||r.category||'';
-      return`<tr>
+      const apStatus=r.approval_status||r.status2||'Approved';
+      const isPending=apStatus==='Pending';
+      return`<tr style="${isPending?'opacity:.7;background:#fffbf0':''}">
         <td style="white-space:nowrap;font-size:12px">${displayDate(r.date||'')}</td>
-        <td><span class="tag t-${typeTag(type)}">${type}</span><br/>
-          <span style="font-size:12px;color:var(--sub)">${desc}</span>
+        <td>
+          <span class="tag t-${typeTag(type)}">${type}</span>
+          <span class="tag t-${isPending?'pending':'approved'}" style="margin-left:3px">${apStatus}</span>
+          <br/><span style="font-size:12px;color:var(--sub)">${desc}</span>
           ${proj?`<br/><span style="font-size:11px;color:var(--sub)">🏗 ${proj}</span>`:''}
         </td>
         <td style="color:var(--red);font-weight:700;white-space:nowrap">${!inc?fmtN(r.amount):'—'}</td>
         <td style="color:var(--green);font-weight:700;white-space:nowrap">${inc?fmtN(r.amount):'—'}</td>
         <td><div style="display:flex;flex-direction:column;gap:4px">
-          <button class="btn-sm blue" onclick="editTx(${DB.transactions.indexOf(r)})">✏️</button>
-          <button class="btn-sm red" onclick="delTx(${DB.transactions.indexOf(r)})">🗑</button>
+          ${currentRole==='admin'&&isPending?`<button class="btn-sm green" onclick="approveTx(${idx})">✓</button>`:''}
+          ${currentRole==='admin'?`<button class="btn-sm blue" onclick="editTx(${idx})">✏️</button>`:''}
+          ${currentRole==='admin'?`<button class="btn-sm red" onclick="delTx(${idx})">🗑</button>`:''}
         </div></td>
       </tr>`;
     }).join('')}
@@ -511,17 +507,25 @@ function applyTxFilter(){
     <div class="led-box lb-cr"><div class="ll">Credit</div><div class="lv" style="color:var(--green)">${fmtN(cr)}</div></div>
     <div class="led-box lb-bal"><div class="ll">Balance</div><div class="lv" style="color:var(--blue)">${fmtN(cr-dr)}</div></div>`;
 }
+function approveTx(i){
+  if(!confirm('Approve this entry?'))return;
+  DB.transactions[i].approval_status='Approved';
+  DB.transactions[i].status2='Approved';
+  const r=DB.transactions[i];
+  pushUpdate(`✅ Approved: ${r.description||r.category||''} ${fmt(r.amount)}`,'approve');
+  saveDB();postSheet('updateRow',{sheet:'Transactions',index:i+2,row:[r.date,r.type||r.entry_type,r.category,r.project,r.description,r.amount,r.mode||'Cash',r.approval_status,'Admin','Approved']});
+  toast('✅ Entry approved.');applyTxFilter();
+}
 function delTx(i){
   if(!confirm('Delete?'))return;
   const r=DB.transactions[i];DB.transactions.splice(i,1);
-  pushUpdate(`🗑 Deleted: ${r.description||''} ${fmt(r.amount)}`,'delete');
+  pushUpdate(`🗑 Deleted: ${r.description||r.category||''} ${fmt(r.amount)}`,'delete');
   saveDB();postSheet('deleteRow',{sheet:'Transactions',index:i+2});
   toast('✅ Deleted.');renderLedSeg();
 }
 function editTx(i){
   const r=DB.transactions[i],projs=projNames(),cats=DB.categories;
   const type=r.type||r.entry_type||'Direct Income';
-  const needsProj=isDirect(type);
   openModal(`<div class="modal-title">✏️ Edit Transaction</div>
     <div class="field"><label>Date</label><input type="date" id="ed_date" value="${dmyToISO(r.date)||r.date||''}"/></div>
     <div class="field"><label>Type</label>
@@ -533,23 +537,19 @@ function editTx(i){
       </select>
     </div>
     <div class="field"><label>Category</label><select id="ed_cat">${cats.map(c=>`<option${c===(r.category||r.category_name)?' selected':''}>${c}</option>`).join('')}</select></div>
-    <div class="field" id="ep_proj_wrap" style="display:${needsProj?'block':'none'}"><label>Project</label>
+    <div class="field" id="ep_proj_wrap"><label>Project</label>
       <select id="ed_proj"><option value="">—</option>${projs.map(p=>`<option${p===(r.project||r.project_name)?' selected':''}>${p}</option>`).join('')}</select>
     </div>
     <div class="field"><label>Description</label><input id="ed_desc" value="${r.description||''}"/></div>
     <div class="field"><label>Amount (₹)</label><input type="number" id="ed_amt" value="${r.amount||''}"/></div>
     <button class="btn btn-green" onclick="saveEditTx(${i})">Save</button>`);
+  toggleEPWrap();
 }
 function toggleEPWrap(){const t=v('ed_type');const w=document.getElementById('ep_proj_wrap');if(w)w.style.display=isDirect(t)?'block':'none';}
 function saveEditTx(i){
-  const type=v('ed_type');
-  const dateVal=v('ed_date');
-  DB.transactions[i]={...DB.transactions[i],
-    date:dateVal?isoToDMY(dateVal):DB.transactions[i].date,
-    type,category:v('ed_cat'),
-    project:isDirect(type)?v('ed_proj'):'',
-    description:v('ed_desc'),amount:v('ed_amt')};
-  pushUpdate(`✏️ Edited: ${v('ed_desc')} ${fmt(v('ed_amt'))}`,'edit');
+  const type=v('ed_type');const dateISO=v('ed_date');
+  DB.transactions[i]={...DB.transactions[i],date:dateISO?isoToDMY(dateISO):DB.transactions[i].date,type,category:v('ed_cat'),project:isDirect(type)?v('ed_proj'):'',description:v('ed_desc'),amount:v('ed_amt')};
+  pushUpdate(`✏️ Edited: ${v('ed_desc')||v('ed_cat')} ${fmt(v('ed_amt'))}`,'edit');
   saveDB();closeModal();toast('✅ Updated.');renderLedSeg();
 }
 
@@ -563,12 +563,9 @@ function renderVPLedger(wrap){
       <button class="seg-btn" id="vpS2" onclick="setVPMode('project',this)">Project</button>
     </div>
     <div id="vpSel">
-      <div class="field"><label>Select Vendor</label>
-        <select id="vpVendor" onchange="renderVPTable()"><option value="">— Select —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select>
-      </div>
+      <div class="field"><label>Select Vendor</label><select id="vpVendor" onchange="renderVPTable()"><option value="">— Select —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>
     </div>
-    <div id="vpWrap"></div>
-    <div class="led-row" id="vpTotals"></div>
+    <div id="vpWrap"></div><div class="led-row" id="vpTotals"></div>
   </div>`;
 }
 function setVPMode(mode,el){
@@ -578,8 +575,7 @@ function setVPMode(mode,el){
   if(sel)sel.innerHTML=mode==='vendor'
     ?`<div class="field"><label>Select Vendor</label><select id="vpVendor" onchange="renderVPTable()"><option value="">— Select —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>`
     :`<div class="field"><label>Select Project</label><select id="vpProject" onchange="renderVPTable()"><option value="">— Select —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>`;
-  document.getElementById('vpWrap').innerHTML='';
-  document.getElementById('vpTotals').innerHTML='';
+  document.getElementById('vpWrap').innerHTML='';document.getElementById('vpTotals').innerHTML='';
 }
 function renderVPTable(){
   const wrap=document.getElementById('vpWrap'),tot=document.getElementById('vpTotals');if(!wrap)return;
@@ -587,36 +583,32 @@ function renderVPTable(){
     const sel=v('vpVendor');if(!sel){wrap.innerHTML='';tot.innerHTML='';return;}
     const rows=[];
     fySite().filter(r=>(r.vendor||r.vendor_name||'')===sel).forEach(r=>rows.push({date:r.date||'',desc:r.description||'',type:'Bill Receipt',dr:0,cr:Number(r.amount||0)}));
-    fyTx().filter(r=>(r.vendor||r.vendor_name||'')===sel||(r.description||'').toLowerCase().includes(sel.toLowerCase())).forEach(r=>rows.push({date:r.date||'',desc:r.description||'',type:'Payment',dr:Number(r.amount||0),cr:0}));
+    fyTx(false).filter(r=>(r.vendor||r.vendor_name||'')===sel||(r.description||'').toLowerCase().includes(sel.toLowerCase())).forEach(r=>rows.push({date:r.date||'',desc:r.description||'',type:'Payment',dr:Number(r.amount||0),cr:0}));
     rows.sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
     const tDr=rows.reduce((s,r)=>s+r.dr,0),tCr=rows.reduce((s,r)=>s+r.cr,0);
     wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table><tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th></tr>
-    ${rows.map(r=>`<tr>
-      <td style="font-size:12px;white-space:nowrap">${displayDate(r.date)}</td>
+    ${rows.map(r=>`<tr><td style="font-size:12px;white-space:nowrap">${displayDate(r.date)}</td>
       <td><span class="tag ${r.type==='Bill Receipt'?'t-di':'t-de'}">${r.type}</span><br/><span style="font-size:12px;color:var(--sub)">${r.desc}</span></td>
       <td style="color:var(--red);font-weight:700">${r.dr?fmtN(r.dr):'—'}</td>
-      <td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td>
-    </tr>`).join('')}</table></div>`:empty('📭',`No entries for ${sel}.`);
+      <td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td></tr>`).join('')}</table></div>`:empty('📭',`No entries for ${sel}.`);
     tot.innerHTML=`<div class="led-box lb-dr"><div class="ll">Paid</div><div class="lv" style="color:var(--red)">${fmtN(tDr)}</div></div><div class="led-box lb-cr"><div class="ll">Bills</div><div class="lv" style="color:var(--green)">${fmtN(tCr)}</div></div><div class="led-box lb-bal"><div class="ll">Balance Due</div><div class="lv" style="color:var(--blue)">${fmtN(tCr-tDr)}</div></div>`;
   }else{
     const sel=v('vpProject');if(!sel){wrap.innerHTML='';tot.innerHTML='';return;}
     const rows=[];
     fySales().filter(r=>(r.project||r.project_name||'')===sel).forEach(r=>rows.push({date:r.date||'',desc:r.description||'',type:'Sales',dr:Number(r.amount||0),cr:0}));
-    fyTx().filter(r=>((r.project||r.project_name||'')===sel)&&isIncome(r.type||r.entry_type||'')).forEach(r=>rows.push({date:r.date||'',desc:r.description||'',type:'Payment Received',dr:0,cr:Number(r.amount||0)}));
+    fyTx(false).filter(r=>((r.project||r.project_name||'')===sel)&&isIncome(r.type||r.entry_type||'')).forEach(r=>rows.push({date:r.date||'',desc:r.description||'',type:'Payment Received',dr:0,cr:Number(r.amount||0)}));
     rows.sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
     const tDr=rows.reduce((s,r)=>s+r.dr,0),tCr=rows.reduce((s,r)=>s+r.cr,0);
     wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table><tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th></tr>
-    ${rows.map(r=>`<tr>
-      <td style="font-size:12px;white-space:nowrap">${displayDate(r.date)}</td>
+    ${rows.map(r=>`<tr><td style="font-size:12px;white-space:nowrap">${displayDate(r.date)}</td>
       <td><span class="tag ${r.type==='Sales'?'t-de':'t-di'}">${r.type}</span><br/><span style="font-size:12px;color:var(--sub)">${r.desc}</span></td>
       <td style="color:var(--red);font-weight:700">${r.dr?fmtN(r.dr):'—'}</td>
-      <td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td>
-    </tr>`).join('')}</table></div>`:empty('📭',`No entries for ${sel}.`);
+      <td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td></tr>`).join('')}</table></div>`:empty('📭',`No entries for ${sel}.`);
     tot.innerHTML=`<div class="led-box lb-dr"><div class="ll">Sales Billed</div><div class="lv" style="color:var(--red)">${fmtN(tDr)}</div></div><div class="led-box lb-cr"><div class="ll">Received</div><div class="lv" style="color:var(--green)">${fmtN(tCr)}</div></div><div class="led-box lb-bal"><div class="ll">Outstanding</div><div class="lv" style="color:var(--blue)">${fmtN(tDr-tCr)}</div></div>`;
   }
 }
 
-// ═══ ADD ENTRY ══════════════════════════════════════════════
+// ═══ ADD ENTRY (ADMIN) ══════════════════════════════════════
 function renderAddEntry(c){
   const projs=projNames(),cats=DB.categories;
   c.innerHTML=`<div class="sec-head"><h2>New Transaction</h2></div>
@@ -625,17 +617,15 @@ function renderAddEntry(c){
       <div class="field"><label>Date</label><input type="date" id="txDate" value="${todayISO()}"/></div>
       <div class="field"><label>Entry Type</label>
         <select id="txType" onchange="toggleProjField()">
-          <option>Direct Income</option>
-          <option>Indirect Income</option>
-          <option>Direct Expense</option>
-          <option>Indirect Expense</option>
+          <option>Direct Income</option><option>Indirect Income</option>
+          <option>Direct Expense</option><option>Indirect Expense</option>
         </select>
       </div>
     </div>
     <div class="field"><label>Category <button class="btn-sm blue" onclick="manageCats()" style="margin-left:6px;font-size:11px">⚙️</button></label>
       <select id="txCat">${cats.map(c=>`<option>${c}</option>`).join('')}</select>
     </div>
-    <div class="field" id="projField" style="display:block"><label>Project</label>
+    <div class="field" id="projField"><label>Project</label>
       <select id="txProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
     </div>
     <div class="field"><label>Description</label><input id="txDesc" placeholder="Brief description"/></div>
@@ -644,11 +634,7 @@ function renderAddEntry(c){
   </div>`;
   toggleProjField();
 }
-function toggleProjField(){
-  const t=v('txType');
-  const f=document.getElementById('projField');
-  if(f)f.style.display=isDirect(t)?'block':'none';
-}
+function toggleProjField(){const f=document.getElementById('projField');if(f)f.style.display=isDirect(v('txType'))?'block':'none';}
 function manageCats(){
   openModal(`<div class="modal-title">⚙️ Categories</div>
     <div id="catList">${DB.categories.map((c,i)=>`<div style="display:flex;gap:8px;margin-bottom:8px"><input style="flex:1;padding:10px;border:1.5px solid var(--border);border-radius:9px;font-size:15px" value="${c}" onchange="DB.categories[${i}]=this.value;saveDB()"/><button class="btn-sm red" onclick="deleteCat(${i})">🗑</button></div>`).join('')}</div>
@@ -658,23 +644,103 @@ function manageCats(){
 function addCat(){const val=document.getElementById('newCat').value.trim();if(!val)return;DB.categories.push(val);saveDB();manageCats();}
 function deleteCat(i){DB.categories.splice(i,1);saveDB();manageCats();}
 async function submitTx(){
-  const type=v('txType');
-  const dateISO=v('txDate');
-  const obj={
-    date:isoToDMY(dateISO),
-    type,category:v('txCat'),
-    project:isDirect(type)?v('txProj'):'',
-    description:v('txDesc'),
-    amount:v('txAmt'),
-    mode:'Cash',status:'Paid',addedBy:'Admin'
-  };
-  if(!obj.amount){toast('⚠️ Enter amount.');return;}
+  const type=v('txType');const desc=v('txDesc');const amt=v('txAmt');const cat=v('txCat');
+  const obj={date:isoToDMY(v('txDate')),type,category:cat,project:isDirect(type)?v('txProj'):'',description:desc,amount:amt,mode:'Cash',approval_status:'Approved',status2:'Approved',addedBy:'Admin'};
+  if(!amt){toast('⚠️ Enter amount.');return;}
   if(isDirect(type)&&!obj.project){toast('⚠️ Project required for Direct entries.');return;}
   DB.transactions.push(obj);
-  await pushUpdate(`➕ ${type}: ${obj.description||obj.category} ${fmt(obj.amount)}`);
+  await pushUpdate(`➕ ${type}: ${desc||cat} ${fmt(amt)}`);
   saveDB();toast('<span class="spinner"></span>Saving…',900);
-  await postSheet('addTransaction',{row:[obj.date,obj.type,obj.category,obj.project,obj.description,obj.amount,obj.mode,obj.status,'Admin']});
+  await postSheet('addTransaction',{row:[obj.date,obj.type,obj.category,obj.project,obj.description,obj.amount,'Cash','Approved','Admin']});
   toast('✅ Saved!');renderTab('add_entry');
+}
+
+// ═══ PETTY CASH ═════════════════════════════════════════════
+function renderPettyCash(c){
+  const isAdmin=currentRole==='admin';
+  const pcRows=fyPC();
+  // Balance = sum of top-ups by admin minus sum of expenses
+  const topups=pcRows.filter(r=>r.entry_type==='Top-up'||(r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
+  const expenses=pcRows.filter(r=>r.entry_type!=='Top-up'&&(r.type||'')!=='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
+  const balance=topups-expenses;
+  // Pending approvals
+  const pending=pcRows.filter(r=>(r.approval_status||'Pending')==='Pending');
+
+  c.innerHTML=`<div class="sec-head"><h2>Petty Cash</h2></div>
+  <div class="pc-balance">
+    <div class="pb-lbl">Available Balance</div>
+    <div class="pb-val">${fmt(balance)}</div>
+    <div style="font-size:12px;opacity:.7;margin-top:4px">Topped up: ${fmt(topups)} | Spent: ${fmt(expenses)}</div>
+  </div>
+  ${isAdmin?`<div style="display:flex;gap:10px;margin-bottom:12px">
+    <button class="btn btn-green" style="flex:1;padding:12px" onclick="showTopup()">＋ Top-up Cash</button>
+  </div>`:''}
+  ${!isAdmin?`<div class="card">
+    <div class="card-title">➕ Add Cash Expense</div>
+    <div class="field"><label>Date</label><input type="date" id="pcDate" value="${todayISO()}"/></div>
+    <div class="field"><label>Description</label><input id="pcDesc" placeholder="What was it spent on?"/></div>
+    <div class="field"><label>Amount (₹)</label><input type="number" id="pcAmt" inputmode="decimal" placeholder="0.00"/></div>
+    <button class="btn btn-green" onclick="submitPCExpense()">Submit Expense</button>
+  </div>`:''}
+  <div class="card" style="padding:12px">
+    <div class="card-title">📋 Petty Cash Log</div>
+    ${pending.length&&isAdmin?`<div style="background:#fef3cd;border-radius:8px;padding:10px;margin-bottom:10px;font-size:13px;color:#856404;font-weight:600">⏳ ${pending.length} expense${pending.length>1?'s':''} pending your approval</div>`:''}
+    <div id="pcLog">${renderPCLog(pcRows,isAdmin)}</div>
+  </div>`;
+}
+function renderPCLog(rows,isAdmin){
+  if(!rows.length)return empty('💵','No petty cash entries yet.');
+  const sorted=[...rows].sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
+  return sorted.map(r=>{
+    const isTopup=(r.entry_type||r.type||'')==='Top-up';
+    const apStatus=r.approval_status||'Pending';
+    const idx=DB.pettycash.indexOf(r);
+    return`<div style="padding:10px 0;border-bottom:1px solid var(--border)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-weight:600;font-size:14px">${r.description||'—'}</div>
+          <div style="font-size:12px;color:var(--sub);margin-top:2px">${displayDate(r.date)} · ${isTopup?'Top-up':'Expense'}</div>
+          <span class="tag t-${apStatus==='Approved'?'approved':'pending'}" style="margin-top:3px">${apStatus}</span>
+        </div>
+        <div style="text-align:right">
+          <div style="font-weight:700;font-size:15px;color:${isTopup?'var(--green)':'var(--red)'}">${isTopup?'+':'−'}${fmt(r.amount)}</div>
+          ${isAdmin&&apStatus==='Pending'?`<button class="btn-sm green" style="margin-top:4px" onclick="approvePC(${idx})">✓ Approve</button>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function showTopup(){
+  openModal(`<div class="modal-title">💵 Top-up Petty Cash</div>
+    <div class="field"><label>Date</label><input type="date" id="tu_date" value="${todayISO()}"/></div>
+    <div class="field"><label>Amount (₹)</label><input type="number" id="tu_amt" inputmode="decimal" placeholder="0.00"/></div>
+    <div class="field"><label>Notes</label><input id="tu_note" placeholder="Optional"/></div>
+    <button class="btn btn-green" onclick="submitTopup()">Add Top-up</button>`);
+}
+async function submitTopup(){
+  const obj={date:isoToDMY(v('tu_date')),entry_type:'Top-up',description:v('tu_note')||'Petty cash top-up',amount:v('tu_amt'),approval_status:'Approved',addedBy:'Admin'};
+  if(!obj.amount){toast('⚠️ Enter amount.');return;}
+  DB.pettycash.push(obj);
+  await pushUpdate(`💵 Petty cash top-up: ${fmt(obj.amount)}`);
+  saveDB();await postSheet('addPettyCash',{row:[obj.date,obj.entry_type,obj.description,obj.amount,obj.approval_status,'Admin']});
+  toast('✅ Top-up added!');closeModal();renderTab('petty_cash');
+}
+async function submitPCExpense(){
+  const obj={date:isoToDMY(v('pcDate')),entry_type:'Expense',description:v('pcDesc'),amount:v('pcAmt'),approval_status:'Pending',addedBy:'Supervisor'};
+  if(!obj.description||!obj.amount){toast('⚠️ Description and Amount required.');return;}
+  DB.pettycash.push(obj);
+  await pushUpdate(`💵 Petty cash expense (pending): ${obj.description} ${fmt(obj.amount)}`);
+  saveDB();await postSheet('addPettyCash',{row:[obj.date,obj.entry_type,obj.description,obj.amount,obj.approval_status,'Supervisor']});
+  toast('✅ Expense submitted — pending admin approval.');renderTab('petty_cash');
+}
+async function approvePC(i){
+  if(i<0||i>=DB.pettycash.length){toast('⚠️ Entry not found.');return;}
+  if(!confirm('Approve this petty cash expense?'))return;
+  DB.pettycash[i].approval_status='Approved';
+  const r=DB.pettycash[i];
+  await pushUpdate(`✅ Approved petty cash: ${r.description} ${fmt(r.amount)}`,'approve');
+  saveDB();await postSheet('updateRow',{sheet:'PettyCash',index:i+2,row:[r.date,r.entry_type,r.description,r.amount,'Approved',r.addedBy||'Supervisor']});
+  toast('✅ Approved.');renderTab('petty_cash');
 }
 
 // ═══ REPORTS ═══════════════════════════════════════════════
@@ -690,18 +756,20 @@ function renderReports(c){
 }
 function setRepSeg(s,el){reportSeg=s;document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderRepSeg();}
 function renderRepSeg(){const w=document.getElementById('repContent');if(w)reportSeg==='net'?renderNetPL(w):renderProjectPL(w);}
-
 function renderNetPL(wrap){
-  const rows=fyTx();
+  const rows=fyTx(true); // approved only
   const di=rows.filter(r=>(r.type||r.entry_type||'')==='Direct Income').reduce((s,r)=>s+Number(r.amount||0),0);
   const ii=rows.filter(r=>(r.type||r.entry_type||'')==='Indirect Income').reduce((s,r)=>s+Number(r.amount||0),0);
   const de=rows.filter(r=>(r.type||r.entry_type||'')==='Direct Expense').reduce((s,r)=>s+Number(r.amount||0),0);
   const ie=rows.filter(r=>(r.type||r.entry_type||'')==='Indirect Expense').reduce((s,r)=>s+Number(r.amount||0),0);
+  // Approved petty cash expenses
+  const pcExp=fyPC().filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
   const totalIncome=di+ii;
   const grossProfit=di-de;
-  const netProfit=totalIncome-(de+ie);
+  const netProfit=totalIncome-(de+ie+pcExp);
   wrap.innerHTML=`<div class="card">
     <div class="card-title">📊 Net P&L — FY ${getFYLabel(selectedFY)}</div>
+    <div style="font-size:11px;color:var(--sub);margin-bottom:8px">Only approved entries are included</div>
     <div class="pl-row header"><span>Particulars</span><span>₹</span></div>
     <div class="pl-row item"><span style="font-weight:600">Income</span><span></span></div>
     <div class="pl-row sub"><span>Direct Income</span><span style="color:var(--green)">${fmtN(di)}</span></div>
@@ -713,31 +781,28 @@ function renderNetPL(wrap){
     <div class="pl-row total"><span>Gross Profit</span><span style="color:${grossProfit>=0?'var(--green)':'var(--red)'}">${fmtN(grossProfit)}</span></div>
     <div style="height:6px"></div>
     <div class="pl-row sub"><span>Indirect Expenses</span><span style="color:var(--red)">${fmtN(ie)}</span></div>
+    <div class="pl-row sub"><span>Petty Cash Expenses</span><span style="color:var(--red)">${fmtN(pcExp)}</span></div>
     <div class="pl-row ${netProfit>=0?'profit':'loss'}"><span>Net Profit / Loss</span><span>${fmtN(netProfit)}</span></div>
   </div>`;
 }
-
 function renderProjectPL(wrap){
   const projs=projNames();
   if(!projs.length){wrap.innerHTML=empty('🏗','No projects yet.');return;}
   wrap.innerHTML=`<div class="card">
     <div class="card-title">🏗 Project P&L — FY ${getFYLabel(selectedFY)}</div>
+    <div style="font-size:11px;color:var(--sub);margin-bottom:10px">Only approved entries are included</div>
     <div class="field"><label>Select Project</label>
-      <select id="plProjSel" onchange="renderProjPLTable()" style="margin-bottom:0">
-        <option value="">— Select a Project —</option>
-        ${projs.map(p=>`<option>${p}</option>`).join('')}
-      </select>
+      <select id="plProjSel" onchange="renderProjPLTable()"><option value="">— Select a Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
     </div>
-    <div id="plProjTable" style="margin-top:12px"></div>
+    <div id="plProjTable" style="margin-top:10px"></div>
   </div>`;
 }
 function renderProjPLTable(){
-  const p=v('plProjSel');
-  const wrap=document.getElementById('plProjTable');if(!wrap)return;
+  const p=v('plProjSel');const wrap=document.getElementById('plProjTable');if(!wrap)return;
   if(!p){wrap.innerHTML='';return;}
-  const rows=fyTx();
-  const di=rows.filter(r=>(r.project||r.project_name||'')===p&&(r.type||r.entry_type||'')==='Direct Income').reduce((s,r)=>s+Number(r.amount||0),0);
-  const de=rows.filter(r=>(r.project||r.project_name||'')===p&&(r.type||r.entry_type||'')==='Direct Expense').reduce((s,r)=>s+Number(r.amount||0),0);
+  const rows=fyTx(true).filter(r=>(r.project||r.project_name||'')===p);
+  const di=rows.filter(r=>(r.type||r.entry_type||'')==='Direct Income').reduce((s,r)=>s+Number(r.amount||0),0);
+  const de=rows.filter(r=>(r.type||r.entry_type||'')==='Direct Expense').reduce((s,r)=>s+Number(r.amount||0),0);
   const sales=fySales().filter(r=>(r.project||r.project_name||'')===p).reduce((s,r)=>s+Number(r.amount||0),0);
   const net=di-de;
   wrap.innerHTML=`
@@ -760,10 +825,7 @@ function renderProjects(c){
     </div>
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
       <div><div style="font-size:11px;color:var(--sub);font-weight:700">APPROVED BUDGET</div><div style="font-weight:700;color:var(--blue)">${fmt(projBudget[nm]||0)}</div></div>
-      <div style="display:flex;gap:8px">
-        <button class="btn-sm green" onclick="showAddSales('${nm}')">＋ Sales</button>
-        <button class="btn-sm red" onclick="delProject(${i})">🗑</button>
-      </div>
+      <div style="display:flex;gap:8px"><button class="btn-sm green" onclick="showAddSales('${nm}')">＋ Sales</button><button class="btn-sm red" onclick="delProject(${i})">🗑</button></div>
     </div>
   </div>`;}).join(''):empty('🏗','No projects yet.')}`;
 }
@@ -771,10 +833,7 @@ function showAddProject(){
   openModal(`<div class="modal-title">🏗 New Project</div>
     <div class="field"><label>Project Name</label><input id="pj_name" placeholder="e.g. Sharma Residence"/></div>
     <div class="field"><label>Client Name</label><input id="pj_client" placeholder="Client name"/></div>
-    <div class="row2">
-      <div class="field"><label>Start Date</label><input type="date" id="pj_start" value="${todayISO()}"/></div>
-      <div class="field"><label>Status</label><select id="pj_status"><option>Active</option><option>On Hold</option><option>Completed</option></select></div>
-    </div>
+    <div class="row2"><div class="field"><label>Start Date</label><input type="date" id="pj_start" value="${todayISO()}"/></div><div class="field"><label>Status</label><select id="pj_status"><option>Active</option><option>On Hold</option><option>Completed</option></select></div></div>
     <button class="btn btn-green" onclick="submitProject()">Add Project</button>`);
 }
 async function submitProject(){
@@ -831,15 +890,9 @@ function showAddEstimate(){
   const projs=projNames();
   openModal(`<div class="modal-title">📋 New Estimate</div>
     <div class="field"><label>Project</label><select id="ep_proj"><option value="">— Select —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
-    <div class="row2">
-      <div class="field"><label>No</label><input id="ep_no" placeholder="EST-001"/></div>
-      <div class="field"><label>Date</label><input type="date" id="ep_date" value="${todayISO()}"/></div>
-    </div>
+    <div class="row2"><div class="field"><label>No</label><input id="ep_no" placeholder="EST-001"/></div><div class="field"><label>Date</label><input type="date" id="ep_date" value="${todayISO()}"/></div></div>
     <div class="field"><label>Scope</label><textarea id="ep_desc" placeholder="Work scope"></textarea></div>
-    <div class="row2">
-      <div class="field"><label>Amount (₹)</label><input type="number" id="ep_amt" inputmode="decimal" placeholder="0"/></div>
-      <div class="field"><label>Status</label><select id="ep_status"><option>Draft</option><option>Sent</option><option>Approved</option><option>Rejected</option></select></div>
-    </div>
+    <div class="row2"><div class="field"><label>Amount (₹)</label><input type="number" id="ep_amt" inputmode="decimal" placeholder="0"/></div><div class="field"><label>Status</label><select id="ep_status"><option>Draft</option><option>Sent</option><option>Approved</option><option>Rejected</option></select></div></div>
     <button class="btn btn-green" onclick="submitEstimate()">Save</button>`);
 }
 async function submitEstimate(){
@@ -854,21 +907,12 @@ function editEst(i){
   const r=DB.estimates[i],projs=projNames();
   openModal(`<div class="modal-title">✏️ Edit Estimate</div>
     <div class="field"><label>Project</label><select id="ee_proj"><option value="">—</option>${projs.map(p=>`<option${p===(r.project||r.project_name)?' selected':''}>${p}</option>`).join('')}</select></div>
-    <div class="row2">
-      <div class="field"><label>No</label><input id="ee_no" value="${r.est_no||r.estNo||''}"/></div>
-      <div class="field"><label>Date</label><input type="date" id="ee_date" value="${dmyToISO(r.date||'')||r.date||''}"/></div>
-    </div>
+    <div class="row2"><div class="field"><label>No</label><input id="ee_no" value="${r.est_no||r.estNo||''}"/></div><div class="field"><label>Date</label><input type="date" id="ee_date" value="${dmyToISO(r.date||'')||''}"/></div></div>
     <div class="field"><label>Scope</label><textarea id="ee_desc">${r.description||''}</textarea></div>
-    <div class="row2">
-      <div class="field"><label>Amount</label><input type="number" id="ee_amt" value="${r.amount||''}"/></div>
-      <div class="field"><label>Status</label><select id="ee_status"><option${r.status==='Draft'?' selected':''}>Draft</option><option${r.status==='Sent'?' selected':''}>Sent</option><option${r.status==='Approved'?' selected':''}>Approved</option><option${r.status==='Rejected'?' selected':''}>Rejected</option></select></div>
-    </div>
+    <div class="row2"><div class="field"><label>Amount</label><input type="number" id="ee_amt" value="${r.amount||''}"/></div><div class="field"><label>Status</label><select id="ee_status"><option${r.status==='Draft'?' selected':''}>Draft</option><option${r.status==='Sent'?' selected':''}>Sent</option><option${r.status==='Approved'?' selected':''}>Approved</option><option${r.status==='Rejected'?' selected':''}>Rejected</option></select></div></div>
     <button class="btn btn-green" onclick="saveEditEst(${i})">Save</button>`);
 }
-function saveEditEst(i){
-  DB.estimates[i]={...DB.estimates[i],project:v('ee_proj'),estNo:v('ee_no'),date:isoToDMY(v('ee_date')),description:v('ee_desc'),amount:v('ee_amt'),status:v('ee_status')};
-  pushUpdate(`✏️ Estimate updated: ${v('ee_no')}`,'edit');saveDB();closeModal();toast('✅ Updated.');renderTab('estimates');
-}
+function saveEditEst(i){DB.estimates[i]={...DB.estimates[i],project:v('ee_proj'),estNo:v('ee_no'),date:isoToDMY(v('ee_date')),description:v('ee_desc'),amount:v('ee_amt'),status:v('ee_status')};pushUpdate(`✏️ Estimate updated: ${v('ee_no')}`,'edit');saveDB();closeModal();toast('✅ Updated.');renderTab('estimates');}
 
 // ═══ VENDORS ═══════════════════════════════════════════════
 function renderVendors(c){
@@ -883,7 +927,7 @@ function renderVendors(c){
 }
 function showAddVendor(){
   openModal(`<div class="modal-title">🏪 Add Vendor</div>
-    <div class="field"><label>Vendor Name</label><input id="vn_name" placeholder="Name"/></div>
+    <div class="field"><label>Name</label><input id="vn_name" placeholder="Vendor name"/></div>
     <div class="row2"><div class="field"><label>Contact</label><input id="vn_contact" placeholder="Person"/></div><div class="field"><label>Phone</label><input id="vn_phone" inputmode="tel" placeholder="+91"/></div></div>
     <div class="row2"><div class="field"><label>GST No</label><input id="vn_gst" placeholder="Optional"/></div><div class="field"><label>Category</label><select id="vn_cat"><option>Material Supplier</option><option>Labour Contractor</option><option>Equipment Rental</option><option>Service Provider</option><option>Other</option></select></div></div>
     <button class="btn btn-green" onclick="submitVendor()">Save</button>`);
@@ -914,7 +958,7 @@ function renderSettings(c){
     <button class="btn btn-primary" onclick="saveAPI()">Save & Test</button>
   </div>
   <div class="card"><div class="card-title">📊 Data Summary</div>
-    ${[['Transactions',DB.transactions.length],['Estimates',DB.estimates.length],['Projects',DB.projects.length],['Vendors',DB.vendors.length],['Site Entries',DB.siteEntries.length],['Sales Entries',DB.salesEntries.length]].map(([l,n])=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)"><span style="font-size:14px;color:var(--sub)">${l}</span><span style="font-weight:700">${n}</span></div>`).join('')}
+    ${[['Transactions',DB.transactions.length],['Estimates',DB.estimates.length],['Projects',DB.projects.length],['Vendors',DB.vendors.length],['Site Entries',DB.siteEntries.length],['Sales Entries',DB.salesEntries.length],['Petty Cash',DB.pettycash.length]].map(([l,n])=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)"><span style="font-size:14px;color:var(--sub)">${l}</span><span style="font-weight:700">${n}</span></div>`).join('')}
   </div>`;
 }
 async function saveAPI(){
@@ -923,14 +967,14 @@ async function saveAPI(){
   document.getElementById('toast').style.display='none';toast(ok?'✅ Connected!':'❌ Could not connect.');
 }
 
-// ═══ SUPERVISOR: ADD ════════════════════════════════════════
+// ═══ SUPERVISOR: ADD SITE ENTRY ══════════════════════════════
 function renderSiteAdd(c){
   const projs=projNames(),vends=vendNames();
   c.innerHTML=`<div class="sec-head"><h2>Add Site Entry</h2></div>
   <div class="card">
     <div class="row2">
       <div class="field"><label>Date</label><input type="date" id="sDate" value="${todayISO()}"/></div>
-      <div class="field"><label>Entry Type</label><select id="sType" onchange="togglePhotoField()"><option>Bill / Material Receipt</option><option>Cash Expense</option></select></div>
+      <div class="field"><label>Entry Type</label><select id="sType" onchange="togglePhotoField()"><option>Bill / Material Receipt</option></select></div>
     </div>
     <div class="field"><label>Project</label><select id="sProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
     <div class="field"><label>Vendor</label>
@@ -959,10 +1003,10 @@ function renderSiteAdd(c){
     reader.readAsDataURL(file);
   });
 }
-function togglePhotoField(){document.getElementById('photoSection').style.display=v('sType')==='Bill / Material Receipt'?'block':'none';}
+function togglePhotoField(){}
 async function submitSiteEntry(){
   const vs=v('sVendor'),vendor=vs==='__other__'?v('sVendorOther'):vs;
-  const obj={date:isoToDMY(v('sDate')),type:v('sType'),project:v('sProj'),vendor,description:v('sDesc'),amount:v('sAmt'),bill:v('sBill'),addedBy:'Supervisor'};
+  const obj={date:isoToDMY(v('sDate')),type:'Bill / Material Receipt',project:v('sProj'),vendor,description:v('sDesc'),amount:v('sAmt'),bill:v('sBill'),approval_status:'Pending',addedBy:'Supervisor'};
   if(!obj.description||!obj.amount){toast('⚠️ Description and Amount required.');return;}
   const photoFile=document.getElementById('sPhoto')?.files?.[0];
   if(photoFile&&API_URL){
@@ -971,21 +1015,21 @@ async function submitSiteEntry(){
     catch(e){console.warn('Photo upload failed',e);}
   }
   DB.siteEntries.push(obj);
-  await pushUpdate(`📦 ${obj.type} by Supervisor: ${obj.description} ${fmt(obj.amount)} [${vendor||'No vendor'}]`);
+  await pushUpdate(`📦 Bill receipt (pending): ${obj.description} ${fmt(obj.amount)} [${vendor||'No vendor'}]`);
   saveDB();toast('<span class="spinner"></span>Submitting…',1500);
-  await postSheet('addSiteEntry',{row:[obj.date,obj.type,obj.project,obj.vendor,obj.description,obj.amount,obj.bill,obj.photoUrl||'','Supervisor']});
-  toast('✅ Submitted!');renderTab('add_site');
+  await postSheet('addSiteEntry',{row:[obj.date,obj.type,obj.project,obj.vendor,obj.description,obj.amount,obj.bill,obj.photoUrl||'','Supervisor','Pending']});
+  toast('✅ Submitted — pending admin approval.');renderTab('add_site');
 }
 function fileToB64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=e=>res(e.target.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
 
-// ═══ SUPERVISOR: VIEW ═══════════════════════════════════════
+// ═══ SUPERVISOR: VIEW ENTRIES ═══════════════════════════════
 function renderSiteView(c){
   const projs=projNames(),vends=vendNames();
   c.innerHTML=`<div class="sec-head"><h2>My Entries</h2></div>
   <div class="card" style="padding:12px">
     <div class="filter-row">
       <input type="text" id="svDate" placeholder="Filter date" oninput="applySiteFilter()"/>
-      <select id="svType" onchange="applySiteFilter()"><option value="">All Types</option><option>Bill / Material Receipt</option><option>Cash Expense</option></select>
+      <select id="svStatus" onchange="applySiteFilter()"><option value="">All Status</option><option>Pending</option><option>Approved</option></select>
     </div>
     <div class="filter-row">
       <select id="svProj" onchange="applySiteFilter()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
@@ -996,27 +1040,31 @@ function renderSiteView(c){
   applySiteFilter();
 }
 function applySiteFilter(){
-  const fd=v('svDate'),ft=v('svType'),fp=v('svProj'),fv=v('svVend');
+  const fd=v('svDate'),fs=v('svStatus'),fp=v('svProj'),fv=v('svVend');
   let rows=DB.siteEntries.slice().sort((a,b)=>parseDMY(b.date||'')-parseDMY(a.date||''));
   if(fd)rows=rows.filter(r=>displayDate(r.date||'').includes(fd));
-  if(ft)rows=rows.filter(r=>r.type===ft);
+  if(fs)rows=rows.filter(r=>(r.approval_status||'Pending')===fs);
   if(fp)rows=rows.filter(r=>(r.project||r.project_name||'')===fp);
   if(fv)rows=rows.filter(r=>(r.vendor||r.vendor_name||'')===fv);
   const wrap=document.getElementById('siteWrap');if(!wrap)return;
-  wrap.innerHTML=rows.length?rows.map(r=>`<div style="padding:12px 0;border-bottom:1px solid var(--border)">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start">
-      <div>
-        <div style="font-weight:600;font-size:15px">${r.description||''}</div>
-        <div style="color:var(--sub);font-size:12px;margin-top:3px">${displayDate(r.date||'')} · ${r.type||''}</div>
-        ${r.project?`<div style="color:var(--sub);font-size:12px">🏗 ${r.project}</div>`:''}
-        ${r.vendor?`<div style="color:var(--sub);font-size:12px">🏪 ${r.vendor}</div>`:''}
+  wrap.innerHTML=rows.length?rows.map(r=>{
+    const apStatus=r.approval_status||'Pending';
+    return`<div style="padding:12px 0;border-bottom:1px solid var(--border)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-weight:600;font-size:15px">${r.description||''}</div>
+          <div style="color:var(--sub);font-size:12px;margin-top:3px">${displayDate(r.date||'')} · ${r.type||''}</div>
+          <span class="tag t-${apStatus==='Approved'?'approved':'pending'}" style="margin-top:3px">${apStatus}</span>
+          ${r.project?`<div style="color:var(--sub);font-size:12px;margin-top:2px">🏗 ${r.project}</div>`:''}
+          ${r.vendor?`<div style="color:var(--sub);font-size:12px">🏪 ${r.vendor}</div>`:''}
+        </div>
+        <div style="text-align:right">
+          <div style="font-weight:700;color:var(--red);font-size:15px">${fmt(r.amount)}</div>
+          ${r.photoUrl?`<a href="${r.photoUrl}" target="_blank" style="font-size:12px;color:var(--blue)">📷 View</a>`:r.bill?`<div style="font-size:12px;color:var(--sub)">${r.bill}</div>`:''}
+        </div>
       </div>
-      <div style="text-align:right">
-        <div style="font-weight:700;color:var(--red);font-size:15px">${fmt(r.amount)}</div>
-        ${r.photoUrl?`<a href="${r.photoUrl}" target="_blank" style="font-size:12px;color:var(--blue)">📷 View</a>`:r.bill?`<div style="font-size:12px;color:var(--sub)">${r.bill}</div>`:''}
-      </div>
-    </div>
-  </div>`).join(''):empty('📭','No entries found.');
+    </div>`;
+  }).join(''):empty('📭','No entries found.');
 }
 </script>
 </body>
