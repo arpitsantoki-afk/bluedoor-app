@@ -57,20 +57,17 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg)
 .btn-sm.red{background:#fce8e6;color:var(--red);}
 .btn-sm.green{background:#d5f5e3;color:var(--green);}
 .btn-sm.orange{background:#fef3cd;color:#856404;}
-/* FEED */
 .feed-item{padding:12px;border-radius:10px;margin-bottom:8px;border-left:3px solid var(--blue);background:var(--lb);}
 .feed-item.del{border-color:var(--red);background:#fce8e6;}
 .feed-item.edit{border-color:var(--orange);background:#fef3cd;}
 .feed-item.approve{border-color:var(--green);background:#d5f5e3;}
 .feed-msg{font-size:14px;line-height:1.5;}
 .feed-time{font-size:12px;color:var(--sub);margin-top:3px;}
-/* TABLE */
 .tbl-wrap{overflow-x:auto;border-radius:10px;margin-top:6px;}
 table{width:100%;border-collapse:collapse;font-size:13px;}
 th{background:var(--lb);padding:10px;text-align:left;font-weight:700;color:var(--blue);white-space:nowrap;font-size:12px;}
 td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
 tr:last-child td{border-bottom:none;}
-/* TAGS */
 .tag{display:inline-block;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:700;}
 .t-di{background:#d5f5e3;color:#1a7a41;}
 .t-ii{background:#e8f1fb;color:var(--blue);}
@@ -81,31 +78,25 @@ tr:last-child td{border-bottom:none;}
 .t-active{background:#d5f5e3;color:#1a7a41;}
 .t-draft,.t-hold{background:#e8eaf0;color:#555;}
 .t-sent{background:#fef3cd;color:#856404;}
-/* LEDGER */
 .led-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;}
 .led-box{border-radius:10px;padding:10px 8px;text-align:center;}
 .led-box .lv{font-size:14px;font-weight:700;margin-top:3px;}
 .led-box .ll{font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;}
 .lb-dr{background:#fce8e6;}.lb-cr{background:#d5f5e3;}.lb-bal{background:var(--lb);}
-/* FILTERS */
 .filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
 .filter-row input,.filter-row select{flex:1;min-width:100px;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;background:white;color:var(--text);outline:none;appearance:none;-webkit-appearance:none;}
-/* SEGMENT */
 .seg{display:flex;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:14px;}
 .seg-btn{flex:1;padding:9px;border:none;background:none;border-radius:8px;font-size:13px;font-weight:600;color:var(--sub);cursor:pointer;}
 .seg-btn.active{background:white;color:var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.1);}
-/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:flex-end;}
 .modal-overlay.show{display:flex;}
 .modal-sheet{background:var(--white);border-radius:20px 20px 0 0;width:100%;max-height:92vh;overflow-y:auto;padding:6px 16px 40px;animation:slideUp .22s ease;}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .modal-handle{width:40px;height:4px;background:var(--border);border-radius:4px;margin:10px auto 16px;}
 .modal-title{font-size:18px;font-weight:700;margin-bottom:16px;}
-/* TOAST */
 #toast{position:fixed;bottom:calc(var(--nav-h)+12px);left:50%;transform:translateX(-50%);background:#1e2d3d;color:white;padding:12px 20px;border-radius:10px;font-size:14px;display:none;z-index:999;white-space:nowrap;max-width:90vw;text-align:center;}
 .spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.4);border-top-color:white;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:5px;}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* LOGIN */
 #loginScreen{position:fixed;inset:0;background:linear-gradient(160deg,var(--blue) 0%,#0d3a6e 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;z-index:300;}
 .login-logo{margin-bottom:28px;text-align:center;}
 .login-logo .icon{width:68px;height:68px;background:rgba(255,255,255,.15);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;}
@@ -118,17 +109,14 @@ tr:last-child td{border-bottom:none;}
 .chk-row{display:flex;align-items:center;gap:9px;margin-bottom:16px;}
 .chk-row input[type=checkbox]{width:20px;height:20px;accent-color:var(--blue);}
 .chk-row label{font-size:15px;color:var(--sub);}
-/* PHOTO */
 #photoPreview img{width:100%;border-radius:10px;margin-top:8px;}
 .photo-wrap{border:2px dashed var(--border);border-radius:10px;padding:18px;text-align:center;cursor:pointer;}
 .photo-wrap input{display:none;}
 .photo-wrap .pi-lbl{font-size:14px;color:var(--sub);}
 .photo-wrap .pi-ico{font-size:2rem;margin-bottom:6px;}
-/* EMPTY */
 .empty{text-align:center;padding:32px 16px;color:var(--sub);}
 .empty .ei{font-size:2.2rem;margin-bottom:8px;}
 .empty p{font-size:15px;}
-/* PL */
 .pl-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:9px;margin-bottom:6px;}
 .pl-row.header{background:var(--blue);color:white;font-weight:700;}
 .pl-row.item{background:var(--bg);}
@@ -136,15 +124,13 @@ tr:last-child td{border-bottom:none;}
 .pl-row.total{background:var(--lb);font-weight:700;}
 .pl-row.profit{background:#d5f5e3;font-weight:700;}
 .pl-row.loss{background:#fce8e6;font-weight:700;}
-/* PETTY CASH */
 .pc-balance{background:linear-gradient(135deg,var(--blue),#0d3a6e);border-radius:12px;padding:18px;margin-bottom:12px;color:white;text-align:center;}
 .pc-balance .pb-lbl{font-size:12px;opacity:.8;text-transform:uppercase;letter-spacing:.5px;}
 .pc-balance .pb-val{font-size:28px;font-weight:700;margin-top:4px;}
+.debug-box{background:#fce8e6;border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:12px;color:#a93226;word-break:break-all;}
 </style>
 </head>
 <body>
-
-<!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-logo">
     <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><rect x="9" y="12" width="6" height="9" fill="rgba(255,255,255,.35)"/></svg></div>
@@ -159,13 +145,9 @@ tr:last-child td{border-bottom:none;}
     <button class="btn btn-primary" onclick="doLogin()">Sign In</button>
   </div>
 </div>
-
-<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="handleModalTap(event)">
   <div class="modal-sheet"><div class="modal-handle"></div><div id="modalBody"></div></div>
 </div>
-
-<!-- APP -->
 <div id="appShell" style="display:none">
   <div class="topbar">
     <div class="topbar-row1">
@@ -179,10 +161,7 @@ tr:last-child td{border-bottom:none;}
       </div>
     </div>
     <div class="fy-bar">
-      <button class="fy-pill" onclick="showFYPicker()">
-        <span>📅 FY <strong id="fyLabel"></strong></span>
-        <span style="color:rgba(255,255,255,.7);font-size:11px">▼</span>
-      </button>
+      <button class="fy-pill" onclick="showFYPicker()"><span>📅 FY <strong id="fyLabel"></strong></span><span style="color:rgba(255,255,255,.7);font-size:11px">▼</span></button>
       <div class="status-pill"><div class="dot offline" id="connDot"></div><span id="connLabel">Offline</span></div>
     </div>
   </div>
@@ -190,38 +169,25 @@ tr:last-child td{border-bottom:none;}
   <nav class="bottom-nav" id="bottomNav"></nav>
 </div>
 <div id="toast"></div>
-
 <script>
-// ═══ CONFIG ══════════════════════════════════════════════════
 const DEFAULT_API='https://script.google.com/macros/s/AKfycbzrXCFRdeSzVdA7D_cyvAwrNSuUdZ8VuArZKVOOZELTLdNmFvcS_Nxaz0WG5_FHuVFKGg/exec';
-
-// ═══ FY ══════════════════════════════════════════════════════
-function getCurrentFY(){const d=new Date();const m=d.getMonth()+1;const y=d.getFullYear();return m>=4?y:y-1;}
+function getCurrentFY(){const d=new Date(),m=d.getMonth()+1,y=d.getFullYear();return m>=4?y:y-1;}
 function getFYLabel(y){return `${y}-${String(y+1).slice(2)}`;}
 function getFYRange(y){return{from:new Date(y,3,1).getTime(),to:new Date(y+1,2,31,23,59,59).getTime()};}
 let selectedFY=parseInt(localStorage.getItem('bdFY')||getCurrentFY());
 function showFYPicker(){
-  const cur=getCurrentFY();const opts=[];for(let y=cur+1;y>=cur-4;y--)opts.push(y);
-  openModal(`<div class="modal-title">📅 Select Financial Year</div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-    ${opts.map(y=>`<button onclick="setFY(${y})" style="padding:14px;border-radius:10px;border:2px solid ${y===selectedFY?'var(--blue)':'var(--border)'};background:${y===selectedFY?'var(--lb)':'white'};font-size:16px;font-weight:${y===selectedFY?700:400};color:${y===selectedFY?'var(--blue)':'var(--text)'};cursor:pointer;text-align:left">
-      FY ${getFYLabel(y)} ${y===cur?'<span style="font-size:12px;color:var(--green);font-weight:600">(Current)</span>':''}
-    </button>`).join('')}</div>`);
+  const cur=getCurrentFY(),opts=[];for(let y=cur+1;y>=cur-4;y--)opts.push(y);
+  openModal(`<div class="modal-title">📅 Select Financial Year</div><div style="display:flex;flex-direction:column;gap:8px">
+  ${opts.map(y=>`<button onclick="setFY(${y})" style="padding:14px;border-radius:10px;border:2px solid ${y===selectedFY?'var(--blue)':'var(--border)'};background:${y===selectedFY?'var(--lb)':'white'};font-size:16px;font-weight:${y===selectedFY?700:400};color:${y===selectedFY?'var(--blue)':'var(--text)'};cursor:pointer;text-align:left">FY ${getFYLabel(y)} ${y===cur?'<span style="font-size:12px;color:var(--green)">(Current)</span>':''}</button>`).join('')}</div>`);
 }
 function setFY(y){selectedFY=y;localStorage.setItem('bdFY',y);document.getElementById('fyLabel').textContent=getFYLabel(y);closeModal();renderCurrentTab();}
 function inFY(s){if(!s)return false;const d=parseDMY(String(s));if(!d)return false;const{from,to}=getFYRange(selectedFY);return d>=from&&d<=to;}
-
-// ═══ STATE ═══════════════════════════════════════════════════
-let currentRole=null, currentName='', currentTabId='';
+let currentRole=null,currentName='',currentTabId='';
 localStorage.setItem('bdAPI',DEFAULT_API);
 let API_URL=DEFAULT_API;
 let DB={
-  transactions:lp('bdTx',[]),
-  projects:lp('bdProj',[]),
-  estimates:lp('bdEst',[]),
-  vendors:lp('bdVend',[]),
-  siteEntries:lp('bdSite',[]),
-  salesEntries:lp('bdSales',[]),
+  transactions:lp('bdTx',[]),projects:lp('bdProj',[]),estimates:lp('bdEst',[]),
+  vendors:lp('bdVend',[]),siteEntries:lp('bdSite',[]),salesEntries:lp('bdSales',[]),
   pettycash:lp('bdPC',[]),
   categories:lp('bdCats',['Material Purchase','Labour / Subcontractor','Site Expenses','Office Expenses','Transport','Consultation Fees','Professional Fees','Salaries','Other']),
   updates:lp('bdUpdates',[]),
@@ -239,13 +205,7 @@ function saveDB(){
   localStorage.setItem('bdCats',JSON.stringify(DB.categories));
   localStorage.setItem('bdUpdates',JSON.stringify(DB.updates));
 }
-
-// ═══ NETWORK ════════════════════════════════════════════════
-function setConn(s){
-  const dot=document.getElementById('connDot'),lbl=document.getElementById('connLabel');
-  if(!dot)return;dot.className='dot '+s;
-  lbl.textContent=s==='online'?'Online':s==='syncing'?'Syncing…':'Offline';
-}
+function setConn(s){const dot=document.getElementById('connDot'),lbl=document.getElementById('connLabel');if(!dot)return;dot.className='dot '+s;lbl.textContent=s==='online'?'Online':s==='syncing'?'Syncing…':'Offline';}
 function jsonpGet(params){
   return new Promise((res,rej)=>{
     const cb='_cb'+Date.now()+'_'+Math.floor(Math.random()*99999);
@@ -291,27 +251,17 @@ async function syncAll(){
   saveDB();
   setConn(allOk?'online':'offline');
   document.getElementById('toast').style.display='none';
-  // Render AFTER saveDB so DB.updates is populated
   renderCurrentTab();
   openModal(`<div class="modal-title">${allOk?'✅ Sync Complete':'⚠️ Sync Issues'}</div>
     <div style="background:var(--bg);border-radius:10px;padding:14px;font-size:13px;line-height:2">${log.map(l=>`<div>${l}</div>`).join('')}</div>
     <br/><button class="btn btn-primary" onclick="closeModal();renderCurrentTab()">OK</button>`);
 }
-
-// ═══ LOGIN ══════════════════════════════════════════════════
 window.onload=()=>{
   document.getElementById('fyLabel').textContent=getFYLabel(selectedFY);
-  // Clean up any bad update records in local cache
-  DB.updates=DB.updates.filter(u=>{
-    const msg=u.msg||u.message||'';
-    return msg&&msg!=='undefined'&&msg.trim()!=='';
-  });
+  DB.updates=DB.updates.filter(u=>{const m=u.msg||u.message||'';return m&&m!=='undefined';});
   saveDB();
   const s=lp('bdRemember',null);
-  if(s&&s.role&&Date.now()-s.ts<30*864e5){
-    currentRole=s.role;currentName=s.name||(s.role==='admin'?'Admin':'Supervisor');
-    startApp();return;
-  }
+  if(s&&s.role&&Date.now()-s.ts<30*864e5){currentRole=s.role;currentName=s.name||(s.role==='admin'?'Admin':'Supervisor');startApp();return;}
 };
 async function doLogin(){
   const role=document.getElementById('roleSelect').value;
@@ -323,8 +273,7 @@ async function doLogin(){
     const d=await jsonpGet({action:'login',role,pass:pw});
     document.getElementById('toast').style.display='none';
     if(!d.ok){showErr('Incorrect password.');return;}
-    currentRole=d.role;
-    currentName=d.name||( role==='admin'?'Admin':'Supervisor');
+    currentRole=d.role;currentName=d.name||(role==='admin'?'Admin':'Supervisor');
   }catch(e){document.getElementById('toast').style.display='none';showErr('Connection failed. Check internet.');return;}
   if(document.getElementById('rememberMe').checked)
     localStorage.setItem('bdRemember',JSON.stringify({role:currentRole,name:currentName,ts:Date.now()}));
@@ -335,13 +284,10 @@ function logout(){localStorage.removeItem('bdRemember');currentRole=null;documen
 function startApp(){
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('appShell').style.display='block';
-  // Show supervisor name in badge
   document.getElementById('roleBadge').textContent=currentRole==='admin'?'Admin':currentName;
   document.getElementById('fyLabel').textContent=getFYLabel(selectedFY);
   buildNav();checkConn().then(ok=>{if(ok)syncAll();});
 }
-
-// ═══ NAV ════════════════════════════════════════════════════
 const ADMIN_TABS=[{id:'dashboard',icon:'🏠',label:'Home'},{id:'ledger',icon:'📒',label:'Ledger'},{id:'add_entry',icon:'➕',label:'Add'},{id:'reports',icon:'📈',label:'Reports'},{id:'more',icon:'⋯',label:'More'}];
 const SUPER_TABS=[{id:'add_site',icon:'➕',label:'Site Entry'},{id:'petty_cash',icon:'💵',label:'Petty Cash'},{id:'view_site',icon:'📋',label:'My Entries'},{id:'vendors',icon:'🏪',label:'Vendors'}];
 const MORE_TABS=[{id:'estimates',icon:'📋',label:'Estimates'},{id:'projects',icon:'🏗',label:'Projects'},{id:'vendors',icon:'🏪',label:'Vendors'},{id:'petty_cash',icon:'💵',label:'Petty Cash'},{id:'settings',icon:'⚙️',label:'Settings'}];
@@ -360,13 +306,11 @@ function renderTab(id){
   const fns={dashboard:renderDashboard,ledger:renderLedger,add_entry:renderAddEntry,reports:renderReports,projects:renderProjects,estimates:renderEstimates,vendors:renderVendors,settings:renderSettings,add_site:renderSiteAdd,view_site:renderSiteView,petty_cash:renderPettyCash};
   if(fns[id])fns[id](c);
 }
-
-// ═══ HELPERS ════════════════════════════════════════════════
 function fmt(n){return '₹'+Number(n||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function fmtN(n){return Number(n||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function todayISO(){const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
-function isoToDMY(s){if(!s)return '';const[y,m,d]=s.split('-');return `${d}/${m}/${y}`;}
-function dmyToISO(s){if(!s)return '';const p=String(s).split('/');if(p.length!==3)return '';return `${p[2]}-${pad(p[1])}-${pad(p[0])}`;}
+function isoToDMY(s){if(!s)return '';const p=s.slice(0,10).split('-');return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:'';} 
+function dmyToISO(s){if(!s)return '';const p=String(s).split('/');return p.length===3?`${p[2]}-${pad(p[1])}-${pad(p[0])}`:''; }
 function pad(n){return String(n).padStart(2,'0');}
 function parseDMY(s){
   if(!s)return 0;s=String(s).trim();
@@ -378,6 +322,8 @@ function displayDate(s){
   if(!s)return '—';s=String(s).trim();
   if(/^\d{4}-\d{2}-\d{2}/.test(s))return isoToDMY(s.slice(0,10));
   if(/^\d{2}\/\d{2}\/\d{4}/.test(s))return s.slice(0,10);
+  // Handle full ISO like 2026-09-04T18:30:00.000Z
+  if(s.includes('T'))return isoToDMY(s.slice(0,10));
   return s;
 }
 function toast(msg,dur=2500){const t=document.getElementById('toast');t.innerHTML=msg;t.style.display='block';if(dur>0)setTimeout(()=>t.style.display='none',dur);}
@@ -388,7 +334,6 @@ function openModal(html){document.getElementById('modalBody').innerHTML=html;doc
 function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
 function handleModalTap(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
 function empty(icon,msg){return `<div class="empty"><div class="ei">${icon}</div><p>${msg}</p></div>`;}
-// Entry type helpers
 const INC_TYPES=['Direct Income','Indirect Income'];
 function isIncome(t){return INC_TYPES.includes(t);}
 function isDirect(t){return t==='Direct Income'||t==='Direct Expense';}
@@ -396,83 +341,68 @@ function typeTag(t){
   const m={'Direct Income':'di','Indirect Income':'ii','Direct Expense':'de','Indirect Expense':'ie'};
   return m[t]||'de';
 }
-// FY filters — only approved entries counted in reports
-function fyTx(approvedOnly=false){
-  return DB.transactions.filter(r=>{
-    if(!inFY(r.date||''))return false;
-    if(approvedOnly&&(r.approval_status||r.status2||'Approved')!=='Approved')return false;
-    return true;
-  });
-}
+function fyTx(approvedOnly=false){return DB.transactions.filter(r=>{if(!inFY(r.date||''))return false;if(approvedOnly&&(r.approval_status||r.status2||'Approved')!=='Approved')return false;return true;});}
 function fySite(){return DB.siteEntries.filter(r=>inFY(r.date||''));}
 function fySales(){return DB.salesEntries.filter(r=>inFY(r.date||''));}
 function fyPC(){return DB.pettycash.filter(r=>inFY(r.date||''));}
-
-// ═══ UPDATE FEED — FIX BUG 1 ════════════════════════════════
-// Store rich update objects. msg must always be a non-empty string.
 async function pushUpdate(msg,type='add'){
-  // Sanitise: ensure msg is always a meaningful string
   const cleanMsg=String(msg||'').replace(/undefined/g,'—').trim()||'Entry saved';
-  const entry={msg:cleanMsg,type,time:displayDate(todayISO()),by:currentRole||'system'};
+  const entry={msg:cleanMsg,message:cleanMsg,type,time:displayDate(todayISO()),date:displayDate(todayISO()),by:currentName||currentRole||'system',added_by:currentName||currentRole||'system'};
   DB.updates.unshift(entry);if(DB.updates.length>80)DB.updates=DB.updates.slice(0,80);saveDB();
   await postSheet('addUpdate',{row:[entry.time,entry.type,entry.msg,entry.by]});
 }
 
-// ═══ DASHBOARD ══════════════════════════════════════════════
+// ═══ DASHBOARD ═══════════════════════════════════════════════
 function renderDashboard(c){
-  // Show pending count badge
   const pendingTx=DB.transactions.filter(r=>(r.approval_status||r.status2||'Approved')==='Pending');
   const pendingPC=DB.pettycash.filter(r=>(r.approval_status||'Pending')==='Pending');
   const pendingTotal=pendingTx.length+pendingPC.length;
+
+  // Debug info
+  const debugInfo=`DB.updates.length=${DB.updates.length} | first=${DB.updates.length?JSON.stringify(DB.updates[0]).slice(0,80):'none'}`;
+
   const feed=DB.updates.slice(0,30).map(u=>{
-    const cls=u.type==='delete'?'del':u.type==='edit'?'edit':u.type==='approve'?'approve':'';
-    return `<div class="feed-item ${cls}">
-      <div class="feed-msg">${u.msg||'Entry saved'}</div>
-      <div class="feed-time">${u.time||''}${u.by?' · '+u.by:''}</div>
+    const msg=u.msg||u.message||String(u.Message||'');
+    const rawDate=u.time||u.date||String(u.Date||'');
+    const time=displayDate(rawDate);
+    const by=u.by||u.added_by||String(u.Added_by||u['added by']||'');
+    const type=u.type||String(u.Type||'add');
+    const cls=type==='delete'?'del':type==='edit'?'edit':type==='approve'?'approve':'';
+    return`<div class="feed-item ${cls}">
+      <div class="feed-msg">${msg||'—'}</div>
+      <div class="feed-time">${time}${by?' · '+by:''}</div>
     </div>`;
   }).join('');
+
   c.innerHTML=`
   <div class="sec-head"><h2>Activity — FY ${getFYLabel(selectedFY)}</h2><button class="btn-sm blue" onclick="syncAll()">⟳ Refresh</button></div>
-  ${pendingTotal>0&&currentRole==='admin'?`<div style="background:#fef3cd;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between">
-    <span style="font-size:14px;font-weight:600;color:#856404">⏳ ${pendingTotal} pending approval${pendingTotal>1?'s':''}</span>
-    <button class="btn-sm orange" onclick="switchTab('ledger')">Review →</button>
-  </div>`:''}
+  <div class="debug-box">${debugInfo}</div>
+  ${pendingTotal>0&&currentRole==='admin'?`<div style="background:#fef3cd;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:14px;font-weight:600;color:#856404">⏳ ${pendingTotal} pending approval${pendingTotal>1?'s':''}</span><button class="btn-sm orange" onclick="switchTab('ledger')">Review →</button></div>`:''}
   <div class="card">${feed||empty('📭','No activity yet.')}</div>`;
 }
 
-// ═══ LEDGER ════════════════════════════════════════════════
+// ═══ LEDGER ══════════════════════════════════════════════════
 let ledgerSeg='transactions';
 function renderLedger(c){
   c.innerHTML=`<div class="sec-head"><h2>Ledger — FY ${getFYLabel(selectedFY)}</h2></div>
-  <div class="seg">
-    <button class="seg-btn${ledgerSeg==='transactions'?' active':''}" onclick="setLedSeg('transactions',this)">Transactions</button>
-    <button class="seg-btn${ledgerSeg==='vendor'?' active':''}" onclick="setLedSeg('vendor',this)">Vendor/Project</button>
-  </div>
-  <div id="ledContent"></div>`;
-  renderLedSeg();
+  <div class="seg"><button class="seg-btn${ledgerSeg==='transactions'?' active':''}" onclick="setLedSeg('transactions',this)">Transactions</button><button class="seg-btn${ledgerSeg==='vendor'?' active':''}" onclick="setLedSeg('vendor',this)">Vendor/Project</button></div>
+  <div id="ledContent"></div>`;renderLedSeg();
 }
 function setLedSeg(s,el){ledgerSeg=s;document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderLedSeg();}
 function renderLedSeg(){const w=document.getElementById('ledContent');if(w)ledgerSeg==='transactions'?renderTxLedger(w):renderVPLedger(w);}
-
 function renderTxLedger(wrap){
   const projs=projNames();
   wrap.innerHTML=`<div class="card" style="padding:12px">
     <div class="filter-row">
       <input type="text" id="fDate" placeholder="Filter date" oninput="applyTxFilter()"/>
-      <select id="fType" onchange="applyTxFilter()">
-        <option value="">All Types</option>
-        <option>Direct Income</option><option>Indirect Income</option>
-        <option>Direct Expense</option><option>Indirect Expense</option>
-      </select>
+      <select id="fType" onchange="applyTxFilter()"><option value="">All Types</option><option>Direct Income</option><option>Indirect Income</option><option>Direct Expense</option><option>Indirect Expense</option></select>
     </div>
     <div class="filter-row">
       <select id="fProj" onchange="applyTxFilter()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
       <select id="fStatus" onchange="applyTxFilter()"><option value="">All Status</option><option>Approved</option><option>Pending</option></select>
     </div>
-    <div id="txWrap"></div>
-    <div class="led-row" id="ledTotals"></div>
-  </div>`;
-  applyTxFilter();
+    <div id="txWrap"></div><div class="led-row" id="ledTotals"></div>
+  </div>`;applyTxFilter();
 }
 function applyTxFilter(){
   const fd=v('fDate'),ft=v('fType'),fp=v('fProj'),fs=v('fStatus');
@@ -481,7 +411,6 @@ function applyTxFilter(){
   if(ft)rows=rows.filter(r=>(r.type||r.entry_type||'')===ft);
   if(fp)rows=rows.filter(r=>(r.project||r.project_name||'')===fp);
   if(fs)rows=rows.filter(r=>(r.approval_status||r.status2||'Approved')===fs);
-  // totals only from approved
   let dr=0,cr=0;
   rows.filter(r=>(r.approval_status||r.status2||'Approved')==='Approved').forEach(r=>{
     isIncome(r.type||r.entry_type||'')?cr+=Number(r.amount||0):dr+=Number(r.amount||0);
@@ -490,7 +419,7 @@ function applyTxFilter(){
   if(!wrap)return;
   wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table>
     <tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th><th></th></tr>
-    ${rows.map((r)=>{
+    ${rows.map(r=>{
       const idx=DB.transactions.indexOf(r);
       const type=r.type||r.entry_type||'';
       const inc=isIncome(type);
@@ -501,10 +430,8 @@ function applyTxFilter(){
       const isPending=apStatus==='Pending';
       return`<tr style="${isPending?'opacity:.75;background:#fffbf0':''}">
         <td style="white-space:nowrap;font-size:12px">${displayDate(r.date||'')}</td>
-        <td>
-          <span class="tag t-${typeTag(type)}">${type}</span>
-          <span class="tag t-${isPending?'pending':'approved'}" style="margin-left:3px">${apStatus}</span>
-          <br/><span style="font-size:12px;color:var(--sub)">${desc}</span>
+        <td><span class="tag t-${typeTag(type)}">${type}</span> <span class="tag t-${isPending?'pending':'approved'}">${apStatus}</span><br/>
+          <span style="font-size:12px;color:var(--sub)">${desc}</span>
           ${proj?`<br/><span style="font-size:11px;color:var(--sub)">🏗 ${proj}</span>`:''}
         </td>
         <td style="color:var(--red);font-weight:700;white-space:nowrap">${inc?'—':fmtN(amt)}</td>
@@ -524,62 +451,42 @@ function applyTxFilter(){
 }
 function approveTx(i){
   if(!confirm('Approve this entry?'))return;
-  DB.transactions[i].approval_status='Approved';
-  DB.transactions[i].status2='Approved';
+  DB.transactions[i].approval_status='Approved';DB.transactions[i].status2='Approved';
   const r=DB.transactions[i];
   pushUpdate(`✅ Approved: ${r.description||r.category||''} ${fmt(r.amount)}`,'approve');
-  saveDB();postSheet('updateRow',{sheet:'Transactions',index:i+2,row:[r.date,r.type||r.entry_type,r.category,r.project,r.description,r.amount,r.mode||'Cash',r.approval_status,'Admin','Approved']});
-  toast('✅ Entry approved.');applyTxFilter();
+  saveDB();postSheet('updateRow',{sheet:'Transactions',index:i+2,row:[r.date,r.type||r.entry_type,r.category,r.project,r.description,r.amount,r.mode||'Cash','Approved','Admin']});
+  toast('✅ Approved.');applyTxFilter();
 }
 function delTx(i){
-  if(!confirm('Delete?'))return;
-  const r=DB.transactions[i];DB.transactions.splice(i,1);
+  if(!confirm('Delete?'))return;const r=DB.transactions[i];DB.transactions.splice(i,1);
   pushUpdate(`🗑 Deleted: ${r.description||r.category||''} ${fmt(r.amount)}`,'delete');
-  saveDB();postSheet('deleteRow',{sheet:'Transactions',index:i+2});
-  toast('✅ Deleted.');renderLedSeg();
+  saveDB();postSheet('deleteRow',{sheet:'Transactions',index:i+2});toast('✅ Deleted.');renderLedSeg();
 }
 function editTx(i){
   const r=DB.transactions[i],projs=projNames(),cats=DB.categories;
   const type=r.type||r.entry_type||'Direct Income';
   openModal(`<div class="modal-title">✏️ Edit Transaction</div>
     <div class="field"><label>Date</label><input type="date" id="ed_date" value="${dmyToISO(r.date)||r.date||''}"/></div>
-    <div class="field"><label>Type</label>
-      <select id="ed_type" onchange="toggleEPWrap()">
-        <option${type==='Direct Income'?' selected':''}>Direct Income</option>
-        <option${type==='Indirect Income'?' selected':''}>Indirect Income</option>
-        <option${type==='Direct Expense'?' selected':''}>Direct Expense</option>
-        <option${type==='Indirect Expense'?' selected':''}>Indirect Expense</option>
-      </select>
-    </div>
+    <div class="field"><label>Type</label><select id="ed_type" onchange="toggleEPWrap()"><option${type==='Direct Income'?' selected':''}>Direct Income</option><option${type==='Indirect Income'?' selected':''}>Indirect Income</option><option${type==='Direct Expense'?' selected':''}>Direct Expense</option><option${type==='Indirect Expense'?' selected':''}>Indirect Expense</option></select></div>
     <div class="field"><label>Category</label><select id="ed_cat">${cats.map(c=>`<option${c===(r.category||r.category_name)?' selected':''}>${c}</option>`).join('')}</select></div>
-    <div class="field" id="ep_proj_wrap"><label>Project</label>
-      <select id="ed_proj"><option value="">—</option>${projs.map(p=>`<option${p===(r.project||r.project_name)?' selected':''}>${p}</option>`).join('')}</select>
-    </div>
+    <div class="field" id="ep_proj_wrap"><label>Project</label><select id="ed_proj"><option value="">—</option>${projs.map(p=>`<option${p===(r.project||r.project_name)?' selected':''}>${p}</option>`).join('')}</select></div>
     <div class="field"><label>Description</label><input id="ed_desc" value="${r.description||''}"/></div>
     <div class="field"><label>Amount (₹)</label><input type="number" id="ed_amt" value="${r.amount||''}"/></div>
-    <button class="btn btn-green" onclick="saveEditTx(${i})">Save</button>`);
-  toggleEPWrap();
+    <button class="btn btn-green" onclick="saveEditTx(${i})">Save</button>`);toggleEPWrap();
 }
-function toggleEPWrap(){const t=v('ed_type');const w=document.getElementById('ep_proj_wrap');if(w)w.style.display=isDirect(t)?'block':'none';}
+function toggleEPWrap(){const w=document.getElementById('ep_proj_wrap');if(w)w.style.display=isDirect(v('ed_type'))?'block':'none';}
 function saveEditTx(i){
-  const type=v('ed_type');const dateISO=v('ed_date');
+  const type=v('ed_type'),dateISO=v('ed_date');
   DB.transactions[i]={...DB.transactions[i],date:dateISO?isoToDMY(dateISO):DB.transactions[i].date,type,category:v('ed_cat'),project:isDirect(type)?v('ed_proj'):'',description:v('ed_desc'),amount:v('ed_amt')};
   pushUpdate(`✏️ Edited: ${v('ed_desc')||v('ed_cat')} ${fmt(v('ed_amt'))}`,'edit');
   saveDB();closeModal();toast('✅ Updated.');renderLedSeg();
 }
-
-// Vendor/Project Ledger
 let vpMode='vendor';
 function renderVPLedger(wrap){
   const vends=vendNames(),projs=projNames();
   wrap.innerHTML=`<div class="card" style="padding:12px">
-    <div class="seg" style="margin-bottom:12px">
-      <button class="seg-btn active" id="vpS1" onclick="setVPMode('vendor',this)">Vendor</button>
-      <button class="seg-btn" id="vpS2" onclick="setVPMode('project',this)">Project</button>
-    </div>
-    <div id="vpSel">
-      <div class="field"><label>Select Vendor</label><select id="vpVendor" onchange="renderVPTable()"><option value="">— Select —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>
-    </div>
+    <div class="seg" style="margin-bottom:12px"><button class="seg-btn active" id="vpS1" onclick="setVPMode('vendor',this)">Vendor</button><button class="seg-btn" id="vpS2" onclick="setVPMode('project',this)">Project</button></div>
+    <div id="vpSel"><div class="field"><label>Select Vendor</label><select id="vpVendor" onchange="renderVPTable()"><option value="">— Select —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div></div>
     <div id="vpWrap"></div><div class="led-row" id="vpTotals"></div>
   </div>`;
 }
@@ -602,10 +509,7 @@ function renderVPTable(){
     rows.sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
     const tDr=rows.reduce((s,r)=>s+r.dr,0),tCr=rows.reduce((s,r)=>s+r.cr,0);
     wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table><tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th></tr>
-    ${rows.map(r=>`<tr><td style="font-size:12px;white-space:nowrap">${displayDate(r.date)}</td>
-      <td><span class="tag ${r.type==='Bill Receipt'?'t-di':'t-de'}">${r.type}</span><br/><span style="font-size:12px;color:var(--sub)">${r.desc}</span></td>
-      <td style="color:var(--red);font-weight:700">${r.dr?fmtN(r.dr):'—'}</td>
-      <td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td></tr>`).join('')}</table></div>`:empty('📭',`No entries for ${sel}.`);
+    ${rows.map(r=>`<tr><td style="font-size:12px;white-space:nowrap">${displayDate(r.date)}</td><td><span class="tag ${r.type==='Bill Receipt'?'t-di':'t-de'}">${r.type}</span><br/><span style="font-size:12px;color:var(--sub)">${r.desc}</span></td><td style="color:var(--red);font-weight:700">${r.dr?fmtN(r.dr):'—'}</td><td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td></tr>`).join('')}</table></div>`:empty('📭',`No entries for ${sel}.`);
     tot.innerHTML=`<div class="led-box lb-dr"><div class="ll">Paid</div><div class="lv" style="color:var(--red)">${fmtN(tDr)}</div></div><div class="led-box lb-cr"><div class="ll">Bills</div><div class="lv" style="color:var(--green)">${fmtN(tCr)}</div></div><div class="led-box lb-bal"><div class="ll">Balance Due</div><div class="lv" style="color:var(--blue)">${fmtN(tCr-tDr)}</div></div>`;
   }else{
     const sel=v('vpProject');if(!sel){wrap.innerHTML='';tot.innerHTML='';return;}
@@ -615,39 +519,21 @@ function renderVPTable(){
     rows.sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
     const tDr=rows.reduce((s,r)=>s+r.dr,0),tCr=rows.reduce((s,r)=>s+r.cr,0);
     wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table><tr><th>Date</th><th>Details</th><th>Dr ₹</th><th>Cr ₹</th></tr>
-    ${rows.map(r=>`<tr><td style="font-size:12px;white-space:nowrap">${displayDate(r.date)}</td>
-      <td><span class="tag ${r.type==='Sales'?'t-de':'t-di'}">${r.type}</span><br/><span style="font-size:12px;color:var(--sub)">${r.desc}</span></td>
-      <td style="color:var(--red);font-weight:700">${r.dr?fmtN(r.dr):'—'}</td>
-      <td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td></tr>`).join('')}</table></div>`:empty('📭',`No entries for ${sel}.`);
+    ${rows.map(r=>`<tr><td style="font-size:12px;white-space:nowrap">${displayDate(r.date)}</td><td><span class="tag ${r.type==='Sales'?'t-de':'t-di'}">${r.type}</span><br/><span style="font-size:12px;color:var(--sub)">${r.desc}</span></td><td style="color:var(--red);font-weight:700">${r.dr?fmtN(r.dr):'—'}</td><td style="color:var(--green);font-weight:700">${r.cr?fmtN(r.cr):'—'}</td></tr>`).join('')}</table></div>`:empty('📭',`No entries for ${sel}.`);
     tot.innerHTML=`<div class="led-box lb-dr"><div class="ll">Sales Billed</div><div class="lv" style="color:var(--red)">${fmtN(tDr)}</div></div><div class="led-box lb-cr"><div class="ll">Received</div><div class="lv" style="color:var(--green)">${fmtN(tCr)}</div></div><div class="led-box lb-bal"><div class="ll">Outstanding</div><div class="lv" style="color:var(--blue)">${fmtN(tDr-tCr)}</div></div>`;
   }
 }
-
-// ═══ ADD ENTRY (ADMIN) ══════════════════════════════════════
 function renderAddEntry(c){
   const projs=projNames(),cats=DB.categories;
-  c.innerHTML=`<div class="sec-head"><h2>New Transaction</h2></div>
-  <div class="card">
-    <div class="row2">
-      <div class="field"><label>Date</label><input type="date" id="txDate" value="${todayISO()}"/></div>
-      <div class="field"><label>Entry Type</label>
-        <select id="txType" onchange="toggleProjField()">
-          <option>Direct Income</option><option>Indirect Income</option>
-          <option>Direct Expense</option><option>Indirect Expense</option>
-        </select>
-      </div>
-    </div>
-    <div class="field"><label>Category <button class="btn-sm blue" onclick="manageCats()" style="margin-left:6px;font-size:11px">⚙️</button></label>
-      <select id="txCat">${cats.map(c=>`<option>${c}</option>`).join('')}</select>
-    </div>
-    <div class="field" id="projField"><label>Project</label>
-      <select id="txProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
-    </div>
+  c.innerHTML=`<div class="sec-head"><h2>New Transaction</h2></div><div class="card">
+    <div class="row2"><div class="field"><label>Date</label><input type="date" id="txDate" value="${todayISO()}"/></div>
+    <div class="field"><label>Entry Type</label><select id="txType" onchange="toggleProjField()"><option>Direct Income</option><option>Indirect Income</option><option>Direct Expense</option><option>Indirect Expense</option></select></div></div>
+    <div class="field"><label>Category <button class="btn-sm blue" onclick="manageCats()" style="margin-left:6px;font-size:11px">⚙️</button></label><select id="txCat">${cats.map(c=>`<option>${c}</option>`).join('')}</select></div>
+    <div class="field" id="projField"><label>Project</label><select id="txProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
     <div class="field"><label>Description</label><input id="txDesc" placeholder="Brief description"/></div>
     <div class="field"><label>Amount (₹)</label><input type="number" id="txAmt" inputmode="decimal" placeholder="0.00"/></div>
     <button class="btn btn-green" onclick="submitTx()">💾 Save Transaction</button>
-  </div>`;
-  toggleProjField();
+  </div>`;toggleProjField();
 }
 function toggleProjField(){const f=document.getElementById('projField');if(f)f.style.display=isDirect(v('txType'))?'block':'none';}
 function manageCats(){
@@ -659,7 +545,7 @@ function manageCats(){
 function addCat(){const val=document.getElementById('newCat').value.trim();if(!val)return;DB.categories.push(val);saveDB();manageCats();}
 function deleteCat(i){DB.categories.splice(i,1);saveDB();manageCats();}
 async function submitTx(){
-  const type=v('txType');const desc=v('txDesc');const amt=v('txAmt');const cat=v('txCat');
+  const type=v('txType'),desc=v('txDesc'),amt=v('txAmt'),cat=v('txCat');
   const obj={date:isoToDMY(v('txDate')),type,category:cat,project:isDirect(type)?v('txProj'):'',description:desc,amount:amt,mode:'Cash',approval_status:'Approved',status2:'Approved',addedBy:'Admin'};
   if(!amt){toast('⚠️ Enter amount.');return;}
   if(isDirect(type)&&!obj.project){toast('⚠️ Project required for Direct entries.');return;}
@@ -669,198 +555,30 @@ async function submitTx(){
   await postSheet('addTransaction',{row:[obj.date,obj.type,obj.category,obj.project,obj.description,obj.amount,'Cash','Approved','Admin']});
   toast('✅ Saved!');renderTab('add_entry');
 }
-
-// ═══ PETTY CASH ═════════════════════════════════════════════
-function renderPettyCash(c){
-  const isAdmin=currentRole==='admin';
-  const pcRows=fyPC();
-
-  if(isAdmin){
-    // Get all unique supervisor names from petty cash entries
-    const supNames=[...new Set(pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up').map(r=>r.added_by||r.addedBy||'Unknown'))].filter(Boolean);
-    // Build supervisor selector
-    const selHTML=`<div class="field"><label>View By Supervisor</label>
-      <select id="pcSupSel" onchange="renderPCSupView()">
-        <option value="">All Supervisors</option>
-        ${supNames.map(n=>`<option>${n}</option>`).join('')}
-      </select>
-    </div>`;
-
-    c.innerHTML=`<div class="sec-head"><h2>Petty Cash</h2></div>
-    ${selHTML}
-    <div id="pcSupContent"></div>
-    <div style="display:flex;gap:10px;margin-bottom:12px">
-      <button class="btn btn-green" style="flex:1;padding:12px" onclick="showTopup()">＋ Top-up Cash</button>
-    </div>`;
-    renderPCSupView();
-  } else {
-    // Supervisor view — own entries only
-    const myRows=pcRows.filter(r=>(r.added_by||r.addedBy||'')===currentName||(r.entry_type||r.type||'')==='Top-up');
-    const topups=myRows.filter(r=>(r.entry_type||r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
-    const expenses=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===currentName&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
-    const balance=topups-expenses;
-    c.innerHTML=`<div class="sec-head"><h2>My Petty Cash</h2></div>
-    <div class="pc-balance">
-      <div class="pb-lbl">My Balance</div>
-      <div class="pb-val">${fmt(balance)}</div>
-      <div style="font-size:12px;opacity:.7;margin-top:4px">Topped up: ${fmt(topups)} | Approved spent: ${fmt(expenses)}</div>
-    </div>
-    <div class="card">
-      <div class="card-title">➕ Add Cash Expense</div>
-      <div class="field"><label>Date</label><input type="date" id="pcDate" value="${todayISO()}"/></div>
-      <div class="field"><label>Description</label><input id="pcDesc" placeholder="What was it spent on?"/></div>
-      <div class="field"><label>Amount (₹)</label><input type="number" id="pcAmt" inputmode="decimal" placeholder="0.00"/></div>
-      <button class="btn btn-green" onclick="submitPCExpense()">Submit Expense</button>
-    </div>
-    <div class="card" style="padding:12px">
-      <div class="card-title">📋 My Entries</div>
-      ${renderPCLog(pcRows.filter(r=>(r.added_by||r.addedBy||'')=== currentName||(r.entry_type||r.type||'')==='Top-up'),false)}
-    </div>`;
-  }
-}
-
-function renderPCSupView(){
-  const sel=v('pcSupSel');
-  const pcRows=fyPC();
-  const wrap=document.getElementById('pcSupContent');
-  if(!wrap)return;
-
-  // If a supervisor is selected, show their stats
-  if(sel){
-    const topups=pcRows.filter(r=>(r.entry_type||r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
-    const expenses=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===sel&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
-    const pending=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===sel&&(r.approval_status||'Pending')==='Pending').reduce((s,r)=>s+Number(r.amount||0),0);
-    const balance=topups-expenses;
-    const rows=pcRows.filter(r=>(r.added_by||r.addedBy||'')===sel||(r.entry_type||r.type||'')==='Top-up');
-    wrap.innerHTML=`<div class="pc-balance">
-      <div class="pb-lbl">${sel} — Balance</div>
-      <div class="pb-val">${fmt(balance)}</div>
-      <div style="font-size:12px;opacity:.7;margin-top:4px">Topped up: ${fmt(topups)} | Spent: ${fmt(expenses)} | Pending: ${fmt(pending)}</div>
-    </div>
-    <div class="card" style="padding:12px"><div class="card-title">${sel}'s Entries</div>${renderPCLog(rows,true)}</div>`;
-  } else {
-    // All supervisors summary
-    const supNames=[...new Set(pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up').map(r=>r.added_by||r.addedBy||'Unknown'))].filter(Boolean);
-    const topupsAll=pcRows.filter(r=>(r.entry_type||r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
-    if(!supNames.length){wrap.innerHTML=empty('💵','No supervisor entries yet.');return;}
-    wrap.innerHTML=`<div class="pc-balance">
-      <div class="pb-lbl">Total Topped Up</div>
-      <div class="pb-val">${fmt(topupsAll)}</div>
-    </div>
-    ${supNames.map(name=>{
-      const exp=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===name&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
-      const pend=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===name&&(r.approval_status||'Pending')==='Pending').reduce((s,r)=>s+Number(r.amount||0),0);
-      return`<div class="card" style="padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div><div style="font-weight:700;font-size:15px">👷 ${name}</div><div style="font-size:12px;color:var(--sub);margin-top:2px">Spent: ${fmt(exp)} | Pending: ${fmt(pend)}</div></div>
-          <div style="text-align:right"><div style="font-size:11px;color:var(--sub)">Balance</div><div style="font-weight:700;color:var(--blue)">${fmt(topupsAll-exp)}</div></div>
-        </div>
-      </div>`;
-    }).join('')}
-    <div class="card" style="padding:12px"><div class="card-title">📋 All Petty Cash Entries</div>${renderPCLog(pcRows,true)}</div>`;
-  }
-}
-function renderPCLog(rows,isAdmin){
-  if(!rows.length)return empty('💵','No petty cash entries yet.');
-  const sorted=[...rows].sort((a,b)=>parseDMY(b.date)-parseDMY(a.date));
-  return sorted.map(r=>{
-    const isTopup=(r.entry_type||r.type||'')==='Top-up';
-    const apStatus=r.approval_status||'Pending';
-    const idx=DB.pettycash.indexOf(r);
-    return`<div style="padding:10px 0;border-bottom:1px solid var(--border)">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div>
-          <div style="font-weight:600;font-size:14px">${r.description||'—'}</div>
-          <div style="font-size:12px;color:var(--sub);margin-top:2px">${displayDate(r.date)} · ${isTopup?'Top-up':'Expense'}</div>
-          <span class="tag t-${apStatus==='Approved'?'approved':'pending'}" style="margin-top:3px">${apStatus}</span>
-        </div>
-        <div style="text-align:right">
-          <div style="font-weight:700;font-size:15px;color:${isTopup?'var(--green)':'var(--red)'}">${isTopup?'+':'−'}${fmt(r.amount)}</div>
-          ${isAdmin&&apStatus==='Pending'?`<button class="btn-sm green" style="margin-top:4px" onclick="approvePC(${idx})">✓ Approve</button>`:''}
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-function showTopup(){
-  openModal(`<div class="modal-title">💵 Top-up Petty Cash</div>
-    <div class="field"><label>Date</label><input type="date" id="tu_date" value="${todayISO()}"/></div>
-    <div class="field"><label>Amount (₹)</label><input type="number" id="tu_amt" inputmode="decimal" placeholder="0.00"/></div>
-    <div class="field"><label>Notes</label><input id="tu_note" placeholder="Optional"/></div>
-    <button class="btn btn-green" onclick="submitTopup()">Add Top-up</button>`);
-}
-async function submitTopup(){
-  const amt=v('tu_amt');
-  const note=v('tu_note')||'Petty Cash Top-up';
-  const dateISO=v('tu_date');
-  if(!amt){toast('⚠️ Enter amount.');return;}
-  const dateDMY=isoToDMY(dateISO);
-
-  // 1. Add to petty cash log
-  const pcObj={date:dateDMY,entry_type:'Top-up',description:note,amount:amt,approval_status:'Approved',addedBy:'Admin'};
-  DB.pettycash.push(pcObj);
-  await postSheet('addPettyCash',{row:[pcObj.date,pcObj.entry_type,pcObj.description,pcObj.amount,pcObj.approval_status,'Admin']});
-
-  // 2. Simultaneous indirect expense in transaction ledger
-  const txObj={date:dateDMY,type:'Indirect Expense',category:'Petty Cash',project:'',description:note,amount:amt,mode:'Cash',approval_status:'Approved',status2:'Approved',addedBy:'Admin'};
-  DB.transactions.push(txObj);
-  await postSheet('addTransaction',{row:[txObj.date,txObj.type,txObj.category,txObj.project,txObj.description,txObj.amount,'Cash','Approved','Admin']});
-
-  await pushUpdate(`💵 Petty cash top-up: ${fmt(amt)} → also recorded as Indirect Expense`);
-  saveDB();toast('✅ Top-up added & recorded in ledger!');closeModal();renderTab('petty_cash');
-}
-async function submitPCExpense(){
-  const obj={date:isoToDMY(v('pcDate')),entry_type:'Expense',description:v('pcDesc'),amount:v('pcAmt'),approval_status:'Pending',addedBy:currentName};
-  if(!obj.description||!obj.amount){toast('⚠️ Description and Amount required.');return;}
-  DB.pettycash.push(obj);
-  await pushUpdate(`💵 Petty cash expense by ${currentName} (pending): ${obj.description} ${fmt(obj.amount)}`);
-  saveDB();await postSheet('addPettyCash',{row:[obj.date,obj.entry_type,obj.description,obj.amount,obj.approval_status,currentName]});
-  toast('✅ Expense submitted — pending admin approval.');renderTab('petty_cash');
-}
-async function approvePC(i){
-  if(i<0||i>=DB.pettycash.length){toast('⚠️ Entry not found.');return;}
-  if(!confirm('Approve this petty cash expense?'))return;
-  DB.pettycash[i].approval_status='Approved';
-  const r=DB.pettycash[i];
-  await pushUpdate(`✅ Approved petty cash: ${r.description} ${fmt(r.amount)}`,'approve');
-  saveDB();await postSheet('updateRow',{sheet:'PettyCash',index:i+2,row:[r.date,r.entry_type,r.description,r.amount,'Approved',r.addedBy||'Supervisor']});
-  toast('✅ Approved.');renderTab('petty_cash');
-}
-
-// ═══ REPORTS ═══════════════════════════════════════════════
-let reportSeg='net';
 function renderReports(c){
   c.innerHTML=`<div class="sec-head"><h2>Reports — FY ${getFYLabel(selectedFY)}</h2></div>
-  <div class="seg">
-    <button class="seg-btn${reportSeg==='net'?' active':''}" onclick="setRepSeg('net',this)">Net P&L</button>
-    <button class="seg-btn${reportSeg==='project'?' active':''}" onclick="setRepSeg('project',this)">Project P&L</button>
-  </div>
-  <div id="repContent"></div>`;
-  renderRepSeg();
+  <div class="seg"><button class="seg-btn active" id="rSeg1" onclick="setRepSeg('net',this)">Net P&L</button><button class="seg-btn" id="rSeg2" onclick="setRepSeg('project',this)">Project P&L</button></div>
+  <div id="repContent"></div>`;renderRepSeg('net');
 }
-function setRepSeg(s,el){reportSeg=s;document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderRepSeg();}
-function renderRepSeg(){const w=document.getElementById('repContent');if(w)reportSeg==='net'?renderNetPL(w):renderProjectPL(w);}
+function setRepSeg(s,el){document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderRepSeg(s);}
+function renderRepSeg(s){const w=document.getElementById('repContent');if(w)s==='net'?renderNetPL(w):renderProjectPL(w);}
 function renderNetPL(wrap){
-  const rows=fyTx(true); // approved only
+  const rows=fyTx(true);
   const di=rows.filter(r=>(r.type||r.entry_type||'')==='Direct Income').reduce((s,r)=>s+Number(r.amount||0),0);
   const ii=rows.filter(r=>(r.type||r.entry_type||'')==='Indirect Income').reduce((s,r)=>s+Number(r.amount||0),0);
   const de=rows.filter(r=>(r.type||r.entry_type||'')==='Direct Expense').reduce((s,r)=>s+Number(r.amount||0),0);
   const ie=rows.filter(r=>(r.type||r.entry_type||'')==='Indirect Expense').reduce((s,r)=>s+Number(r.amount||0),0);
-  // Approved petty cash expenses
   const pcExp=fyPC().filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
-  const totalIncome=di+ii;
-  const grossProfit=di-de;
-  const netProfit=totalIncome-(de+ie+pcExp);
-  wrap.innerHTML=`<div class="card">
-    <div class="card-title">📊 Net P&L — FY ${getFYLabel(selectedFY)}</div>
-    <div style="font-size:11px;color:var(--sub);margin-bottom:8px">Only approved entries are included</div>
+  const totalIncome=di+ii,grossProfit=di-de,netProfit=totalIncome-(de+ie+pcExp);
+  wrap.innerHTML=`<div class="card"><div class="card-title">📊 Net P&L — FY ${getFYLabel(selectedFY)}</div>
+    <div style="font-size:11px;color:var(--sub);margin-bottom:8px">Approved entries only</div>
     <div class="pl-row header"><span>Particulars</span><span>₹</span></div>
-    <div class="pl-row item"><span style="font-weight:600">Income</span><span></span></div>
+    <div class="pl-row item"><span style="font-weight:600">Income</span></div>
     <div class="pl-row sub"><span>Direct Income</span><span style="color:var(--green)">${fmtN(di)}</span></div>
     <div class="pl-row sub"><span>Indirect Income</span><span style="color:var(--green)">${fmtN(ii)}</span></div>
     <div class="pl-row total"><span>Total Income</span><span style="color:var(--green)">${fmtN(totalIncome)}</span></div>
     <div style="height:6px"></div>
-    <div class="pl-row item"><span style="font-weight:600">Expenses</span><span></span></div>
+    <div class="pl-row item"><span style="font-weight:600">Expenses</span></div>
     <div class="pl-row sub"><span>Direct Expenses</span><span style="color:var(--red)">${fmtN(de)}</span></div>
     <div class="pl-row total"><span>Gross Profit</span><span style="color:${grossProfit>=0?'var(--green)':'var(--red)'}">${fmtN(grossProfit)}</span></div>
     <div style="height:6px"></div>
@@ -872,46 +590,36 @@ function renderNetPL(wrap){
 function renderProjectPL(wrap){
   const projs=projNames();
   if(!projs.length){wrap.innerHTML=empty('🏗','No projects yet.');return;}
-  wrap.innerHTML=`<div class="card">
-    <div class="card-title">🏗 Project P&L — FY ${getFYLabel(selectedFY)}</div>
-    <div style="font-size:11px;color:var(--sub);margin-bottom:10px">Only approved entries are included</div>
-    <div class="field"><label>Select Project</label>
-      <select id="plProjSel" onchange="renderProjPLTable()"><option value="">— Select a Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
-    </div>
+  wrap.innerHTML=`<div class="card"><div class="card-title">🏗 Project P&L — FY ${getFYLabel(selectedFY)}</div>
+    <div style="font-size:11px;color:var(--sub);margin-bottom:10px">Approved entries only</div>
+    <div class="field"><label>Select Project</label><select id="plProjSel" onchange="renderProjPLTable()"><option value="">— Select —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
     <div id="plProjTable" style="margin-top:10px"></div>
   </div>`;
 }
 function renderProjPLTable(){
-  const p=v('plProjSel');const wrap=document.getElementById('plProjTable');if(!wrap)return;
-  if(!p){wrap.innerHTML='';return;}
+  const p=v('plProjSel'),wrap=document.getElementById('plProjTable');if(!wrap||!p){if(wrap)wrap.innerHTML='';return;}
   const rows=fyTx(true).filter(r=>(r.project||r.project_name||'')===p);
   const di=rows.filter(r=>(r.type||r.entry_type||'')==='Direct Income').reduce((s,r)=>s+Number(r.amount||0),0);
   const de=rows.filter(r=>(r.type||r.entry_type||'')==='Direct Expense').reduce((s,r)=>s+Number(r.amount||0),0);
   const sales=fySales().filter(r=>(r.project||r.project_name||'')===p).reduce((s,r)=>s+Number(r.amount||0),0);
   const net=di-de;
-  wrap.innerHTML=`
-    <div class="pl-row header"><span>${p}</span><span>₹</span></div>
+  wrap.innerHTML=`<div class="pl-row header"><span>${p}</span><span>₹</span></div>
     <div class="pl-row item"><span>Direct Income</span><span style="color:var(--green)">${fmtN(di)}</span></div>
     <div class="pl-row item"><span>Sales Billed</span><span style="color:var(--sub)">${fmtN(sales)}</span></div>
     <div class="pl-row item"><span>Direct Expenses</span><span style="color:var(--red)">${fmtN(de)}</span></div>
     <div class="pl-row ${net>=0?'profit':'loss'}"><span>Net P&L</span><span>${fmtN(net)}</span></div>`;
 }
-
-// ═══ PROJECTS ══════════════════════════════════════════════
 function renderProjects(c){
   const projBudget={};
   DB.estimates.filter(r=>r.status==='Approved').forEach(r=>{const p=r.project||r.project_name||'';projBudget[p]=(projBudget[p]||0)+Number(r.amount||0);});
   c.innerHTML=`<div class="sec-head"><h2>Projects</h2><button class="btn-sm green" onclick="showAddProject()">＋ New</button></div>
   ${DB.projects.length?DB.projects.map((r,i)=>{const nm=r.name||r.project_name||'';return`<div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start">
-      <div><div style="font-weight:700;font-size:16px">${nm}</div><div style="color:var(--sub);font-size:13px;margin-top:2px">${r.client||r.client_name||''}</div></div>
-      <span class="tag t-${(r.status||'').toLowerCase().replace(' ','')}">${r.status}</span>
-    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-weight:700;font-size:16px">${nm}</div><div style="color:var(--sub);font-size:13px;margin-top:2px">${r.client||r.client_name||''}</div></div>
+    <span class="tag t-${(r.status||'').toLowerCase().replace(' ','')}">${r.status}</span></div>
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
       <div><div style="font-size:11px;color:var(--sub);font-weight:700">APPROVED BUDGET</div><div style="font-weight:700;color:var(--blue)">${fmt(projBudget[nm]||0)}</div></div>
       <div style="display:flex;gap:8px"><button class="btn-sm green" onclick="showAddSales('${nm}')">＋ Sales</button><button class="btn-sm red" onclick="delProject(${i})">🗑</button></div>
-    </div>
-  </div>`;}).join(''):empty('🏗','No projects yet.')}`;
+    </div></div>`;}).join(''):empty('🏗','No projects yet.')}`;
 }
 function showAddProject(){
   openModal(`<div class="modal-title">🏗 New Project</div>
@@ -945,30 +653,17 @@ async function submitSales(){
   await postSheet('addSalesEntry',{row:[obj.date,obj.project,obj.description,obj.ref,obj.amount,obj.status,'Admin']});
   toast('✅ Saved!');closeModal();renderTab('projects');
 }
-
-// ═══ ESTIMATES ══════════════════════════════════════════════
 function renderEstimates(c){
   const projs=projNames();
   c.innerHTML=`<div class="sec-head"><h2>Estimates</h2><button class="btn-sm green" onclick="showAddEstimate()">＋ New</button></div>
-  <div class="card" style="padding:12px">
-    <div class="filter-row"><select id="estFP" onchange="renderEstTable()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
-    <div id="estWrap"></div>
-  </div>`;renderEstTable();
+  <div class="card" style="padding:12px"><div class="filter-row"><select id="estFP" onchange="renderEstTable()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div><div id="estWrap"></div></div>`;renderEstTable();
 }
 function renderEstTable(){
-  const fp=v('estFP');
-  const rows=DB.estimates.filter(r=>!fp||(r.project||r.project_name||'')===fp);
+  const fp=v('estFP'),rows=DB.estimates.filter(r=>!fp||(r.project||r.project_name||'')===fp);
   const wrap=document.getElementById('estWrap');if(!wrap)return;
-  wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table>
-    <tr><th>No</th><th>Project</th><th>Amount</th><th>Status</th><th></th></tr>
-    ${rows.map((r,i)=>`<tr>
-      <td>${r.est_no||r.estimate_no||''}<br/><span style="color:var(--sub);font-size:11px">${displayDate(r.date||'')}</span></td>
-      <td>${r.project||r.project_name||'—'}</td>
-      <td style="font-weight:700">${fmt(r.amount)}</td>
-      <td><span class="tag t-${(r.status||'').toLowerCase()}">${r.status}</span></td>
-      <td><div style="display:flex;flex-direction:column;gap:4px"><button class="btn-sm blue" onclick="editEst(${i})">✏️</button><button class="btn-sm red" onclick="delEst(${i})">🗑</button></div></td>
-    </tr>`).join('')}
-  </table></div>`:empty('📋','No estimates yet.');
+  wrap.innerHTML=rows.length?`<div class="tbl-wrap"><table><tr><th>No</th><th>Project</th><th>Amount</th><th>Status</th><th></th></tr>
+  ${rows.map((r,i)=>`<tr><td>${r.est_no||r.estimate_no||''}<br/><span style="color:var(--sub);font-size:11px">${displayDate(r.date||'')}</span></td><td>${r.project||r.project_name||'—'}</td><td style="font-weight:700">${fmt(r.amount)}</td><td><span class="tag t-${(r.status||'').toLowerCase()}">${r.status}</span></td>
+  <td><div style="display:flex;flex-direction:column;gap:4px"><button class="btn-sm blue" onclick="editEst(${i})">✏️</button><button class="btn-sm red" onclick="delEst(${i})">🗑</button></div></td></tr>`).join('')}</table></div>`:empty('📋','No estimates yet.');
 }
 function showAddEstimate(){
   const projs=projNames();
@@ -997,17 +692,13 @@ function editEst(i){
     <button class="btn btn-green" onclick="saveEditEst(${i})">Save</button>`);
 }
 function saveEditEst(i){DB.estimates[i]={...DB.estimates[i],project:v('ee_proj'),estNo:v('ee_no'),date:isoToDMY(v('ee_date')),description:v('ee_desc'),amount:v('ee_amt'),status:v('ee_status')};pushUpdate(`✏️ Estimate updated: ${v('ee_no')}`,'edit');saveDB();closeModal();toast('✅ Updated.');renderTab('estimates');}
-
-// ═══ VENDORS ═══════════════════════════════════════════════
 function renderVendors(c){
   const isAdmin=currentRole==='admin';
   c.innerHTML=`<div class="sec-head"><h2>Vendors</h2><button class="btn-sm green" onclick="showAddVendor()">＋ New</button></div>
-  ${DB.vendors.length?DB.vendors.map((r,i)=>`<div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start">
-      <div><div style="font-weight:700;font-size:16px">${r.name||r.vendor_name||''}</div><div style="color:var(--sub);font-size:13px;margin-top:2px">${r.category||''}${r.phone?' · '+r.phone:''}</div></div>
-      ${isAdmin?`<div style="display:flex;gap:6px"><button class="btn-sm blue" onclick="editVendor(${i})">✏️</button><button class="btn-sm red" onclick="delVendor(${i})">🗑</button></div>`:''}
-    </div>${r.gst?`<div style="margin-top:6px;font-size:12px;color:var(--sub)">GST: ${r.gst}</div>`:''}
-  </div>`).join(''):empty('🏪','No vendors yet.')}`;
+  ${DB.vendors.length?DB.vendors.map((r,i)=>`<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start">
+    <div><div style="font-weight:700;font-size:16px">${r.name||r.vendor_name||''}</div><div style="color:var(--sub);font-size:13px;margin-top:2px">${r.category||''}${r.phone?' · '+r.phone:''}</div></div>
+    ${isAdmin?`<div style="display:flex;gap:6px"><button class="btn-sm blue" onclick="editVendor(${i})">✏️</button><button class="btn-sm red" onclick="delVendor(${i})">🗑</button></div>`:''}
+  </div>${r.gst?`<div style="margin-top:6px;font-size:12px;color:var(--sub)">GST: ${r.gst}</div>`:''}</div>`).join(''):empty('🏪','No vendors yet.')}`;
 }
 function showAddVendor(){
   openModal(`<div class="modal-title">🏪 Add Vendor</div>
@@ -1033,8 +724,6 @@ function editVendor(i){
     <button class="btn btn-green" onclick="saveEditVendor(${i})">Save</button>`);
 }
 function saveEditVendor(i){DB.vendors[i]={...DB.vendors[i],name:v('ev_name'),contact:v('ev_contact'),phone:v('ev_phone'),gst:v('ev_gst'),category:v('ev_cat')};pushUpdate(`✏️ Updated vendor: ${v('ev_name')}`,'edit');saveDB();closeModal();toast('✅ Updated.');renderTab('vendors');}
-
-// ═══ SETTINGS ══════════════════════════════════════════════
 function renderSettings(c){
   c.innerHTML=`<div class="sec-head"><h2>Settings</h2></div>
   <div class="card"><div class="card-title">🔗 API URL</div>
@@ -1042,7 +731,7 @@ function renderSettings(c){
     <button class="btn btn-primary" onclick="saveAPI()">Save & Test</button>
   </div>
   <div class="card"><div class="card-title">📊 Data Summary</div>
-    ${[['Transactions',DB.transactions.length],['Estimates',DB.estimates.length],['Projects',DB.projects.length],['Vendors',DB.vendors.length],['Site Entries',DB.siteEntries.length],['Sales Entries',DB.salesEntries.length],['Petty Cash',DB.pettycash.length]].map(([l,n])=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)"><span style="font-size:14px;color:var(--sub)">${l}</span><span style="font-weight:700">${n}</span></div>`).join('')}
+    ${[['Transactions',DB.transactions.length],['Estimates',DB.estimates.length],['Projects',DB.projects.length],['Vendors',DB.vendors.length],['Site Entries',DB.siteEntries.length],['Sales Entries',DB.salesEntries.length],['Petty Cash',DB.pettycash.length],['Updates',DB.updates.length]].map(([l,n])=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)"><span style="font-size:14px;color:var(--sub)">${l}</span><span style="font-weight:700">${n}</span></div>`).join('')}
   </div>`;
 }
 async function saveAPI(){
@@ -1050,44 +739,130 @@ async function saveAPI(){
   toast('<span class="spinner"></span>Testing…',5000);const ok=await checkConn();
   document.getElementById('toast').style.display='none';toast(ok?'✅ Connected!':'❌ Could not connect.');
 }
-
-// ═══ SUPERVISOR: ADD SITE ENTRY ══════════════════════════════
+function renderPettyCash(c){
+  const isAdmin=currentRole==='admin';
+  const pcRows=fyPC();
+  if(isAdmin){
+    const supNames=[...new Set(pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up').map(r=>r.added_by||r.addedBy||'Unknown'))].filter(Boolean);
+    c.innerHTML=`<div class="sec-head"><h2>Petty Cash</h2></div>
+    <div class="field"><label>View By Supervisor</label><select id="pcSupSel" onchange="renderPCSupView()"><option value="">All Supervisors</option>${supNames.map(n=>`<option>${n}</option>`).join('')}</select></div>
+    <div id="pcSupContent"></div>
+    <div style="display:flex;gap:10px;margin-bottom:12px"><button class="btn btn-green" style="flex:1;padding:12px" onclick="showTopup()">＋ Top-up Cash</button></div>`;
+    renderPCSupView();
+  }else{
+    const myRows=pcRows.filter(r=>(r.added_by||r.addedBy||'')===currentName);
+    const topups=pcRows.filter(r=>(r.entry_type||r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
+    const expenses=myRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
+    const balance=topups-expenses;
+    c.innerHTML=`<div class="sec-head"><h2>My Petty Cash</h2></div>
+    <div class="pc-balance"><div class="pb-lbl">My Balance</div><div class="pb-val">${fmt(balance)}</div><div style="font-size:12px;opacity:.7;margin-top:4px">Topped up: ${fmt(topups)} | Approved spent: ${fmt(expenses)}</div></div>
+    <div class="card"><div class="card-title">➕ Add Cash Expense</div>
+      <div class="field"><label>Date</label><input type="date" id="pcDate" value="${todayISO()}"/></div>
+      <div class="field"><label>Description</label><input id="pcDesc" placeholder="What was it spent on?"/></div>
+      <div class="field"><label>Amount (₹)</label><input type="number" id="pcAmt" inputmode="decimal" placeholder="0.00"/></div>
+      <button class="btn btn-green" onclick="submitPCExpense()">Submit Expense</button>
+    </div>
+    <div class="card" style="padding:12px"><div class="card-title">📋 My Entries</div>${renderPCLog(myRows,false)}</div>`;
+  }
+}
+function renderPCSupView(){
+  const sel=v('pcSupSel'),pcRows=fyPC(),wrap=document.getElementById('pcSupContent');if(!wrap)return;
+  const topupsAll=pcRows.filter(r=>(r.entry_type||r.type||'')==='Top-up').reduce((s,r)=>s+Number(r.amount||0),0);
+  if(sel){
+    const exp=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===sel&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
+    const pend=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===sel&&(r.approval_status||'Pending')==='Pending').reduce((s,r)=>s+Number(r.amount||0),0);
+    const rows=pcRows.filter(r=>(r.added_by||r.addedBy||'')===sel||(r.entry_type||r.type||'')==='Top-up');
+    wrap.innerHTML=`<div class="pc-balance"><div class="pb-lbl">${sel} — Balance</div><div class="pb-val">${fmt(topupsAll-exp)}</div><div style="font-size:12px;opacity:.7;margin-top:4px">Total topped up: ${fmt(topupsAll)} | Spent: ${fmt(exp)} | Pending: ${fmt(pend)}</div></div>
+    <div class="card" style="padding:12px"><div class="card-title">${sel}'s Entries</div>${renderPCLog(rows,true)}</div>`;
+  }else{
+    const supNames=[...new Set(pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up').map(r=>r.added_by||r.addedBy||'Unknown'))].filter(Boolean);
+    wrap.innerHTML=`<div class="pc-balance"><div class="pb-lbl">Total Topped Up</div><div class="pb-val">${fmt(topupsAll)}</div></div>
+    ${supNames.map(name=>{
+      const exp=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===name&&(r.approval_status||'Pending')==='Approved').reduce((s,r)=>s+Number(r.amount||0),0);
+      const pend=pcRows.filter(r=>(r.entry_type||r.type||'')!=='Top-up'&&(r.added_by||r.addedBy||'')===name&&(r.approval_status||'Pending')==='Pending').reduce((s,r)=>s+Number(r.amount||0),0);
+      return`<div class="card" style="padding:14px"><div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-weight:700;font-size:15px">👷 ${name}</div><div style="font-size:12px;color:var(--sub);margin-top:2px">Spent: ${fmt(exp)} | Pending: ${fmt(pend)}</div></div><div style="text-align:right"><div style="font-size:11px;color:var(--sub)">Balance</div><div style="font-weight:700;color:var(--blue)">${fmt(topupsAll-exp)}</div></div></div></div>`;
+    }).join('')}
+    <div class="card" style="padding:12px"><div class="card-title">📋 All Petty Cash</div>${renderPCLog(pcRows,true)}</div>`;
+  }
+}
+function renderPCLog(rows,isAdmin){
+  if(!rows.length)return empty('💵','No petty cash entries yet.');
+  return [...rows].sort((a,b)=>parseDMY(b.date)-parseDMY(a.date)).map(r=>{
+    const isTopup=(r.entry_type||r.type||'')==='Top-up';
+    const apStatus=r.approval_status||'Pending';
+    const idx=DB.pettycash.indexOf(r);
+    return`<div style="padding:10px 0;border-bottom:1px solid var(--border)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div style="font-weight:600;font-size:14px">${r.description||'—'}</div>
+          <div style="font-size:12px;color:var(--sub);margin-top:2px">${displayDate(r.date)} · ${isTopup?'Top-up':'Expense'} · ${r.added_by||r.addedBy||''}</div>
+          <span class="tag t-${apStatus==='Approved'?'approved':'pending'}" style="margin-top:3px">${apStatus}</span>
+        </div>
+        <div style="text-align:right"><div style="font-weight:700;font-size:15px;color:${isTopup?'var(--green)':'var(--red)'}">${isTopup?'+':'−'}${fmt(r.amount)}</div>
+          ${isAdmin&&apStatus==='Pending'?`<button class="btn-sm green" style="margin-top:4px" onclick="approvePC(${idx})">✓ Approve</button>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function showTopup(){
+  openModal(`<div class="modal-title">💵 Top-up Petty Cash</div>
+    <div class="field"><label>Date</label><input type="date" id="tu_date" value="${todayISO()}"/></div>
+    <div class="field"><label>Amount (₹)</label><input type="number" id="tu_amt" inputmode="decimal" placeholder="0.00"/></div>
+    <div class="field"><label>Notes</label><input id="tu_note" placeholder="Optional"/></div>
+    <button class="btn btn-green" onclick="submitTopup()">Add Top-up</button>`);
+}
+async function submitTopup(){
+  const amt=v('tu_amt'),note=v('tu_note')||'Petty Cash Top-up',dateISO=v('tu_date');
+  if(!amt){toast('⚠️ Enter amount.');return;}
+  const dateDMY=isoToDMY(dateISO);
+  const pcObj={date:dateDMY,entry_type:'Top-up',description:note,amount:amt,approval_status:'Approved',addedBy:'Admin'};
+  DB.pettycash.push(pcObj);
+  await postSheet('addPettyCash',{row:[pcObj.date,pcObj.entry_type,pcObj.description,pcObj.amount,pcObj.approval_status,'Admin']});
+  const txObj={date:dateDMY,type:'Indirect Expense',category:'Petty Cash',project:'',description:note,amount:amt,mode:'Cash',approval_status:'Approved',status2:'Approved',addedBy:'Admin'};
+  DB.transactions.push(txObj);
+  await postSheet('addTransaction',{row:[txObj.date,txObj.type,txObj.category,txObj.project,txObj.description,txObj.amount,'Cash','Approved','Admin']});
+  await pushUpdate(`💵 Petty cash top-up: ${fmt(amt)} → recorded as Indirect Expense`);
+  saveDB();toast('✅ Top-up added!');closeModal();renderTab('petty_cash');
+}
+async function submitPCExpense(){
+  const obj={date:isoToDMY(v('pcDate')),entry_type:'Expense',description:v('pcDesc'),amount:v('pcAmt'),approval_status:'Pending',addedBy:currentName};
+  if(!obj.description||!obj.amount){toast('⚠️ Description and Amount required.');return;}
+  DB.pettycash.push(obj);
+  await pushUpdate(`💵 Petty cash expense by ${currentName} (pending): ${obj.description} ${fmt(obj.amount)}`);
+  saveDB();await postSheet('addPettyCash',{row:[obj.date,obj.entry_type,obj.description,obj.amount,obj.approval_status,currentName]});
+  toast('✅ Submitted — pending admin approval.');renderTab('petty_cash');
+}
+async function approvePC(i){
+  if(i<0||i>=DB.pettycash.length){toast('⚠️ Entry not found.');return;}
+  if(!confirm('Approve this petty cash expense?'))return;
+  DB.pettycash[i].approval_status='Approved';
+  const r=DB.pettycash[i];
+  await pushUpdate(`✅ Approved petty cash: ${r.description} ${fmt(r.amount)}`,'approve');
+  saveDB();await postSheet('updateRow',{sheet:'PettyCash',index:i+2,row:[r.date,r.entry_type,r.description,r.amount,'Approved',r.addedBy||r.added_by||'Supervisor']});
+  toast('✅ Approved.');renderTab('petty_cash');
+}
 function renderSiteAdd(c){
   const projs=projNames(),vends=vendNames();
-  c.innerHTML=`<div class="sec-head"><h2>Add Site Entry</h2></div>
-  <div class="card">
-    <div class="row2">
-      <div class="field"><label>Date</label><input type="date" id="sDate" value="${todayISO()}"/></div>
-      <div class="field"><label>Entry Type</label><select id="sType" onchange="togglePhotoField()"><option>Bill / Material Receipt</option></select></div>
-    </div>
+  c.innerHTML=`<div class="sec-head"><h2>Add Site Entry</h2></div><div class="card">
+    <div class="row2"><div class="field"><label>Date</label><input type="date" id="sDate" value="${todayISO()}"/></div>
+    <div class="field"><label>Entry Type</label><select id="sType"><option>Bill / Material Receipt</option></select></div></div>
     <div class="field"><label>Project</label><select id="sProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
-    <div class="field"><label>Vendor</label>
-      <select id="sVendor" onchange="document.getElementById('sVendorOther').style.display=this.value==='__other__'?'block':'none'">
-        <option value="">— Select Vendor —</option>${vends.map(v=>`<option>${v}</option>`).join('')}<option value="__other__">Other (specify)</option>
-      </select>
-    </div>
+    <div class="field"><label>Vendor</label><select id="sVendor" onchange="document.getElementById('sVendorOther').style.display=this.value==='__other__'?'block':'none'"><option value="">— Select Vendor —</option>${vends.map(v=>`<option>${v}</option>`).join('')}<option value="__other__">Other (specify)</option></select></div>
     <input id="sVendorOther" style="display:none;width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;margin-bottom:14px" placeholder="Vendor name"/>
     <div class="field"><label>Description</label><input id="sDesc" placeholder="e.g. Cement 50 bags"/></div>
     <div class="field"><label>Amount (₹)</label><input type="number" id="sAmt" inputmode="decimal" placeholder="0.00"/></div>
     <div class="field"><label>Bill / Receipt No</label><input id="sBill" placeholder="Optional"/></div>
-    <div id="photoSection" class="field">
-      <label>📷 Bill Photo</label>
-      <div class="photo-wrap" onclick="document.getElementById('sPhoto').click()">
-        <div class="pi-ico">📸</div><div class="pi-lbl">Tap to take or choose photo</div>
-        <input type="file" id="sPhoto" accept="image/*" capture="environment"/>
-      </div>
+    <div class="field"><label>📷 Bill Photo</label>
+      <div class="photo-wrap" onclick="document.getElementById('sPhoto').click()"><div class="pi-ico">📸</div><div class="pi-lbl">Tap to take or choose photo</div><input type="file" id="sPhoto" accept="image/*" capture="environment"/></div>
       <div id="photoPreview"></div>
     </div>
     <button class="btn btn-green" style="margin-top:6px" onclick="submitSiteEntry()">📤 Submit Entry</button>
   </div>`;
   document.getElementById('sPhoto').addEventListener('change',function(){
     const file=this.files[0];if(!file)return;
-    const reader=new FileReader();
-    reader.onload=e=>document.getElementById('photoPreview').innerHTML=`<img src="${e.target.result}" style="width:100%;border-radius:10px;margin-top:8px"/>`;
-    reader.readAsDataURL(file);
+    const reader=new FileReader();reader.onload=e=>document.getElementById('photoPreview').innerHTML=`<img src="${e.target.result}" style="width:100%;border-radius:10px;margin-top:8px"/>`;reader.readAsDataURL(file);
   });
 }
-function togglePhotoField(){}
 async function submitSiteEntry(){
   const vs=v('sVendor'),vendor=vs==='__other__'?v('sVendorOther'):vs;
   const obj={date:isoToDMY(v('sDate')),type:'Bill / Material Receipt',project:v('sProj'),vendor,description:v('sDesc'),amount:v('sAmt'),bill:v('sBill'),approval_status:'Pending',addedBy:currentName};
@@ -1099,29 +874,19 @@ async function submitSiteEntry(){
     catch(e){console.warn('Photo upload failed',e);}
   }
   DB.siteEntries.push(obj);
-  await pushUpdate(`📦 Bill receipt (pending): ${obj.description} ${fmt(obj.amount)} [${vendor||'No vendor'}]`);
+  await pushUpdate(`📦 Bill receipt by ${currentName}: ${obj.description} ${fmt(obj.amount)} [${vendor||'No vendor'}]`);
   saveDB();toast('<span class="spinner"></span>Submitting…',1500);
-  await postSheet('addSiteEntry',{row:[obj.date,obj.type,obj.project,obj.vendor,obj.description,obj.amount,obj.bill,obj.photoUrl||'','Supervisor','Pending']});
+  await postSheet('addSiteEntry',{row:[obj.date,obj.type,obj.project,obj.vendor,obj.description,obj.amount,obj.bill,obj.photoUrl||'',currentName,'Pending']});
   toast('✅ Submitted — pending admin approval.');renderTab('add_site');
 }
 function fileToB64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=e=>res(e.target.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
-
-// ═══ SUPERVISOR: VIEW ENTRIES ═══════════════════════════════
 function renderSiteView(c){
   const projs=projNames(),vends=vendNames();
-  c.innerHTML=`<div class="sec-head"><h2>My Entries</h2></div>
-  <div class="card" style="padding:12px">
-    <div class="filter-row">
-      <input type="text" id="svDate" placeholder="Filter date" oninput="applySiteFilter()"/>
-      <select id="svStatus" onchange="applySiteFilter()"><option value="">All Status</option><option>Pending</option><option>Approved</option></select>
-    </div>
-    <div class="filter-row">
-      <select id="svProj" onchange="applySiteFilter()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select>
-      <select id="svVend" onchange="applySiteFilter()"><option value="">All Vendors</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select>
-    </div>
+  c.innerHTML=`<div class="sec-head"><h2>My Entries</h2></div><div class="card" style="padding:12px">
+    <div class="filter-row"><input type="text" id="svDate" placeholder="Filter date" oninput="applySiteFilter()"/><select id="svStatus" onchange="applySiteFilter()"><option value="">All Status</option><option>Pending</option><option>Approved</option></select></div>
+    <div class="filter-row"><select id="svProj" onchange="applySiteFilter()"><option value="">All Projects</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select><select id="svVend" onchange="applySiteFilter()"><option value="">All Vendors</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>
     <div id="siteWrap"></div>
-  </div>`;
-  applySiteFilter();
+  </div>`;applySiteFilter();
 }
 function applySiteFilter(){
   const fd=v('svDate'),fs=v('svStatus'),fp=v('svProj'),fv=v('svVend');
@@ -1135,15 +900,13 @@ function applySiteFilter(){
     const apStatus=r.approval_status||'Pending';
     return`<div style="padding:12px 0;border-bottom:1px solid var(--border)">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div>
-          <div style="font-weight:600;font-size:15px">${r.description||''}</div>
+        <div><div style="font-weight:600;font-size:15px">${r.description||''}</div>
           <div style="color:var(--sub);font-size:12px;margin-top:3px">${displayDate(r.date||'')} · ${r.type||''}</div>
           <span class="tag t-${apStatus==='Approved'?'approved':'pending'}" style="margin-top:3px">${apStatus}</span>
           ${r.project?`<div style="color:var(--sub);font-size:12px;margin-top:2px">🏗 ${r.project}</div>`:''}
           ${r.vendor?`<div style="color:var(--sub);font-size:12px">🏪 ${r.vendor}</div>`:''}
         </div>
-        <div style="text-align:right">
-          <div style="font-weight:700;color:var(--red);font-size:15px">${fmt(r.amount)}</div>
+        <div style="text-align:right"><div style="font-weight:700;color:var(--red);font-size:15px">${fmt(r.amount)}</div>
           ${r.photoUrl?`<a href="${r.photoUrl}" target="_blank" style="font-size:12px;color:var(--blue)">📷 View</a>`:r.bill?`<div style="font-size:12px;color:var(--sub)">${r.bill}</div>`:''}
         </div>
       </div>
