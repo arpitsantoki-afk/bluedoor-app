@@ -299,9 +299,15 @@ async function syncAll(){
 // ═══ LOGIN ══════════════════════════════════════════════════
 window.onload=()=>{
   document.getElementById('fyLabel').textContent=getFYLabel(selectedFY);
+  // Clean up any bad update records in local cache
+  DB.updates=DB.updates.filter(u=>{
+    const msg=u.msg||u.message||'';
+    return msg&&msg!=='undefined'&&msg.trim()!=='';
+  });
+  saveDB();
   const s=lp('bdRemember',null);
   if(s&&s.role&&Date.now()-s.ts<30*864e5){
-    currentRole=s.role;currentName=s.name||( s.role==='admin'?'Admin':'Supervisor');
+    currentRole=s.role;currentName=s.name||(s.role==='admin'?'Admin':'Supervisor');
     startApp();return;
   }
 };
