@@ -519,12 +519,13 @@ function renderVPTable(){
   }
 }
 function renderAddEntry(c){
-  const projs=projNames(),cats=DB.categories;
+  const projs=projNames(),cats=DB.categories,vends=vendNames();
   c.innerHTML=`<div class="sec-head"><h2>New Transaction</h2></div><div class="card">
     <div class="row2"><div class="field"><label>Date</label><input type="date" id="txDate" value="${todayISO()}"/></div>
     <div class="field"><label>Entry Type</label><select id="txType" onchange="toggleProjField()"><option>Direct Income</option><option>Indirect Income</option><option>Direct Expense</option><option>Indirect Expense</option></select></div></div>
     <div class="field"><label>Category <button class="btn-sm blue" onclick="manageCats()" style="margin-left:6px;font-size:11px">⚙️</button></label><select id="txCat">${cats.map(c=>`<option>${c}</option>`).join('')}</select></div>
     <div class="field" id="projField"><label>Project</label><select id="txProj"><option value="">— Select Project —</option>${projs.map(p=>`<option>${p}</option>`).join('')}</select></div>
+    <div class="field"><label>Vendor (Optional)</label><select id="txVendor"><option value="">— Select Vendor —</option>${vends.map(v=>`<option>${v}</option>`).join('')}</select></div>
     <div class="field"><label>Description</label><input id="txDesc" placeholder="Brief description"/></div>
     <div class="field"><label>Amount (₹)</label><input type="number" id="txAmt" inputmode="decimal" placeholder="0.00"/></div>
     <button class="btn btn-green" onclick="submitTx()">💾 Save Transaction</button>
@@ -540,14 +541,32 @@ function manageCats(){
 function addCat(){const val=document.getElementById('newCat').value.trim();if(!val)return;DB.categories.push(val);saveDB();manageCats();}
 function deleteCat(i){DB.categories.splice(i,1);saveDB();manageCats();}
 async function submitTx(){
-  const type=v('txType'),desc=v('txDesc'),amt=v('txAmt'),cat=v('txCat');
-  const obj={date:isoToDMY(v('txDate')),type,category:cat,project:isDirect(type)?v('txProj'):'',description:desc,amount:amt,mode:'Cash',approval_status:'Approved',status2:'Approved',addedBy:'Admin'};
+  const type=v('txType'),desc=v('txDesc'),amt=v('txAmt'),cat=v('txCat'),vendor=v('txVendor');
+  const obj={date:isoToDMY(v('txDate')),type,category:cat,project:isDirect(type)?v('txProj'):'',vendor,description:desc,amount:amt,mode:'Cash',approval_status:'Approved',status2:'Approved',addedBy:'Admin'};
   if(!amt){toast('⚠️ Enter amount.');return;}
   if(isDirect(type)&&!obj.project){toast('⚠️ Project required for Direct entries.');return;}
+
+  // Main transaction entry
   DB.transactions.push(obj);
-  await pushUpdate(`➕ ${type}: ${desc||cat} ${fmt(amt)}`);
+
+  // If vendor selected → simultaneous vendor ledger entry via siteEntries
+  // Expense → Debit (vendor owes us / we owe vendor) → stored as Payment type
+  // Income  → Credit (vendor paid us) → stored as Bill Receipt type
+  if(vendor){
+    const veType=isIncome(type)?'Bill Receipt':'Payment';
+    const veObj={
+      date:obj.date,type:veType,project:obj.project,vendor,
+      description:desc||cat,amount:amt,bill:'',
+      approval_status:'Approved',addedBy:'Admin',
+      fromTransaction:true // flag so it doesn't double-count in site entries UI
+    };
+    DB.siteEntries.push(veObj);
+    await postSheet('addSiteEntry',{row:[veObj.date,veObj.type,veObj.project,veObj.vendor,veObj.description,veObj.amount,'','','Admin','Approved']});
+  }
+
+  await pushUpdate(`➕ ${type}: ${desc||cat} ${fmt(amt)}${vendor?' ['+vendor+']':''}`);
   saveDB();toast('<span class="spinner"></span>Saving…',900);
-  await postSheet('addTransaction',{row:[obj.date,obj.type,obj.category,obj.project,obj.description,obj.amount,'Cash','Approved','Admin']});
+  await postSheet('addTransaction',{row:[obj.date,obj.type,obj.category,obj.project,obj.description,obj.amount,'Cash','Approved','Admin',vendor]});
   toast('✅ Saved!');renderTab('add_entry');
 }
 function renderReports(c){
@@ -885,7 +904,7 @@ function renderSiteView(c){
 }
 function applySiteFilter(){
   const fd=v('svDate'),fs=v('svStatus'),fp=v('svProj'),fv=v('svVend');
-  let rows=DB.siteEntries.slice().sort((a,b)=>parseDMY(b.date||'')-parseDMY(a.date||''));
+  let rows=DB.siteEntries.filter(r=>!r.fromTransaction).slice().sort((a,b)=>parseDMY(b.date||'')-parseDMY(a.date||''));
   if(fd)rows=rows.filter(r=>displayDate(r.date||'').includes(fd));
   if(fs)rows=rows.filter(r=>(r.approval_status||'Pending')===fs);
   if(fp)rows=rows.filter(r=>(r.project||r.project_name||'')===fp);
